@@ -5,9 +5,10 @@
   <properties><maven.compiler.release>21</maven.compiler.release><project.build.sourceEncoding>UTF-8</project.build.sourceEncoding><spigot.version>1.21.10-R0.1-SNAPSHOT</spigot.version><junit.version>5.11.4</junit.version></properties>
   <repositories><repository><id>spigot-repo</id><url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url></repository></repositories>
   <dependencies>
-    <dependency><groupId>com.github.kernel-person</groupId><artifactId>shutterbug-renderer-api</artifactId><version>1.0.0</version><scope>provided</scope></dependency>
+    <dependency><groupId>com.github.kernel-person</groupId><artifactId>shutterbug-renderer-api</artifactId><version>v1.0.0</version><scope>provided</scope></dependency>
     <dependency><groupId>org.spigotmc</groupId><artifactId>spigot-api</artifactId><version>${spigot.version}</version><scope>provided</scope></dependency>
     <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><version>${junit.version}</version><scope>test</scope></dependency>
   </dependencies>
+  <repositories><repository><id>jitpack.io</id><url>https://jitpack.io</url></repository></repositories>
   <build><finalName>RendererSample</finalName><resources><resource><directory>src/main/resources</directory><filtering>true</filtering></resource></resources><plugins><plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.13.0</version><configuration><release>21</release></configuration></plugin><plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>3.5.2</version></plugin></plugins></build>
 </project>
