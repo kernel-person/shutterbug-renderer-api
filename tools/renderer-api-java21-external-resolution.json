@@ -1,0 +1,931 @@
+{
+  "classFileVersion": "65.0",
+  "formatVersion": 2,
+  "javaRelease": 21,
+  "jdkProvenance": {
+    "implementor": "Homebrew",
+    "implementorVersion": "Homebrew",
+    "javaRuntimeVersion": "21.0.9",
+    "javaVersion": "21.0.9",
+    "javaVersionDate": "2025-10-21",
+    "releaseSha256": "996a8728d8ad80e1ae4ec819084e2c4acadd5831088632b648a083f736a4ecf3"
+  },
+  "sourceModule": "java.base",
+  "sourceModuleSha256": "a7f0120eb6842f8f2b553a53a0605bc06e9e2df2fc16ee059c5b84571b80d8d7",
+  "types": [
+    {
+      "abstract": true,
+      "fields": [],
+      "final": false,
+      "interfaces": [],
+      "kind": "interface",
+      "methods": [],
+      "name": "java/io/Serializable",
+      "superclass": "java/lang/Object",
+      "visibility": "public"
+    },
+    {
+      "abstract": true,
+      "fields": [],
+      "final": false,
+      "interfaces": [],
+      "kind": "interface",
+      "methods": [
+        {
+          "abstract": true,
+          "descriptor": "()V",
+          "final": false,
+          "name": "close",
+          "static": false,
+          "visibility": "public"
+        }
+      ],
+      "name": "java/lang/AutoCloseable",
+      "superclass": "java/lang/Object",
+      "visibility": "public"
+    },
+    {
+      "abstract": true,
+      "fields": [],
+      "final": false,
+      "interfaces": [],
+      "kind": "interface",
+      "methods": [
+        {
+          "abstract": true,
+          "descriptor": "(Ljava/lang/Object;)I",
+          "final": false,
+          "name": "compareTo",
+          "static": false,
+          "visibility": "public"
+        }
+      ],
+      "name": "java/lang/Comparable",
+      "superclass": "java/lang/Object",
+      "visibility": "public"
+    },
+    {
+      "abstract": true,
+      "fields": [
+        {
+          "constantValue": null,
+          "descriptor": "I",
+          "final": false,
+          "name": "hash",
+          "static": false,
+          "visibility": "private"
+        },
+        {
+          "constantValue": null,
+          "descriptor": "Ljava/lang/String;",
+          "final": true,
+          "name": "name",
+          "static": false,
+          "visibility": "private"
+        },
+        {
+          "constantValue": null,
+          "descriptor": "I",
+          "final": true,
+          "name": "ordinal",
+          "static": false,
+          "visibility": "private"
+        }
+      ],
+      "final": false,
+      "interfaces": [
+        "java/lang/constant/Constable",
+        "java/lang/Comparable",
+        "java/io/Serializable"
+      ],
+      "kind": "class",
+      "methods": [
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/String;I)V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "protected"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()Ljava/lang/Object;",
+          "final": true,
+          "name": "clone",
+          "static": false,
+          "visibility": "protected"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/Enum;)I",
+          "final": true,
+          "name": "compareTo",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/Object;)I",
+          "final": false,
+          "name": "compareTo",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()Ljava/util/Optional;",
+          "final": true,
+          "name": "describeConstable",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/Object;)Z",
+          "final": true,
+          "name": "equals",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()V",
+          "final": true,
+          "name": "finalize",
+          "static": false,
+          "visibility": "protected"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()Ljava/lang/Class;",
+          "final": true,
+          "name": "getDeclaringClass",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()I",
+          "final": true,
+          "name": "hashCode",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/constant/ClassDesc;)Ljava/lang/Enum$EnumDesc;",
+          "final": false,
+          "name": "lambda$describeConstable$0",
+          "static": false,
+          "visibility": "private"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()Ljava/lang/String;",
+          "final": true,
+          "name": "name",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()I",
+          "final": true,
+          "name": "ordinal",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/io/ObjectInputStream;)V",
+          "final": false,
+          "name": "readObject",
+          "static": false,
+          "visibility": "private"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()V",
+          "final": false,
+          "name": "readObjectNoData",
+          "static": false,
+          "visibility": "private"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()Ljava/lang/String;",
+          "final": false,
+          "name": "toString",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;",
+          "final": false,
+          "name": "valueOf",
+          "static": true,
+          "visibility": "public"
+        }
+      ],
+      "name": "java/lang/Enum",
+      "superclass": "java/lang/Object",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "fields": [
+        {
+          "constantValue": {
+            "kind": "long",
+            "value": -3387516993124229948
+          },
+          "descriptor": "J",
+          "final": true,
+          "name": "serialVersionUID",
+          "static": true,
+          "visibility": "package"
+        }
+      ],
+      "final": false,
+      "interfaces": [],
+      "kind": "class",
+      "methods": [
+        {
+          "abstract": false,
+          "descriptor": "()V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/String;)V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/String;Ljava/lang/Throwable;)V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/String;Ljava/lang/Throwable;ZZ)V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "protected"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/Throwable;)V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "public"
+        }
+      ],
+      "name": "java/lang/Exception",
+      "superclass": "java/lang/Throwable",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "fields": [],
+      "final": false,
+      "interfaces": [],
+      "kind": "class",
+      "methods": [
+        {
+          "abstract": false,
+          "descriptor": "()V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()Ljava/lang/Object;",
+          "final": false,
+          "name": "clone",
+          "static": false,
+          "visibility": "protected"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/Object;)Z",
+          "final": false,
+          "name": "equals",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()V",
+          "final": false,
+          "name": "finalize",
+          "static": false,
+          "visibility": "protected"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()Ljava/lang/Class;",
+          "final": true,
+          "name": "getClass",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()I",
+          "final": false,
+          "name": "hashCode",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()V",
+          "final": true,
+          "name": "notify",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()V",
+          "final": true,
+          "name": "notifyAll",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()Ljava/lang/String;",
+          "final": false,
+          "name": "toString",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()V",
+          "final": true,
+          "name": "wait",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(J)V",
+          "final": true,
+          "name": "wait",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(JI)V",
+          "final": true,
+          "name": "wait",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(J)V",
+          "final": true,
+          "name": "wait0",
+          "static": false,
+          "visibility": "private"
+        }
+      ],
+      "name": "java/lang/Object",
+      "superclass": null,
+      "visibility": "public"
+    },
+    {
+      "abstract": true,
+      "fields": [],
+      "final": false,
+      "interfaces": [],
+      "kind": "class",
+      "methods": [
+        {
+          "abstract": false,
+          "descriptor": "()V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "protected"
+        },
+        {
+          "abstract": true,
+          "descriptor": "(Ljava/lang/Object;)Z",
+          "final": false,
+          "name": "equals",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": true,
+          "descriptor": "()I",
+          "final": false,
+          "name": "hashCode",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": true,
+          "descriptor": "()Ljava/lang/String;",
+          "final": false,
+          "name": "toString",
+          "static": false,
+          "visibility": "public"
+        }
+      ],
+      "name": "java/lang/Record",
+      "superclass": "java/lang/Object",
+      "visibility": "public"
+    },
+    {
+      "abstract": true,
+      "fields": [],
+      "final": false,
+      "interfaces": [],
+      "kind": "interface",
+      "methods": [
+        {
+          "abstract": true,
+          "descriptor": "()V",
+          "final": false,
+          "name": "run",
+          "static": false,
+          "visibility": "public"
+        }
+      ],
+      "name": "java/lang/Runnable",
+      "superclass": "java/lang/Object",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "fields": [
+        {
+          "constantValue": {
+            "kind": "long",
+            "value": -7034897190745766939
+          },
+          "descriptor": "J",
+          "final": true,
+          "name": "serialVersionUID",
+          "static": true,
+          "visibility": "package"
+        }
+      ],
+      "final": false,
+      "interfaces": [],
+      "kind": "class",
+      "methods": [
+        {
+          "abstract": false,
+          "descriptor": "()V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/String;)V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/String;Ljava/lang/Throwable;)V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/String;Ljava/lang/Throwable;ZZ)V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "protected"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/Throwable;)V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "public"
+        }
+      ],
+      "name": "java/lang/RuntimeException",
+      "superclass": "java/lang/Exception",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "fields": [
+        {
+          "constantValue": null,
+          "descriptor": "Z",
+          "final": true,
+          "name": "$assertionsDisabled",
+          "static": true,
+          "visibility": "package"
+        },
+        {
+          "constantValue": {
+            "kind": "string",
+            "value": "Caused by: "
+          },
+          "descriptor": "Ljava/lang/String;",
+          "final": true,
+          "name": "CAUSE_CAPTION",
+          "static": true,
+          "visibility": "private"
+        },
+        {
+          "constantValue": null,
+          "descriptor": "[Ljava/lang/Throwable;",
+          "final": true,
+          "name": "EMPTY_THROWABLE_ARRAY",
+          "static": true,
+          "visibility": "private"
+        },
+        {
+          "constantValue": {
+            "kind": "string",
+            "value": "Cannot suppress a null exception."
+          },
+          "descriptor": "Ljava/lang/String;",
+          "final": true,
+          "name": "NULL_CAUSE_MESSAGE",
+          "static": true,
+          "visibility": "private"
+        },
+        {
+          "constantValue": {
+            "kind": "string",
+            "value": "Self-suppression not permitted"
+          },
+          "descriptor": "Ljava/lang/String;",
+          "final": true,
+          "name": "SELF_SUPPRESSION_MESSAGE",
+          "static": true,
+          "visibility": "private"
+        },
+        {
+          "constantValue": {
+            "kind": "string",
+            "value": "Suppressed: "
+          },
+          "descriptor": "Ljava/lang/String;",
+          "final": true,
+          "name": "SUPPRESSED_CAPTION",
+          "static": true,
+          "visibility": "private"
+        },
+        {
+          "constantValue": null,
+          "descriptor": "Ljava/util/List;",
+          "final": true,
+          "name": "SUPPRESSED_SENTINEL",
+          "static": true,
+          "visibility": "private"
+        },
+        {
+          "constantValue": null,
+          "descriptor": "[Ljava/lang/StackTraceElement;",
+          "final": true,
+          "name": "UNASSIGNED_STACK",
+          "static": true,
+          "visibility": "private"
+        },
+        {
+          "constantValue": null,
+          "descriptor": "Ljava/lang/Object;",
+          "final": false,
+          "name": "backtrace",
+          "static": false,
+          "visibility": "private"
+        },
+        {
+          "constantValue": null,
+          "descriptor": "Ljava/lang/Throwable;",
+          "final": false,
+          "name": "cause",
+          "static": false,
+          "visibility": "private"
+        },
+        {
+          "constantValue": null,
+          "descriptor": "I",
+          "final": false,
+          "name": "depth",
+          "static": false,
+          "visibility": "private"
+        },
+        {
+          "constantValue": null,
+          "descriptor": "Ljava/lang/String;",
+          "final": false,
+          "name": "detailMessage",
+          "static": false,
+          "visibility": "private"
+        },
+        {
+          "constantValue": {
+            "kind": "long",
+            "value": -3042686055658047285
+          },
+          "descriptor": "J",
+          "final": true,
+          "name": "serialVersionUID",
+          "static": true,
+          "visibility": "private"
+        },
+        {
+          "constantValue": null,
+          "descriptor": "[Ljava/lang/StackTraceElement;",
+          "final": false,
+          "name": "stackTrace",
+          "static": false,
+          "visibility": "private"
+        },
+        {
+          "constantValue": null,
+          "descriptor": "Ljava/util/List;",
+          "final": false,
+          "name": "suppressedExceptions",
+          "static": false,
+          "visibility": "private"
+        }
+      ],
+      "final": false,
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "kind": "class",
+      "methods": [
+        {
+          "abstract": false,
+          "descriptor": "()V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/String;)V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/String;Ljava/lang/Throwable;)V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/String;Ljava/lang/Throwable;ZZ)V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "protected"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/Throwable;)V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/Throwable;)V",
+          "final": true,
+          "name": "addSuppressed",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()Ljava/lang/Throwable;",
+          "final": false,
+          "name": "fillInStackTrace",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(I)Ljava/lang/Throwable;",
+          "final": false,
+          "name": "fillInStackTrace",
+          "static": false,
+          "visibility": "private"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()Ljava/lang/Throwable;",
+          "final": false,
+          "name": "getCause",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()Ljava/lang/String;",
+          "final": false,
+          "name": "getLocalizedMessage",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()Ljava/lang/String;",
+          "final": false,
+          "name": "getMessage",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()[Ljava/lang/StackTraceElement;",
+          "final": false,
+          "name": "getOurStackTrace",
+          "static": false,
+          "visibility": "private"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()[Ljava/lang/StackTraceElement;",
+          "final": false,
+          "name": "getStackTrace",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()[Ljava/lang/Throwable;",
+          "final": true,
+          "name": "getSuppressed",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/Throwable;)Ljava/lang/Throwable;",
+          "final": false,
+          "name": "initCause",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/Throwable$PrintStreamOrWriter;)V",
+          "final": false,
+          "name": "lockedPrintStackTrace",
+          "static": false,
+          "visibility": "private"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/Throwable$PrintStreamOrWriter;[Ljava/lang/StackTraceElement;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)V",
+          "final": false,
+          "name": "printEnclosedStackTrace",
+          "static": false,
+          "visibility": "private"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()V",
+          "final": false,
+          "name": "printStackTrace",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/io/PrintStream;)V",
+          "final": false,
+          "name": "printStackTrace",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/io/PrintWriter;)V",
+          "final": false,
+          "name": "printStackTrace",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/Throwable$PrintStreamOrWriter;)V",
+          "final": false,
+          "name": "printStackTrace",
+          "static": false,
+          "visibility": "private"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/io/ObjectInputStream;)V",
+          "final": false,
+          "name": "readObject",
+          "static": false,
+          "visibility": "private"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/lang/Throwable;)V",
+          "final": true,
+          "name": "setCause",
+          "static": false,
+          "visibility": "package"
+        },
+        {
+          "abstract": false,
+          "descriptor": "([Ljava/lang/StackTraceElement;)V",
+          "final": false,
+          "name": "setStackTrace",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()Ljava/lang/String;",
+          "final": false,
+          "name": "toString",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/util/List;)I",
+          "final": false,
+          "name": "validateSuppressedExceptionsList",
+          "static": false,
+          "visibility": "private"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Ljava/io/ObjectOutputStream;)V",
+          "final": false,
+          "name": "writeObject",
+          "static": false,
+          "visibility": "private"
+        }
+      ],
+      "name": "java/lang/Throwable",
+      "superclass": "java/lang/Object",
+      "visibility": "public"
+    },
+    {
+      "abstract": true,
+      "fields": [],
+      "final": false,
+      "interfaces": [],
+      "kind": "interface",
+      "methods": [
+        {
+          "abstract": true,
+          "descriptor": "()Ljava/util/Optional;",
+          "final": false,
+          "name": "describeConstable",
+          "static": false,
+          "visibility": "public"
+        }
+      ],
+      "name": "java/lang/constant/Constable",
+      "superclass": "java/lang/Object",
+      "visibility": "public"
+    }
+  ]
+}

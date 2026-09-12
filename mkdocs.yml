@@ -1,0 +1,29 @@
+site_name: ShutterBug Renderer API
+site_description: Java consumer documentation for ShutterBug Renderer API v1.
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.snippets:
+      base_path: [docs]
+      check_paths: true
+nav:
+  - Overview: index.md
+  - Setup: setup.md
+  - Lifecycle: lifecycle.md
+  - Capture: capture.md
+  - Manual scenes: manual-scenes.md
+  - Jobs: jobs.md
+  - Profiles: profiles.md
+  - Attachments: attachments.md
+  - Conversions: conversions.md
+  - Failures: failures.md
+  - Threading: threading.md
+  - Troubleshooting: troubleshooting.md
+  - Sample walkthrough: sample-walkthrough.md
+site_dir: ../target/renderer-docs-site

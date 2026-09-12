@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.github.kernel-person</groupId>
+  <artifactId>shutterbug-renderer-api</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+  <name>ShutterBug Renderer API</name>
+  <description>Apache-2.0 compile-time API for ShutterBug Renderer consumers.</description>
+  <licenses><license><name>Apache License, Version 2.0</name><url>https://www.apache.org/licenses/LICENSE-2.0.txt</url><distribution>repo</distribution></license></licenses>
+  <properties><maven.compiler.release>21</maven.compiler.release><project.build.sourceEncoding>UTF-8</project.build.sourceEncoding><spigot.version>1.21.10-R0.1-SNAPSHOT</spigot.version><junit.version>5.11.4</junit.version></properties>
+  <repositories><repository><id>spigot-repo</id><url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url></repository></repositories>
+  <dependencies>
+    <dependency><groupId>org.spigotmc</groupId><artifactId>spigot-api</artifactId><version>${spigot.version}</version><scope>provided</scope></dependency>
+    <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><version>${junit.version}</version><scope>test</scope></dependency>
+  </dependencies>
+  <build><pluginManagement><plugins>
+    <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.13.0</version><configuration><release>21</release></configuration></plugin>
+    <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>3.5.2</version></plugin>
+  </plugins></pluginManagement><plugins><plugin>
+    <groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId><version>3.1.0</version>
+    <executions><execution><id>verify-public-api-boundary</id><phase>verify</phase><goals><goal>run</goal></goals><configuration><target>
+      <exec executable="python3" failonerror="true"><arg value="${project.basedir}/tools/verify_renderer_api_jar.py"/><arg value="${project.build.directory}/${project.build.finalName}.jar"/></exec>
+      <exec executable="python3" failonerror="true"><arg value="${project.basedir}/tools/verify_renderer_api_compatibility.py"/><arg value="--baseline-json"/><arg value="${project.basedir}/tools/renderer-api-v1-baseline.json"/><arg value="${project.build.directory}/${project.build.finalName}.jar"/></exec>
+    </target></configuration></execution></executions>
+  </plugin></plugins></build>
+</project>

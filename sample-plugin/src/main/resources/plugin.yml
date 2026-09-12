@@ -1,0 +1,14 @@
+main: ke.ric.renderer.sample.RendererSamplePlugin
+version: ${project.version}
+name: RendererSample
+author: kernelperson
+api-version: '1.21'
+description: External renderer API live-gate consumer.
+softdepend: [ShutterBugRenderer]
+commands:
+  renderer-sample:
+    description: Run renderer extraction lifecycle canaries.
+    permission: renderer.sample.livegate
+permissions:
+  renderer.sample.livegate:
+    default: op
