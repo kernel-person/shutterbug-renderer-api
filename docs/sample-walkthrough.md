@@ -13,3 +13,17 @@ Follow its lifecycle in order:
 7. Disable closes polling, tasks, assets, and the client. A provider reload requires discovery, a new client, and fresh capture.
 
 Before adapting the sample, decide whether rendering is optional, bound your queues and retained output, preserve the [safe operator boundary](operator-guide.md), and keep provider-private packages out of your build.
+
+## Three playable Java examples
+
+For smaller starting points, use [shutterbug-renderer-examples](https://github.com/kernel-person/shutterbug-renderer-examples). Each module is independently installable, depends on the public SDK with provided scope, and requires the separately installed commercial provider. None handles activation credentials or includes native binaries.
+
+Build the examples repository with `mvn clean verify` on JDK21 or newer. Copy any module's `target/Renderer*.jar` into your server's plugins folder and restart. The tested server runtime is Java25, Paper26.2 and Minecraft26.2; see [compatibility](compatibility.md).
+
+1. **Postcards:** run `/postcard` with an empty inventory slot. Expect a persistent map of your view. Read its short command handler, then its lifecycle and map helpers.
+2. **Redstone Camera:** as an operator, run `/rendercamera`, place the dispenser facing your subject and power it. Expect one map inside; sustained power does not repeatedly photograph.
+3. **Painter's Easel:** as an operator, run `/easel`, place the dummy model and brush-right-click its canvas. Punch with the brush and offhand cyan, magenta or yellow dye to add needed pigments where you aim. Sneak-right-click collects the painting. Capture happens once, not on each stroke.
+
+The repository README contains controls, permissions, persistence and adaptation notes. Its acceptance document distinguishes automated Paper checks from human visual playtesting. These examples are intentionally small, with vanilla dummy models and no economy or custom resource pack.
+
+You may adapt the Apache-2.0 example source for free or paid add-ons, retaining required notices. Tell buyers “Requires ShutterBug Renderer, purchased separately.” Distribute your add-on only, not the commercial provider.
