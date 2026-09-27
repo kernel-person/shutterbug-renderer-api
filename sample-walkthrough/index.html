@@ -711,6 +711,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Complete sample
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -722,6 +735,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#three-playable-java-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Three playable Java examples
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -755,6 +796,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#three-playable-java-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Three playable Java examples
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -782,6 +840,16 @@
 <li>Disable closes polling, tasks, assets, and the client. A provider reload requires discovery, a new client, and fresh capture.</li>
 </ol>
 <p>Before adapting the sample, decide whether rendering is optional, bound your queues and retained output, preserve the <a href="../operator-guide/">safe operator boundary</a>, and keep provider-private packages out of your build.</p>
+<h2 id="three-playable-java-examples">Three playable Java examples</h2>
+<p>For smaller starting points, use <a href="https://github.com/kernel-person/shutterbug-renderer-examples">shutterbug-renderer-examples</a>. Each module is independently installable, depends on the public SDK with provided scope, and requires the separately installed commercial provider. None handles activation credentials or includes native binaries.</p>
+<p>Build the examples repository with <code>mvn clean verify</code> on JDK21 or newer. Copy any module's <code>target/Renderer*.jar</code> into your server's plugins folder and restart. The tested server runtime is Java25, Paper26.2 and Minecraft26.2; see <a href="../compatibility/">compatibility</a>.</p>
+<ol>
+<li><strong>Postcards:</strong> run <code>/postcard</code> with an empty inventory slot. Expect a persistent map of your view. Read its short command handler, then its lifecycle and map helpers.</li>
+<li><strong>Redstone Camera:</strong> as an operator, run <code>/rendercamera</code>, place the dispenser facing your subject and power it. Expect one map inside; sustained power does not repeatedly photograph.</li>
+<li><strong>Painter's Easel:</strong> as an operator, run <code>/easel</code>, place the dummy model and brush-right-click its canvas. Punch with the brush and offhand cyan, magenta or yellow dye to add needed pigments where you aim. Sneak-right-click collects the painting. Capture happens once, not on each stroke.</li>
+</ol>
+<p>The repository README contains controls, permissions, persistence and adaptation notes. Its acceptance document distinguishes automated Paper checks from human visual playtesting. These examples are intentionally small, with vanilla dummy models and no economy or custom resource pack.</p>
+<p>You may adapt the Apache-2.0 example source for free or paid add-ons, retaining required notices. Tell buyers “Requires ShutterBug Renderer, purchased separately.” Distribute your add-on only, not the commercial provider.</p>
 
 
 

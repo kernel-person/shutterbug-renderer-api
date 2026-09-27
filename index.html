@@ -203,6 +203,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="." class="md-nav__link md-nav__link--active">
         
   
@@ -214,6 +227,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#build-free-or-paid-add-ons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build free or paid add-ons
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -753,6 +794,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#build-free-or-paid-add-ons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build free or paid add-ons
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -770,6 +828,9 @@
 <h1 id="shutterbug-renderer">ShutterBug Renderer</h1>
 <p>ShutterBug Renderer 1.0.0 is a separately installed rendering provider for Java 21 plugins on the exact documented Paper adapter. The free Apache-2.0 SDK at <code>com.github.kernel-person:shutterbug-renderer-api:v1.0.1</code> contains consumer contracts and converters; it does not contain, unlock, or redistribute the commercial renderer.</p>
 <p>Server owners should begin with <a href="operator-guide/">installation and activation</a>. Plugin developers should use <a href="setup/">Maven or Gradle setup</a>, then follow the <a href="sample-walkthrough/">complete sample walkthrough</a> and <a href="api-reference/">public API reference</a>. Read the <a href="compatibility/">compatibility matrix</a> before deployment: Windows x86-64 is an intended target but remains pending and not yet supported.</p>
+<h2 id="build-free-or-paid-add-ons">Build free or paid add-ons</h2>
+<p>Both are welcome. You may sell your own plugins that depend on ShutterBug Renderer. Tell buyers that ShutterBug Renderer is required and purchased separately: the server owner needs a valid provider license within its seat limits, not every player or a separate purchase per add-on on the same server. Do not redistribute the commercial provider, its native binaries or activation credentials.</p>
+<p>The <a href="https://github.com/kernel-person/shutterbug-renderer-examples">three independent Java examples</a> are Apache-2.0 source you can adapt: Postcards, Redstone Camera and Painter's Easel. Begin with Postcards, then follow the <a href="sample-walkthrough/">example walkthrough</a>.</p>
 
 
 
