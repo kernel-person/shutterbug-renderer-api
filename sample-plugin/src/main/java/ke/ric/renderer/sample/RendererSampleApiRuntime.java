@@ -17,7 +17,11 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.HandlerList;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.event.server.ServiceRegisterEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.time.Duration;
@@ -30,7 +34,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /** API-linked runtime loaded only after the API-free plugin shell proves the API is present. */
-final class RendererSampleApiRuntime implements RendererSampleRuntime {
+final class RendererSampleApiRuntime implements RendererSampleRuntime, Listener {
     private static final String ENTITY_NAME = "renderer-sample-canary";
     private static final Duration TIMEOUT = Duration.ofSeconds(45);
 
@@ -82,8 +86,24 @@ final class RendererSampleApiRuntime implements RendererSampleRuntime {
                 capabilities -> plugin.getLogger().info("RENDERER_SAMPLE_AVAILABLE version="
                         + capabilities.rendererVersion() + " platform=" + capabilities.platform()
                         + " production=" + capabilities.packagedForProduction()));
+        if (activateAvailableService()) return;
+        plugin.getServer().getPluginManager().registerEvents(this, plugin);
+        // Close the small registration race between the first lookup and listener registration.
+        if (activateAvailableService()) HandlerList.unregisterAll(this);
+    }
+
+    @EventHandler
+    public void onServiceRegister(ServiceRegisterEvent event) {
+        if (event.getProvider().getService() == RendererService.class
+                && activateAvailableService()) {
+            HandlerList.unregisterAll(this);
+        }
+    }
+
+    private boolean activateAvailableService() {
+        if (workflow != null) return true;
         client = lifecycle.activate();
-        if (client == null) return;
+        if (client == null) return false;
         Executor conversionExecutor = command ->
                 Bukkit.getScheduler().runTaskAsynchronously(plugin, command);
         workflow = new RendererSampleWorkflow(client, progressPoller, conversionExecutor);
@@ -92,13 +112,15 @@ final class RendererSampleApiRuntime implements RendererSampleRuntime {
         if (!workflow.capabilities().coldCaptureAvailable()) {
             plugin.getLogger().warning(
                     "RENDERER_SAMPLE_UNAVAILABLE NORMAL cold workflow skipped; sample remains enabled");
-            return;
+            return true;
         }
         Bukkit.getScheduler().runTask(plugin, () -> runCanary("startup", null));
+        return true;
     }
 
     @Override
     public void close() {
+        HandlerList.unregisterAll(this);
         cancelColdPreparation();
         if (progressPoller != null) progressPoller.close();
         progressPoller = null;

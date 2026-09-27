@@ -1,0 +1,44 @@
+{
+  "format": 1,
+  "productVersion": "1.0.0",
+  "sdkCoordinate": "com.github.kernel-person:shutterbug-renderer-api:v1.0.1",
+  "requirements": {
+    "java": "21",
+    "minecraft": "1.21.10",
+    "paper": "26.2"
+  },
+  "operator": {
+    "configPath": "plugins/ShutterBugRenderer/config.yml",
+    "licenseKey": "license-key",
+    "nativeDelivery": "embedded-in-provider-jar",
+    "hardwareSeats": 3,
+    "leaseHours": 6,
+    "shutdownDeactivatesRemoteSeat": false
+  },
+  "platforms": [
+    {"id": "macos-aarch64", "status": "supported"},
+    {"id": "linux-x86_64", "status": "supported"},
+    {"id": "windows-x86_64", "status": "pending-acceptance"}
+  ],
+  "topics": {
+    "activation": "operator-guide.md",
+    "assets": "assets.md",
+    "attachments": "attachments.md",
+    "errorRecovery": "failures.md",
+    "gradleSetup": "setup.md",
+    "leaseAndSeats": "operator-guide.md",
+    "manualScenes": "manual-scenes.md",
+    "mavenSetup": "setup.md",
+    "platformMatrix": "compatibility.md",
+    "providerInstallation": "operator-guide.md",
+    "publicTypeReference": "api-reference.md",
+    "releaseNotes": "release-notes.md",
+    "safeLicenseHandling": "operator-guide.md",
+    "sampleWalkthrough": "sample-walkthrough.md",
+    "supportDiagnostics": "troubleshooting.md",
+    "timings": "attachments.md",
+    "troubleshooting": "troubleshooting.md",
+    "upgrades": "upgrading.md",
+    "visibility": "attachments.md"
+  }
+}

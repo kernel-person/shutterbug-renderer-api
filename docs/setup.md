@@ -1,10 +1,23 @@
-# Setup
+# Maven and Gradle setup
 
-Use Java 21, Paper 26.2, and Minecraft 1.21.10. Add JitPack and use the API as `provided`; do not shade or bundle it.
+Compile against the SDK with Java 21 or newer. Run Paper 26.2 / Minecraft 26.2 with Java 25; the SDK's Java 21 compilation baseline is not the server's runtime requirement. Resolve the SDK from JitPack as a compile-only/provided dependency. Do not shade, relocate, bundle, or extract its classes into your plugin; the installed provider owns the runtime API classes.
+
+## Maven
 
 ```xml
-<repositories><repository><id>jitpack.io</id><url>https://jitpack.io</url></repository></repositories>
-<dependency><groupId>com.github.kernel-person</groupId><artifactId>shutterbug-renderer-api</artifactId><version>v1.0.0</version><scope>provided</scope></dependency>
+--8<-- "consumer/maven/pom.xml"
 ```
 
-Use `depend: [ShutterBugRenderer]` when rendering is required, or `softdepend: [ShutterBugRenderer]` when it is optional; optional consumers must follow the API-free entry-point pattern in [lifecycle](lifecycle.md). See the [complete sample plugin](https://github.com/kernel-person/shutterbug-renderer-api/tree/v1.0.0/sample-plugin).
+## Gradle
+
+```groovy
+--8<-- "consumer/gradle/build.gradle"
+```
+
+Both build inputs are compiled from clean consumer directories by release verification. This shared probe is also compile-owned:
+
+```java
+--8<-- "fixtures/ConsumerExample.java"
+```
+
+Use `depend: [ShutterBugRenderer]` when rendering is mandatory. Use `softdepend: [ShutterBugRenderer]` only when the plugin remains useful without rendering; optional consumers must follow the API-free entry-point pattern in [lifecycle](lifecycle.md). The complete [sample plugin](https://github.com/kernel-person/shutterbug-renderer-api/tree/v1.0.1/sample-plugin) demonstrates the optional pattern.

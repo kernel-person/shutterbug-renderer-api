@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    maven { url = uri('https://jitpack.io') }
+    maven { url = uri('https://hub.spigotmc.org/nexus/content/repositories/snapshots/') }
+}
+
+dependencies {
+    compileOnly 'com.github.kernel-person:shutterbug-renderer-api:v1.0.1'
+    compileOnly('org.spigotmc:spigot-api:1.21.10-R0.1-SNAPSHOT') {
+        transitive = false
+    }
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+}

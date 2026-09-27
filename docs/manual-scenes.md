@@ -1,6 +1,6 @@
 # Manual scenes
 
-Use manual scenes only for complete caller-supplied evidence. Declare world height, required chunks, and every required section; the builder rejects incomplete evidence instead of guessing. See the [complete sample plugin](https://github.com/kernel-person/shutterbug-renderer-api/tree/v1.0.0/sample-plugin).
+Use manual scenes only for complete caller-supplied engine-neutral evidence. Declare output dimensions, camera, world identity and height, weather, required chunks, every required section state, blocks, entities, structures, and resolved visuals needed by the scene. The builder rejects incomplete evidence instead of guessing. Scene instances belong to the client/provider generation that created them and must be rebuilt after reload. See [assets](assets.md) for pack ownership.
 
 ```java
 --8<-- "fixtures/ManualSceneExample.java"

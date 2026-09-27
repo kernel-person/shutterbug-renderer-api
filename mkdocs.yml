@@ -14,16 +14,24 @@ markdown_extensions:
       check_paths: true
 nav:
   - Overview: index.md
-  - Setup: setup.md
-  - Lifecycle: lifecycle.md
-  - Capture: capture.md
-  - Manual scenes: manual-scenes.md
-  - Jobs: jobs.md
-  - Profiles: profiles.md
-  - Attachments: attachments.md
-  - Conversions: conversions.md
-  - Failures: failures.md
-  - Threading: threading.md
-  - Troubleshooting: troubleshooting.md
-  - Sample walkthrough: sample-walkthrough.md
+  - Operators:
+      - Installation and activation: operator-guide.md
+      - Compatibility: compatibility.md
+      - Troubleshooting: troubleshooting.md
+      - Upgrading: upgrading.md
+      - Release notes: release-notes.md
+  - Developers:
+      - Maven and Gradle setup: setup.md
+      - Lifecycle: lifecycle.md
+      - Paper capture: capture.md
+      - Manual scenes: manual-scenes.md
+      - Assets: assets.md
+      - Jobs and progress: jobs.md
+      - Profiles and capabilities: profiles.md
+      - Results and attachments: attachments.md
+      - Conversions: conversions.md
+      - Typed failures: failures.md
+      - Threading: threading.md
+      - Public API reference: api-reference.md
+      - Complete sample: sample-walkthrough.md
 site_dir: ../target/renderer-docs-site
