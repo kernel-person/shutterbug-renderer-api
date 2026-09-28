@@ -772,9 +772,9 @@
 
 
 <h1 id="upgrade-and-rollback">Upgrade and rollback</h1>
-<p>Read <a href="../release-notes/">release notes</a>, confirm <a href="../compatibility/">compatibility</a>, and back up <code>plugins/ShutterBugRenderer/config.yml</code> before changing files. Drain or cancel tasks and stop the server. Replace only <code>ShutterBugRenderer.jar</code> with the JAR from the archive for that platform; its native is embedded, verified, and extracted automatically. Preserve the protected <code>license-key</code> field, then start and verify product identity, activation, capabilities, and one disposable render.</p>
+<p>Read <a href="../release-notes/">release notes</a>, confirm <a href="../compatibility/">compatibility</a>, and back up <code>plugins/ShutterBugRenderer/config.yml</code> before changing files. Drain or cancel tasks and stop the server. Replace only <code>ShutterBugRenderer.jar</code> with the personalized JAR from your download for that platform; its native is embedded, verified, and extracted automatically. Leave <code>license-key</code> blank for automatic MCModels activation, or preserve a protected manual override if one is explicitly in use. Start and verify product identity, activation, capabilities, and one disposable render.</p>
 <p>The free SDK tag <code>v1.0.1</code> keeps the existing v1 API/binary baseline. Recompile consumers to catch build configuration drift, but no source migration is required from the earlier v1 SDK distribution. Do not shade the SDK or replace API classes inside a provider.</p>
-<p>For rollback, stop the server and restore the previous <code>ShutterBugRenderer.jar</code> plus its matching configuration. Do not copy or manage an extracted native cache as a release input. Recapture scenes and register assets again after either upgrade or rollback because clients, scenes, handles, and tasks belong to one provider generation.</p>
+<p>For rollback, stop the server and restore the previous verified <code>ShutterBugRenderer.jar</code> plus its matching configuration. Do not copy or manage an extracted native cache as a release input. Recapture scenes and register assets again after either upgrade or rollback because clients, scenes, handles, and tasks belong to one provider generation.</p>
 
 
 
