@@ -1,6 +1,6 @@
 # Public API reference
 
-These links are the complete public top-level and nested type inventory for SDK v1.0.1. The generated Javadocs are built from the same source and verified against the unchanged v1 binary baseline.
+These links are the complete public top-level and nested type inventory for SDK v1.0.2. The generated Javadocs are built from the same source and verified against the unchanged v1 binary baseline.
 
 - [AssetHandle](https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/AssetHandle.html)
 - [AssetPack](https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/AssetPack.html)

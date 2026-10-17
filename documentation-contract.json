@@ -1,7 +1,7 @@
 {
   "format": 1,
   "productVersion": "1.0.0",
-  "sdkCoordinate": "com.github.kernel-person:shutterbug-renderer-api:v1.0.1",
+  "sdkCoordinate": "com.github.kernel-person:shutterbug-renderer-api:v1.0.2",
   "requirements": {
     "java": "21",
     "minecraft": "1.21.10",

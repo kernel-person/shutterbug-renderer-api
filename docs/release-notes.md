@@ -1,6 +1,12 @@
 # Release notes
 
-## SDK v1.0.1
+## SDK v1.0.2 candidate
+
+This release candidate adds target-specific entity exclusions to `CaptureRequest`: callers can pass an immutable set of UUIDs to omit before visual capture. The original four-argument constructor remains available with an empty exclusion set. Existing v1 binaries remain compatible, and the frozen v1 baseline is unchanged. Source consumers using record deconstruction or record-component reflection must account for the fifth component; see [upgrading](upgrading.md). The new immutable `v1.0.2` tag and JitPack build are pending publication verification; no previous tag is moved or rewritten.
+
+The guides describe photographable shared POV screens, best-effort 4 Hz default cadence with `/pov demo 1` through `/pov demo 20`, six-direction camera mounting, and captured map pixels. Examples 1.2.0 reuse the byte-identical `renderer-examples-resourcepack-1.1.0.zip`. Windows remains coming soon and unsupported.
+
+## SDK v1.0.1 (previous release)
 
 The free SDK distribution is already published at JitPack tag `v1.0.1`. Its public packages, signatures, and v1 binary baseline are unchanged. This documentation update adds personalized-download activation guidance and current example controls without changing or retagging the SDK. The existing guides also cover Maven and Gradle consumer builds, public-type Javadocs, compatibility, recovery, and deterministic documentation/export verification.
 

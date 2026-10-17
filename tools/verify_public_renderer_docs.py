@@ -29,7 +29,7 @@ FIXTURES = ("ConsumerExample.java", "LifecycleExample.java", "CaptureExample.jav
 CONSUMER_FILES = ("consumer/maven/pom.xml", "consumer/gradle/build.gradle")
 # The exporter pins this script separately. The manifest excludes this script
 # so the independently reviewed digest has no self-referential hash cycle.
-PUBLICATION_MANIFEST_SHA256 = "ae69042b8dccd8f680c1428ca289109d0abac0c0eb3661edc9b584df4306dd93"
+PUBLICATION_MANIFEST_SHA256 = "0fec9645c952b5ef64a641b13a8db970d4b3b6c5c1cde61bed25c42ccfc98f3f"
 CONTENTS = frozenset({"README.md", "mkdocs.yml", "requirements-docs.txt", "documentation-contract.json",
                       *("docs/" + page for page in PAGES),
                       *("docs/fixtures/" + fixture for fixture in FIXTURES),

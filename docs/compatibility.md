@@ -1,6 +1,6 @@
 # Compatibility and platform status
 
-The commercial product is ShutterBug Renderer 1.0.0. The free SDK distribution coordinate is `com.github.kernel-person:shutterbug-renderer-api:v1.0.1`; it preserves the v1 public Java API and binary baseline.
+The commercial product is ShutterBug Renderer 1.0.0. The free SDK distribution coordinate is `com.github.kernel-person:shutterbug-renderer-api:v1.0.2`; it preserves the v1 public Java API and binary baseline.
 
 | Platform key | Launch status | Runtime |
 | --- | --- | --- |
