@@ -773,7 +773,7 @@
 
 <h1 id="jobs-and-progress">Jobs and progress</h1>
 <p><code>submit</code> performs bounded admission and returns a <code>RenderTask</code>; queue admission can fail synchronously with <code>QUEUE_FULL</code>. <code>RenderSettings.timeout()</code> begins at task creation and covers queueing, preparation, native work, diagnostics, and output copy. Poll <code>progress()</code> without blocking: phases are <code>QUEUED</code>, <code>PREPARING</code>, <code>DECODING</code>, <code>RENDERING</code>, <code>POST_PROCESSING</code>, <code>DIAGNOSTICS</code>, <code>COPYING_OUTPUT</code>, and terminal <code>COMPLETE</code>. Progress is monotonic actual work, not a wall-clock estimate; successful completion is <code>COMPLETE/10_000</code>.</p>
-<p><code>cancel()</code> returns true only when it wins a nonterminal transition; completion then fails with <code>CANCELLED</code>, while a terminal race returns false. <code>status()</code> is the coarse task state. Bound concurrent submissions in the consumer, back off after <code>QUEUE_FULL</code>, and retain a task only until its completion/cancellation handling finishes. See the <a href="https://github.com/kernel-person/shutterbug-renderer-api/tree/v1.0.1/sample-plugin">complete sample plugin</a>.</p>
+<p><code>cancel()</code> returns true only when it wins a nonterminal transition; completion then fails with <code>CANCELLED</code>, while a terminal race returns false. <code>status()</code> is the coarse task state. Bound concurrent submissions in the consumer, back off after <code>QUEUE_FULL</code>, and retain a task only until its completion/cancellation handling finishes. See the <a href="https://github.com/kernel-person/shutterbug-renderer-api/tree/v1.0.2/sample-plugin">complete sample plugin</a>.</p>
 
 
 

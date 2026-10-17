@@ -772,7 +772,7 @@
 
 
 <h1 id="lifecycle-and-discovery">Lifecycle and discovery</h1>
-<p>For a hard dependency, direct API imports are safe: load <code>RendererService</code>, create one client for your plugin, retain it in the lifecycle owner, and call <code>close()</code> during disable. After a provider reload, discover a new service and client; do not retain old clients, assets, scenes, or tasks. See the <a href="https://github.com/kernel-person/shutterbug-renderer-api/tree/v1.0.1/sample-plugin">complete sample plugin</a>.</p>
+<p>For a hard dependency, direct API imports are safe: load <code>RendererService</code>, create one client for your plugin, retain it in the lifecycle owner, and call <code>close()</code> during disable. After a provider reload, discover a new service and client; do not retain old clients, assets, scenes, or tasks. See the <a href="https://github.com/kernel-person/shutterbug-renderer-api/tree/v1.0.2/sample-plugin">complete sample plugin</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">docs.examples</span><span class="p">;</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">ke.ric.renderer.api.RendererClient</span><span class="p">;</span>

@@ -860,7 +860,7 @@
 <span class="w">    </span><span class="nt">&lt;repository&gt;&lt;id&gt;</span>spigot-repo<span class="nt">&lt;/id&gt;&lt;url&gt;</span>https://hub.spigotmc.org/nexus/content/repositories/snapshots/<span class="nt">&lt;/url&gt;&lt;/repository&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/repositories&gt;</span>
 <span class="w">  </span><span class="nt">&lt;dependencies&gt;</span>
-<span class="w">    </span><span class="nt">&lt;dependency&gt;&lt;groupId&gt;</span>com.github.kernel-person<span class="nt">&lt;/groupId&gt;&lt;artifactId&gt;</span>shutterbug-renderer-api<span class="nt">&lt;/artifactId&gt;&lt;version&gt;</span>v1.0.1<span class="nt">&lt;/version&gt;&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;&lt;/dependency&gt;</span>
+<span class="w">    </span><span class="nt">&lt;dependency&gt;&lt;groupId&gt;</span>com.github.kernel-person<span class="nt">&lt;/groupId&gt;&lt;artifactId&gt;</span>shutterbug-renderer-api<span class="nt">&lt;/artifactId&gt;&lt;version&gt;</span>v1.0.2<span class="nt">&lt;/version&gt;&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;&lt;/dependency&gt;</span>
 <span class="w">    </span><span class="nt">&lt;dependency&gt;&lt;groupId&gt;</span>org.spigotmc<span class="nt">&lt;/groupId&gt;&lt;artifactId&gt;</span>spigot-api<span class="nt">&lt;/artifactId&gt;&lt;version&gt;</span>1.21.10-R0.1-SNAPSHOT<span class="nt">&lt;/version&gt;&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;&lt;/dependency&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/dependencies&gt;</span>
 <span class="w">  </span><span class="nt">&lt;build&gt;&lt;plugins&gt;&lt;plugin&gt;&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;&lt;version&gt;</span>3.13.0<span class="nt">&lt;/version&gt;&lt;configuration&gt;&lt;release&gt;</span>21<span class="nt">&lt;/release&gt;&lt;/configuration&gt;&lt;/plugin&gt;&lt;/plugins&gt;&lt;/build&gt;</span>
@@ -877,7 +877,7 @@
 <span class="o">}</span>
 
 <span class="n">dependencies</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="n">compileOnly</span><span class="w"> </span><span class="s1">'com.github.kernel-person:shutterbug-renderer-api:v1.0.1'</span>
+<span class="w">    </span><span class="n">compileOnly</span><span class="w"> </span><span class="s1">'com.github.kernel-person:shutterbug-renderer-api:v1.0.2'</span>
 <span class="w">    </span><span class="n">compileOnly</span><span class="o">(</span><span class="s1">'org.spigotmc:spigot-api:1.21.10-R0.1-SNAPSHOT'</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
 <span class="w">        </span><span class="n">transitive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
 <span class="w">    </span><span class="o">}</span>
@@ -899,7 +899,7 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Use <code>depend: [ShutterBugRenderer]</code> when rendering is mandatory. Use <code>softdepend: [ShutterBugRenderer]</code> only when the plugin remains useful without rendering; optional consumers must follow the API-free entry-point pattern in <a href="../lifecycle/">lifecycle</a>. The complete <a href="https://github.com/kernel-person/shutterbug-renderer-api/tree/v1.0.1/sample-plugin">sample plugin</a> demonstrates the optional pattern.</p>
+<p>Use <code>depend: [ShutterBugRenderer]</code> when rendering is mandatory. Use <code>softdepend: [ShutterBugRenderer]</code> only when the plugin remains useful without rendering; optional consumers must follow the API-free entry-point pattern in <a href="../lifecycle/">lifecycle</a>. The complete <a href="https://github.com/kernel-person/shutterbug-renderer-api/tree/v1.0.2/sample-plugin">sample plugin</a> demonstrates the optional pattern.</p>
 
 
 
