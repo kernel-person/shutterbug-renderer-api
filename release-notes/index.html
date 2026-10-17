@@ -405,9 +405,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sdk-v102-candidate" class="md-nav__link">
+  <a href="#sdk-v102" class="md-nav__link">
     <span class="md-ellipsis">
-      SDK v1.0.2 candidate
+      SDK v1.0.2
     </span>
   </a>
   
@@ -823,9 +823,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sdk-v102-candidate" class="md-nav__link">
+  <a href="#sdk-v102" class="md-nav__link">
     <span class="md-ellipsis">
-      SDK v1.0.2 candidate
+      SDK v1.0.2
     </span>
   </a>
   
@@ -866,9 +866,9 @@
 
 
 <h1 id="release-notes">Release notes</h1>
-<h2 id="sdk-v102-candidate">SDK v1.0.2 candidate</h2>
-<p>This release candidate adds target-specific entity exclusions to <code>CaptureRequest</code>: callers can pass an immutable set of UUIDs to omit before visual capture. The original four-argument constructor remains available with an empty exclusion set. Existing v1 binaries remain compatible, and the frozen v1 baseline is unchanged. Source consumers using record deconstruction or record-component reflection must account for the fifth component; see <a href="../upgrading/">upgrading</a>. The new immutable <code>v1.0.2</code> tag and JitPack build are pending publication verification; no previous tag is moved or rewritten.</p>
-<p>The guides describe photographable shared POV screens, best-effort 4 Hz default cadence with <code>/pov demo 1</code> through <code>/pov demo 20</code>, six-direction camera mounting, and captured map pixels. Examples 1.2.0 reuse the byte-identical <code>renderer-examples-resourcepack-1.1.0.zip</code>. Windows remains coming soon and unsupported.</p>
+<h2 id="sdk-v102">SDK v1.0.2</h2>
+<p>This published release adds target-specific entity exclusions to <code>CaptureRequest</code>: callers can pass an immutable set of UUIDs to omit before visual capture. The original four-argument constructor remains available with an empty exclusion set. Existing v1 binaries remain compatible, and the frozen v1 baseline is unchanged. Source consumers using record deconstruction or record-component reflection must account for the fifth component; see <a href="../upgrading/">upgrading</a>. The immutable <code>v1.0.2</code> tag and JitPack build are published and verified through fresh Maven and Gradle consumers; no previous tag is moved or rewritten. The public JitPack JAR also passes the API boundary and frozen binary compatibility checks. See the <a href="https://github.com/kernel-person/shutterbug-renderer-api/releases/tag/v1.0.2">SDK release</a>.</p>
+<p>The guides describe photographable shared POV screens, best-effort 4 Hz default cadence with <code>/pov demo 1</code> through <code>/pov demo 20</code>, six-direction camera mounting, and captured map pixels. Published <a href="https://github.com/kernel-person/shutterbug-renderer-examples/releases/tag/v1.2.0">Examples 1.2.0</a> use this SDK and reuse the byte-identical <code>renderer-examples-resourcepack-1.1.0.zip</code>. Free-source publication does not establish matching-provider Paper acceptance or genuine buyer activation. Windows remains coming soon and unsupported.</p>
 <h2 id="sdk-v101-previous-release">SDK v1.0.1 (previous release)</h2>
 <p>The free SDK distribution is already published at JitPack tag <code>v1.0.1</code>. Its public packages, signatures, and v1 binary baseline are unchanged. This documentation update adds personalized-download activation guidance and current example controls without changing or retagging the SDK. The existing guides also cover Maven and Gradle consumer builds, public-type Javadocs, compatibility, recovery, and deterministic documentation/export verification.</p>
 <h2 id="renderer-100">Renderer 1.0.0</h2>
