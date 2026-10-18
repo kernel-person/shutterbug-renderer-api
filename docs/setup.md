@@ -20,4 +20,4 @@ Both build inputs are compiled from clean consumer directories by release verifi
 --8<-- "fixtures/ConsumerExample.java"
 ```
 
-Use `depend: [ShutterBugRenderer]` when rendering is mandatory. Use `softdepend: [ShutterBugRenderer]` only when the plugin remains useful without rendering; optional consumers must follow the API-free entry-point pattern in [lifecycle](lifecycle.md). The complete [sample plugin](https://github.com/kernel-person/shutterbug-renderer-api/tree/v1.0.1/sample-plugin) demonstrates the optional pattern.
+Use `depend: [ShutterBugRenderer]` when rendering is mandatory. Use `softdepend: [ShutterBugRenderer]` only when the plugin remains useful without rendering; optional consumers must follow the API-free entry-point pattern in [lifecycle](lifecycle.md). The complete [sample plugin](https://github.com/kernel-person/shutterbug-renderer-api/tree/v1.0.2/sample-plugin) demonstrates the optional pattern.
