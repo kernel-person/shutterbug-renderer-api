@@ -18,7 +18,7 @@
   "platforms": [
     {"id": "macos-aarch64", "status": "supported"},
     {"id": "linux-x86_64", "status": "supported"},
-    {"id": "windows-x86_64", "status": "pending-acceptance"}
+    {"id": "windows-x86_64", "status": "supported"}
   ],
   "topics": {
     "activation": "operator-guide.md",

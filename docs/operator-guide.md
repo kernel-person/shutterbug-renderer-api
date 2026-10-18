@@ -1,6 +1,6 @@
 # Operator installation and activation
 
-ShutterBug Renderer 1.0.0 is a separately installed commercial provider by Kernel Person. Stop the server and copy only the personalized `ShutterBugRenderer.jar` from your MCModels download for the server platform into `plugins/`. The matching native `.so` or `.dylib` is embedded in that JAR, checksum-verified, and extracted automatically to the provider's managed cache. Do not install a separate native file. Start the server and read the provider startup result before enabling dependent plugins. The supported launch platforms are macOS ARM64 and Linux x86-64; Windows is coming soon, not included yet.
+ShutterBug Renderer 1.0.0 is a separately installed commercial provider by Kernel Person. Stop the server and copy only the personalized `ShutterBugRenderer.jar` from your MCModels download for the server platform into `plugins/`. The matching native `.so`, `.dylib`, or `.dll` is embedded in that JAR, checksum-verified, and extracted automatically to the provider's managed cache. Do not install a separate native file. Start the server and read the provider startup result before enabling dependent plugins. The current delivery supports macOS ARM64, Linux x86-64, and Windows x86-64; see the [tested runtime and acceptance scope](compatibility.md).
 
 ## Activate safely
 

@@ -1,6 +1,6 @@
 # ShutterBug Renderer API
 
-This is the free Apache-2.0 compile-time API for an independently installed ShutterBug Renderer provider. Its compilation baseline is Java 21; the Paper 26.2 / Minecraft 26.2 server runs on Java 25. The initial provider delivery targets macOS ARM64 and Linux x86-64. Windows is coming soon and is not yet supported.
+This is the free Apache-2.0 compile-time API for an independently installed ShutterBug Renderer provider. Its compilation baseline is Java 21; the Paper 26.2 / Minecraft 26.2 server runs on Java 25. The current provider delivery supports macOS ARM64, Linux x86-64, and Windows x86-64; see the [compatibility matrix](docs/compatibility.md) for the tested runtime and acceptance scope.
 
 The free SDK is published at immutable tag [`v1.0.2`](https://github.com/kernel-person/shutterbug-renderer-api/releases/tag/v1.0.2). Its JitPack artifact is verified through fresh Maven and Gradle consumers. Use that release with `provided` scope; do not shade or bundle the API. The commercial provider remains Renderer 1.0.0. This SDK adds target-specific capture exclusions while preserving the v1 binary baseline and original four-argument capture request. The previously published `v1.0.1` tag remains unchanged.
 
