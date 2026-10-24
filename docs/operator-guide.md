@@ -1,8 +1,8 @@
 # Operator installation and activation
 
-This page retains commercial installation guidance. The new fluent/creative API is a separate development preview requiring the matching provider/native build; the older commercial download does not gain those controls from SDK installation. See [compatibility](compatibility.md).
+Renderer 1.1.0 supplies the fluent/creative API used by the immutable `2.3.0-preview.3` SDK. Upgrade the installed provider and its matching platform JAR together with any dependent plugin changes; an SDK dependency alone does not upgrade Renderer 1.0.0. See [compatibility](compatibility.md).
 
-ShutterBug Renderer 1.0.0 is a separately installed commercial provider by Kernel Person. Stop the server and copy only the personalized `ShutterBugRenderer.jar` from your MCModels download for the server platform into `plugins/`. The matching native `.so` or `.dylib` is embedded in that JAR, checksum-verified, and extracted automatically to the provider's managed cache. Do not install a separate native file. Start the server and read the provider startup result before enabling dependent plugins. The supported launch platforms are macOS ARM64 and Linux x86-64; Windows is coming soon, not included yet.
+ShutterBug Renderer 1.1.0 is a separately installed commercial provider by Kernel Person. Stop the server and copy only the personalized `ShutterBugRenderer.jar` from your MCModels download for the server platform into `plugins/`. The matching native `.so`, `.dylib` or `.dll` is embedded in that JAR, checksum-verified, and extracted automatically to the provider's managed cache. Do not install a separate native file. Start the server and read the provider startup result before enabling dependent plugins. The supported platforms are macOS ARM64, Linux x86-64 and Windows x86-64. Use the archive matching the server operating system and CPU architecture.
 
 ## Activate safely
 
@@ -24,9 +24,9 @@ Do not automate repeated activation attempts. Treat `not entitled`, `seat limit`
 
 Stop submissions, disable dependent plugins, and perform a clean server shutdown before removing the provider. Keep the release archive and its checksums for rollback. Removing the provider does not remove the free API from developer builds, but hard-dependent plugins will no longer start.
 
-## Saved photos in the development preview
+## Saved photos in Renderer 1.1.0
 
-The matching preview provider saves photo palettes and stable identities in `plugins/ShutterBugRenderer/photos/`. A successful `captureMap()` finishes persistence before returning the item. Streams use temporary maps and never enter this store. Normal startup indexes records asynchronously, restores valid map bindings on the server thread and waits for worlds that load later. Startup status distinguishes indexed photos from maps actually restored.
+Renderer 1.1.0 saves photo palettes and stable identities in `plugins/ShutterBugRenderer/photos/`. A successful `captureMap()` finishes persistence before returning the item. Streams use temporary maps and never enter this store. Normal startup indexes records asynchronously, restores valid map bindings on the server thread and waits for worlds that load later. Startup status distinguishes indexed photos from maps actually restored.
 
 Administrators with `shutterbugrenderer.admin` can use:
 

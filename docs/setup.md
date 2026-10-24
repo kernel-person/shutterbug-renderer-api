@@ -1,6 +1,6 @@
 # Maven, Gradle and IDE setup
 
-Use **`ke.ric:renderer-api:2.3.0-preview.3`** for the fluent snapshot/stream API, scene recipes and creative lighting. It requires the matching creative-controls development provider and native library. Stable `ke.ric:renderer-api:2.2`, earlier preview versions and the historical JitPack `v1.0.2` release remain unchanged and do not supply these additions. The preview is not a drop-in SDK upgrade for the currently sold provider.
+Use **`ke.ric:renderer-api:2.3.0-preview.3`** for the fluent snapshot/stream API, scene recipes and creative lighting. Pair it with **ShutterBug Renderer 1.1.0**, whose platform JAR includes the matching native library. Stable `ke.ric:renderer-api:2.2`, earlier preview versions and the historical JitPack `v1.0.2` release remain unchanged and do not supply these additions. The preview.3 coordinate and all published SDK, source and JavaDoc bytes remain unchanged. Renderer 1.0.0 does not acquire these additions from a compile-time dependency update.
 
 Compile your plugin with Java 21 or newer. The documented Paper 26.2 / Minecraft 26.2 server requires Java 25. Use the API as a `provided` or `compileOnly` dependency; do not shade, relocate or bundle it. The separately installed `ShutterBugRenderer` supplies runtime API classes.
 

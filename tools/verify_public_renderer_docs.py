@@ -33,7 +33,7 @@ EXAMPLE_FILES = ("examples/xray-camera/pom.xml", "examples/xray-camera/src/main/
                  "examples/xray-camera/src/main/java/docs/examples/XrayCamera.java")
 # The exporter pins this script separately. The manifest excludes this script
 # so the independently reviewed digest has no self-referential hash cycle.
-PUBLICATION_MANIFEST_SHA256 = "1c02462598e0dbc46be80158f5815a97af6149cd1fd8bf27dde90abd4e4f21c2"
+PUBLICATION_MANIFEST_SHA256 = "5e3b73b3b4829312c8fbe12d7bdfc2da9490c79642a8e8b127a0db1c53ed0d45"
 CONTENTS = frozenset({"README.md", "mkdocs.yml", "requirements-docs.txt", "documentation-contract.json",
                       *("docs/" + page for page in PAGES),
                       *("docs/fixtures/" + fixture for fixture in FIXTURES),

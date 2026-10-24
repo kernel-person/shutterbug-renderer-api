@@ -1,25 +1,23 @@
 # Compatibility and platform status
 
-## Fluent and creative-controls preview
+## Renderer 1.1.0 and the fluent SDK
 
-The current developer SDK is **`ke.ric:renderer-api:2.3.0-preview.3`**. It requires the **matching development provider** and native library containing the fluent API, persistent photos, reuse and creative controls. Development functionality and packaged ABI checks have been validated on macOS ARM64. These docs do not announce Linux or Windows acceptance for this new preview pair or replace a commercial provider download.
+Pair **ShutterBug Renderer 1.1.0** with **`ke.ric:renderer-api:2.3.0-preview.3`** for fluent snapshots, live feeds, persistent photos, reuse and creative controls. Each commercial platform JAR embeds its matching native library. Updating a compile-time dependency alone does not upgrade an installed provider.
 
-The stable Maven SDK `2.2`, preview.1, preview.2 and historical JitPack SDK v1.0.2 remain immutable. Binary compatibility preserves existing consumers; it does not make a new method or native lighting contract available in an old provider. Unsupported controls fail explicitly. Compile on Java 21; run the pinned Paper adapter on Java 25.
-
-## Historical commercial release matrix
-
-The commercial product is ShutterBug Renderer 1.0.0. Its historical SDK distribution coordinate is `com.github.kernel-person:shutterbug-renderer-api:v1.0.2`; it preserves the v1 public Java API and binary baseline.
-
-| Platform key | Launch status | Runtime |
+| Platform key | Renderer 1.1.0 status | Runtime |
 | --- | --- | --- |
 | `macos-aarch64` | Supported | macOS ARM64 |
 | `linux-x86_64` | Supported | Linux x86-64 |
-| `windows-x86_64` | Coming soon; not yet supported or included | Windows x86-64 future target |
+| `windows-x86_64` | Supported | Windows x86-64 |
 
-Windows x86-64 must remain pending until the exact packaged Java/native pair passes the Windows canary and Paper acceptance gate. A Windows archive or workflow entry is not evidence of runtime support. Do not advertise or deploy Windows production support before the release evidence changes this matrix.
+Compile the SDK consumer on Java 21 or newer. The documented server runtime is Paper 26.2 build 129 / Minecraft 26.2 on Java 25. Support is for the packaged operating system/architecture pairs; other Paper revisions, server implementations, CPU architectures and operating systems are unverified. Windows support is based on the packaged provider/sample server checks; it does not claim Windows execution of the creative consumer or four-example probe. Server acceptance does not establish game-client visuals or a performance guarantee. Genuine personalized buyer activation remains pending separate verification.
 
-The initial delivery contains macOS ARM64 and Linux x86-64 only. Windows acceptance does not block this two-platform release, but Windows support must not be claimed until its own runtime tests pass.
+The preview.3 coordinate, binary, sources, JavaDoc archive and versioned reference remain immutable. The stable Maven SDK `2.2`, preview.1, preview.2 and historical JitPack SDK v1.0.2 also remain unchanged. Binary compatibility preserves existing consumers; it does not make a new method or native lighting contract available in an old provider. Unsupported controls fail explicitly. Consumers should check runtime capabilities.
 
-The SDK compilation baseline is Java 21. The server runtime is Paper 26.2 / Minecraft 26.2 on Java 25. The frozen adapter identifier `paper-26.2-minecraft-1.21.10` retains its historical compile-target name for compatibility; it is not an instruction to run Paper 26.2 on Java 21. Other Paper revisions, server implementations, CPU architectures, and operating systems are unverified. Consumers should check runtime capabilities rather than infer them from the host name.
+## Historical Renderer 1.0.0
 
-Patch releases of the SDK may improve docs, samples, and packaging while retaining the v1 binary baseline. A future incompatible API requires a new major contract and coordinate; upgrading the commercial provider does not grant consumers permission to compile against private implementation packages.
+Renderer 1.0.0 used `com.github.kernel-person:shutterbug-renderer-api:v1.0.2` and preserved the v1 public Java API and binary baseline. Its first delivery covered macOS ARM64 and Linux x86-64. A later three-platform delivery passed Windows acceptance on **18 October 2026**, so Windows is no longer a coming-soon platform for that accepted delivery.
+
+That Windows server run used Windows Server 2025 10.0 amd64, Paper 26.2 build 129 / Minecraft 26.2 and Eclipse Adoptium Temurin Java 25.0.4.1+1. The exact packaged Java/native pair passed the canary, initial activation, cached restart and clean shutdown. No Windows game client was launched. Same-release macOS checks ran natively on ARM64; Linux checks used Docker linux/amd64 emulation on the Mac, not a native Linux host. These historical results do not establish acceptance of a different artifact or genuine personalized buyer activation.
+
+The frozen adapter identifier `paper-26.2-minecraft-1.21.10` retains its historical compile-target name for compatibility; it is not an instruction to run Paper 26.2 on Java 21. Upgrading the commercial provider does not grant consumers permission to compile against private implementation packages.

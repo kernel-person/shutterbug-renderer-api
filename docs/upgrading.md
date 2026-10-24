@@ -1,8 +1,8 @@
 # Upgrade and rollback
 
-## Moving to the fluent preview
+## Moving to Renderer 1.1.0 and the fluent API
 
-Use the matching `2.3.0-preview.3` SDK, creative-controls development provider and native build as a pair. Update your provided/compile-only dependency and reload your IDE. A new SDK does not add support to an older provider. Existing constructors and the v1 binary baseline remain; you can migrate individual workflows to the facade without giving up manual scenes or attachments.
+Pair the immutable `2.3.0-preview.3` SDK with ShutterBug Renderer 1.1.0 and the native library embedded in its platform JAR. Published SDK, sources and JavaDoc archives are unchanged. Update your provided/compile-only dependency and reload your IDE. A new SDK does not add support to an older provider. Existing constructors and the v1 binary baseline remain; you can migrate individual workflows to the facade without giving up manual scenes or attachments.
 
 Start with one plugin-owned `Renderer`; replace ordinary photo pipelines with `snapshot(...).captureMap(...)` and monitors with `stream(...).start()`. Keep your permissions, cooldowns, recipient delivery and gameplay policies. `captureMap()` now saves provider-owned photo data, while raw captures and streams allocate no durable photos. Back up provider photo storage, world map data/counter and inventories together before changing deployments.
 

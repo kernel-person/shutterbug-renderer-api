@@ -2,7 +2,7 @@
 
 Photograph the world, stream a camera to a map, or compose a scene with custom lighting. The free Apache-2.0 SDK uses Java 21 and a separately installed ShutterBug Renderer provider. The documented Paper 26.2 / Minecraft 26.2 server requires Java 25.
 
-The current fluent API is **`ke.ric:renderer-api:2.3.0-preview.3`**. It requires the matching creative-controls development provider and native library. The SDK does not include or unlock the commercial renderer. Historical stable `2.2`, previews and JitPack tags remain immutable; a new SDK dependency cannot add runtime support to an older provider.
+The current fluent API is **`ke.ric:renderer-api:2.3.0-preview.3`**. Use it with **ShutterBug Renderer 1.1.0** and its matching embedded native library on macOS ARM64, Linux x86-64 or Windows x86-64. The preview.3 coordinate, binary, source and JavaDoc archives remain unchanged. The SDK does not include or unlock the commercial renderer. Historical stable `2.2`, previews and JitPack tags remain immutable; a new SDK dependency cannot add runtime support to an older provider.
 
 ```xml
 <repositories><repository><id>shutterbug-renderer</id><url>https://shutterbug-maven.pages.dev/</url></repository></repositories>

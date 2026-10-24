@@ -1,6 +1,6 @@
 # Public API reference
 
-The current [preview.3 JavaDoc](https://shutterbug-maven.pages.dev/javadocs/2.3.0-preview.3/index.html) includes the fluent API, creative controls, parameter units, defaults, limits and lifecycle contracts. Matching sources and JavaDoc JARs accompany `ke.ric:renderer-api:2.3.0-preview.3` for IDE hover help. Use the matching development provider/native build; an older provider cannot gain new runtime controls from this dependency.
+The current [preview.3 JavaDoc](https://shutterbug-maven.pages.dev/javadocs/2.3.0-preview.3/index.html) includes the fluent API, creative controls, parameter units, defaults, limits and lifecycle contracts. Matching sources and JavaDoc JARs accompany `ke.ric:renderer-api:2.3.0-preview.3` for IDE hover help. Use the ShutterBug Renderer 1.1.0 platform JAR with its embedded native library; an older provider cannot gain new runtime controls from this dependency.
 
 Start with `Renderer`, `SnapshotBuilder`, `StreamBuilder` and `RenderedFrame`. `RenderRecipe` / `RenderLayer` compose selected output. `RenderEnvironment`, `RenderAppearance` and `RenderLighting` control rendering independently. `RendererSession` / `RendererClient` retain advanced capture, scenes, assets and submission.
 

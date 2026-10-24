@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "productVersion": "1.0.0",
+  "productVersion": "1.1.0",
   "sdkCoordinate": "ke.ric:renderer-api:2.3.0-preview.3",
   "requirements": {
     "java": "21",
@@ -26,7 +26,7 @@
     },
     {
       "id": "windows-x86_64",
-      "status": "pending-acceptance"
+      "status": "supported"
     }
   ],
   "topics": {

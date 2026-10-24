@@ -2,9 +2,11 @@
 
 ## Start with the new fluent examples
 
-For a new integration, begin with the compiled [photo/stream quickstart](index.md), [small X-ray camera](xray-camera.md) or [creative lighting examples](creative-controls.md). They use `ke.ric:renderer-api:2.3.0-preview.3` and the matching development provider/native pair. Most ordinary capture/render/conversion ownership now belongs to the facade.
+For a new integration, begin with the compiled [photo/stream quickstart](index.md), [small X-ray camera](xray-camera.md) or [creative lighting examples](creative-controls.md). They use `ke.ric:renderer-api:2.3.0-preview.3` and ShutterBug Renderer 1.1.0 with its matching embedded native library. Most ordinary capture/render/conversion ownership now belongs to the facade.
 
-The lower-level sample and published examples below are retained as historical release references. Their versioned source demonstrates explicit orchestration and consumer gameplay; it does not replace the new preview examples or imply the old provider supports new controls.
+Use [Examples 1.3.0](https://github.com/kernel-person/shutterbug-renderer-examples/releases/tag/v1.3.0) with Renderer 1.1.0 and the public preview.3 SDK for Postcards, Redstone Camera, Painter's Easel and Admin POV Monitor. The provider is purchased and installed separately.
+
+The lower-level v1.0.2 sample and Examples 1.2.0 references below are retained as historical release references. Their versioned source demonstrates explicit orchestration and consumer gameplay; it does not imply that an older provider supports new controls.
 
 ## Advanced low-level sample
 

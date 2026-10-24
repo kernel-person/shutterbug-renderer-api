@@ -2,7 +2,7 @@
 
 Take a photograph, stream a camera to a map, or compose a scene with your own lighting. Start with `Renderer.forPlugin(this)`; the same API keeps manual scenes, assets, attachments and low-level rendering available when you need them.
 
-These developer guides use **`ke.ric:renderer-api:2.3.0-preview.3`**, the free Apache-2.0 SDK with the new fluent API and creative controls. It requires the matching development provider and native library. Installing this SDK alone does not upgrade an older provider. The stable `2.2` SDK, historical previews and JitPack `v1.0.2` remain available unchanged. See [setup and IDE documentation](setup.md) and [compatibility](compatibility.md) before choosing a build.
+These developer guides use **`ke.ric:renderer-api:2.3.0-preview.3`**, the free Apache-2.0 SDK with the new fluent API and creative controls. Use it with **ShutterBug Renderer 1.1.0** and its matching embedded native library on macOS ARM64, Linux x86-64 or Windows x86-64. The published preview.3 SDK and its source/JavaDoc archives remain unchanged. Installing this SDK alone does not upgrade an older provider. The stable `2.2` SDK, historical previews and JitPack `v1.0.2` remain available unchanged. See [setup and IDE documentation](setup.md) and [compatibility](compatibility.md) before choosing a build.
 
 ## A live camera in four lines
 
@@ -30,10 +30,12 @@ Continue with [capture and saved photos](capture.md), [live feeds](live-feeds.md
 
 ## For server owners
 
-Begin with [installation and activation](operator-guide.md). The commercial provider is installed separately and owns the renderer runtime. The free SDK does not contain or unlock it. The SDK compiles on Java 21; the documented Paper 26.2 / Minecraft 26.2 server requires Java 25. Development-preview documentation does not announce a new commercial provider release or add platform support.
+Begin with [installation and activation](operator-guide.md). The commercial provider is installed separately and owns the renderer runtime. The free SDK does not contain or unlock it. The SDK compiles on Java 21; the documented Paper 26.2 / Minecraft 26.2 server requires Java 25. Use the platform archive for Renderer 1.1.0; see [compatibility](compatibility.md) for the supported server runtime.
 
 ## Build free or paid add-ons
 
 Both are welcome. You may sell plugins that depend on ShutterBug Renderer. Tell buyers that the provider is required and purchased separately: the server owner needs a valid provider license within its seat limits, not every player or a separate purchase per add-on on the same server. Do not redistribute the commercial provider, native binaries or activation credentials.
 
-The [published four-example release](https://github.com/kernel-person/shutterbug-renderer-examples/releases/tag/v1.2.0) contains Postcards, Redstone Camera, Painter's Easel and Admin POV Monitor. That historical release uses SDK v1.0.2; its source is not evidence that an older provider supports the new fluent API. This guide's compiled examples use the current preview. Albums, collections, posing, item delivery and other gameplay belong to the consuming plugin.
+[Examples 1.3.0](https://github.com/kernel-person/shutterbug-renderer-examples/releases/tag/v1.3.0) provides Postcards, Redstone Camera, Painter's Easel and Admin POV Monitor using the preview.3 SDK and Renderer 1.1.0. Start with the [sample walkthrough](sample-walkthrough.md).
+
+The [historical four-example release](https://github.com/kernel-person/shutterbug-renderer-examples/releases/tag/v1.2.0) contains Postcards, Redstone Camera, Painter's Easel and Admin POV Monitor. That historical release uses SDK v1.0.2; its source is not evidence that an older provider supports the new fluent API. This guide's compiled examples use the current preview. Albums, collections, posing, item delivery and other gameplay belong to the consuming plugin.
