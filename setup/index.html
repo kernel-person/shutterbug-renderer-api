@@ -953,7 +953,7 @@
 
 
 <h1 id="maven-gradle-and-ide-setup">Maven, Gradle and IDE setup</h1>
-<p>Use <strong><code>ke.ric:renderer-api:2.3.0-preview.3</code></strong> for the fluent snapshot/stream API, scene recipes and creative lighting. It requires the matching creative-controls development provider and native library. Stable <code>ke.ric:renderer-api:2.2</code>, earlier preview versions and the historical JitPack <code>v1.0.2</code> release remain unchanged and do not supply these additions. The preview is not a drop-in SDK upgrade for the currently sold provider.</p>
+<p>Use <strong><code>ke.ric:renderer-api:2.3.0-preview.3</code></strong> for the fluent snapshot/stream API, scene recipes and creative lighting. Pair it with <strong>ShutterBug Renderer 1.1.0</strong>, whose platform JAR includes the matching native library. Stable <code>ke.ric:renderer-api:2.2</code>, earlier preview versions and the historical JitPack <code>v1.0.2</code> release remain unchanged and do not supply these additions. The preview.3 coordinate and all published SDK, source and JavaDoc bytes remain unchanged. Renderer 1.0.0 does not acquire these additions from a compile-time dependency update.</p>
 <p>Compile your plugin with Java 21 or newer. The documented Paper 26.2 / Minecraft 26.2 server requires Java 25. Use the API as a <code>provided</code> or <code>compileOnly</code> dependency; do not shade, relocate or bundle it. The separately installed <code>ShutterBugRenderer</code> supplies runtime API classes.</p>
 <h2 id="maven">Maven</h2>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>

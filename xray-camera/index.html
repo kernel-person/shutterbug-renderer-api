@@ -917,7 +917,7 @@
 
 
 <h1 id="a-small-x-ray-camera">A small X-ray camera</h1>
-<p>This example uses the fluent <strong>2.3.0-preview.3</strong> SDK and the matching development provider/native library. The renderer supplies general selection, layering and colour controls; the addon supplies the X-ray recipe and its permission.</p>
+<p>This example uses the fluent <strong>2.3.0-preview.3</strong> SDK and ShutterBug Renderer 1.1.0 with its matching embedded native library. The renderer supplies general selection, layering and colour controls; the addon supplies the X-ray recipe and its permission.</p>
 <h2 id="the-rendering-request">The rendering request</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">docs.examples</span><span class="p">;</span>
 
@@ -937,7 +937,7 @@
 <p><code>visibleTo(viewer)</code> applies that viewer's Bukkit visibility rules. The camera entity is excluded automatically, and request exclusions/privacy cannot be undone by an X-ray pass. The final image is opaque; object-ID coverage is not a physically accurate transparency matte.</p>
 <h2 id="complete-plugin">Complete plugin</h2>
 <p>The <a href="https://github.com/kernel-person/shutterbug-renderer-api/blob/main/examples/xray-camera/src/main/java/docs/examples/XrayCamera.java">complete source</a> is one Java class plus its <a href="https://github.com/kernel-person/shutterbug-renderer-api/blob/main/examples/xray-camera/pom.xml">POM</a> and <a href="https://github.com/kernel-person/shutterbug-renderer-api/blob/main/examples/xray-camera/src/main/resources/plugin.yml">plugin.yml</a>. It calls <code>captureMap(...)</code>, so conversion and durable provider storage finish before delivery. It no longer owns capture futures, pixel loops, quantization or retained map renderers.</p>
-<p>Build with Java 21 using <code>mvn -f examples/xray-camera/pom.xml package</code> in the public source checkout. The resulting <code>target/XrayCamera.jar</code> needs the matching development <code>ShutterBugRenderer</code> on its documented Paper adapter. The local renderer source tree stores this same example under <code>renderer-docs/examples/xray-camera/</code>.</p>
+<p>Build with Java 21 using <code>mvn -f examples/xray-camera/pom.xml package</code> in the public source checkout. The resulting <code>target/XrayCamera.jar</code> needs the matching <code>ShutterBugRenderer</code> 1.1.0 on its documented Paper adapter. The local renderer source tree stores this same example under <code>renderer-docs/examples/xray-camera/</code>.</p>
 <p>Run <code>/xrayphoto</code> as a player with <code>xraycamera.use</code> (operator by default). A busy flag limits this small demonstration to one photograph at a time. Its main-thread callback checks online state and drops inventory overflow at the recipient's location. A production plugin should add its own offline delivery/mailbox and permissions/cooldown policy. Saved pixels remain in provider storage if the addon disables; pending callbacks are suppressed after owner shutdown.</p>
 <p>This is an example of general render composition, not a special X-ray rendering path. <a href="../creative-controls/">Creative controls</a> shows ordinary photography, visible-only tinting and a camera-relative studio light using the same primitives. Do not use through-wall output on servers where it is not authorized.</p>
 

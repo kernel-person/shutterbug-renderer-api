@@ -382,9 +382,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#moving-to-the-fluent-preview" class="md-nav__link">
+  <a href="#moving-to-renderer-110-and-the-fluent-api" class="md-nav__link">
     <span class="md-ellipsis">
-      Moving to the fluent preview
+      Moving to Renderer 1.1.0 and the fluent API
     </span>
   </a>
   
@@ -883,9 +883,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#moving-to-the-fluent-preview" class="md-nav__link">
+  <a href="#moving-to-renderer-110-and-the-fluent-api" class="md-nav__link">
     <span class="md-ellipsis">
-      Moving to the fluent preview
+      Moving to Renderer 1.1.0 and the fluent API
     </span>
   </a>
   
@@ -917,8 +917,8 @@
 
 
 <h1 id="upgrade-and-rollback">Upgrade and rollback</h1>
-<h2 id="moving-to-the-fluent-preview">Moving to the fluent preview</h2>
-<p>Use the matching <code>2.3.0-preview.3</code> SDK, creative-controls development provider and native build as a pair. Update your provided/compile-only dependency and reload your IDE. A new SDK does not add support to an older provider. Existing constructors and the v1 binary baseline remain; you can migrate individual workflows to the facade without giving up manual scenes or attachments.</p>
+<h2 id="moving-to-renderer-110-and-the-fluent-api">Moving to Renderer 1.1.0 and the fluent API</h2>
+<p>Pair the immutable <code>2.3.0-preview.3</code> SDK with ShutterBug Renderer 1.1.0 and the native library embedded in its platform JAR. Published SDK, sources and JavaDoc archives are unchanged. Update your provided/compile-only dependency and reload your IDE. A new SDK does not add support to an older provider. Existing constructors and the v1 binary baseline remain; you can migrate individual workflows to the facade without giving up manual scenes or attachments.</p>
 <p>Start with one plugin-owned <code>Renderer</code>; replace ordinary photo pipelines with <code>snapshot(...).captureMap(...)</code> and monitors with <code>stream(...).start()</code>. Keep your permissions, cooldowns, recipient delivery and gameplay policies. <code>captureMap()</code> now saves provider-owned photo data, while raw captures and streams allocate no durable photos. Back up provider photo storage, world map data/counter and inventories together before changing deployments.</p>
 <p>If adapting earlier development recipes, entity layers now respect scene occlusion by default. Add <code>Occlusion.SELECTED_ONLY</code> only where through-wall visibility is intentional. Keep exposure, final-layer brightness and FOV separate; check light limits before offering a rig to users.</p>
 <h2 id="commercial-provider-upgrades">Commercial provider upgrades</h2>

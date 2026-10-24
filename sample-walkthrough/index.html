@@ -966,8 +966,9 @@
 
 <h1 id="complete-sample-walkthrough">Complete sample walkthrough</h1>
 <h2 id="start-with-the-new-fluent-examples">Start with the new fluent examples</h2>
-<p>For a new integration, begin with the compiled <a href="../">photo/stream quickstart</a>, <a href="../xray-camera/">small X-ray camera</a> or <a href="../creative-controls/">creative lighting examples</a>. They use <code>ke.ric:renderer-api:2.3.0-preview.3</code> and the matching development provider/native pair. Most ordinary capture/render/conversion ownership now belongs to the facade.</p>
-<p>The lower-level sample and published examples below are retained as historical release references. Their versioned source demonstrates explicit orchestration and consumer gameplay; it does not replace the new preview examples or imply the old provider supports new controls.</p>
+<p>For a new integration, begin with the compiled <a href="../">photo/stream quickstart</a>, <a href="../xray-camera/">small X-ray camera</a> or <a href="../creative-controls/">creative lighting examples</a>. They use <code>ke.ric:renderer-api:2.3.0-preview.3</code> and ShutterBug Renderer 1.1.0 with its matching embedded native library. Most ordinary capture/render/conversion ownership now belongs to the facade.</p>
+<p>Use <a href="https://github.com/kernel-person/shutterbug-renderer-examples/releases/tag/v1.3.0">Examples 1.3.0</a> with Renderer 1.1.0 and the public preview.3 SDK for Postcards, Redstone Camera, Painter's Easel and Admin POV Monitor. The provider is purchased and installed separately.</p>
+<p>The lower-level v1.0.2 sample and Examples 1.2.0 references below are retained as historical release references. Their versioned source demonstrates explicit orchestration and consumer gameplay; it does not imply that an older provider supports new controls.</p>
 <h2 id="advanced-low-level-sample">Advanced low-level sample</h2>
 <p>The sibling <a href="https://github.com/kernel-person/shutterbug-renderer-api/tree/v1.0.2/sample-plugin">sample-plugin</a> is a buildable external consumer, not pseudocode. With Java 21, run <code>mvn -B clean install</code>, then <code>mvn -B -f sample-plugin/pom.xml clean verify</code> from the exported SDK repository.</p>
 <p>Follow its lifecycle in order:</p>
