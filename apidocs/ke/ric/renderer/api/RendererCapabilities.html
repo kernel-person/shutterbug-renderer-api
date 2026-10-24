@@ -90,6 +90,15 @@ loadScripts(document, 'script');</script>
 </div>
 </div>
 <section class="class-description" id="class-description">
+<dl class="notes">
+<dt>Record Components:</dt>
+<dd><code><span id="param-rendererVersion">rendererVersion</span></code> - provider-reported renderer version</dd>
+<dd><code><span id="param-platform">platform</span></code> - provider-reported platform identifier</dd>
+<dd><code><span id="param-nativeAvailable">nativeAvailable</span></code> - whether the current runtime can perform native rendering</dd>
+<dd><code><span id="param-packagedForProduction">packagedForProduction</span></code> - whether the provider and native artifact have a matching production identity</dd>
+<dd><code><span id="param-supportedProfiles">supportedProfiles</span></code> - immutable set of quality intents accepted by this runtime</dd>
+<dd><code><span id="param-supportedAttachments">supportedAttachments</span></code> - immutable set of optional output attachments accepted by this runtime</dd>
+</dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">RendererCapabilities</span>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;rendererVersion, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;platform, boolean&nbsp;nativeAvailable, boolean&nbsp;packagedForProduction, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="RenderSettings.Profile.html" title="enum class in ke.ric.renderer.api">RenderSettings.Profile</a>&gt;&nbsp;supportedProfiles, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="Attachment.html" title="enum class in ke.ric.renderer.api">Attachment</a>&gt;&nbsp;supportedAttachments)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a></span></div>
@@ -144,32 +153,32 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#nativeAvailable()" class="member-name-link">nativeAvailable</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>nativeAvailable</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-nativeAvailable"><code>nativeAvailable</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#packagedForProduction()" class="member-name-link">packagedForProduction</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>packagedForProduction</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-packagedForProduction"><code>packagedForProduction</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#platform()" class="member-name-link">platform</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>platform</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-platform"><code>platform</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#rendererVersion()" class="member-name-link">rendererVersion</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>rendererVersion</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-rendererVersion"><code>rendererVersion</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="Attachment.html" title="enum class in ke.ric.renderer.api">Attachment</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#supportedAttachments()" class="member-name-link">supportedAttachments</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>supportedAttachments</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-supportedAttachments"><code>supportedAttachments</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="RenderSettings.Profile.html" title="enum class in ke.ric.renderer.api">RenderSettings.Profile</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#supportedProfiles()" class="member-name-link">supportedProfiles</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>supportedProfiles</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-supportedProfiles"><code>supportedProfiles</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
@@ -205,12 +214,12 @@ loadScripts(document, 'script');</script>
 <div class="block">Creates an instance of a <code>RendererCapabilities</code> record class.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>rendererVersion</code> - the value for the <code>rendererVersion</code> record component</dd>
-<dd><code>platform</code> - the value for the <code>platform</code> record component</dd>
-<dd><code>nativeAvailable</code> - the value for the <code>nativeAvailable</code> record component</dd>
-<dd><code>packagedForProduction</code> - the value for the <code>packagedForProduction</code> record component</dd>
-<dd><code>supportedProfiles</code> - the value for the <code>supportedProfiles</code> record component</dd>
-<dd><code>supportedAttachments</code> - the value for the <code>supportedAttachments</code> record component</dd>
+<dd><code>rendererVersion</code> - the value for the <a href="#param-rendererVersion"><code>rendererVersion</code></a> record component</dd>
+<dd><code>platform</code> - the value for the <a href="#param-platform"><code>platform</code></a> record component</dd>
+<dd><code>nativeAvailable</code> - the value for the <a href="#param-nativeAvailable"><code>nativeAvailable</code></a> record component</dd>
+<dd><code>packagedForProduction</code> - the value for the <a href="#param-packagedForProduction"><code>packagedForProduction</code></a> record component</dd>
+<dd><code>supportedProfiles</code> - the value for the <a href="#param-supportedProfiles"><code>supportedProfiles</code></a> record component</dd>
+<dd><code>supportedAttachments</code> - the value for the <a href="#param-supportedAttachments"><code>supportedAttachments</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -267,10 +276,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="rendererVersion()">
 <h3>rendererVersion</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">rendererVersion</span>()</div>
-<div class="block">Returns the value of the <code>rendererVersion</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-rendererVersion"><code>rendererVersion</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>rendererVersion</code> record component</dd>
+<dd>the value of the <a href="#param-rendererVersion"><code>rendererVersion</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -278,10 +287,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="platform()">
 <h3>platform</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">platform</span>()</div>
-<div class="block">Returns the value of the <code>platform</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-platform"><code>platform</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>platform</code> record component</dd>
+<dd>the value of the <a href="#param-platform"><code>platform</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -289,10 +298,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="nativeAvailable()">
 <h3>nativeAvailable</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">nativeAvailable</span>()</div>
-<div class="block">Returns the value of the <code>nativeAvailable</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-nativeAvailable"><code>nativeAvailable</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>nativeAvailable</code> record component</dd>
+<dd>the value of the <a href="#param-nativeAvailable"><code>nativeAvailable</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -300,10 +309,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="packagedForProduction()">
 <h3>packagedForProduction</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">packagedForProduction</span>()</div>
-<div class="block">Returns the value of the <code>packagedForProduction</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-packagedForProduction"><code>packagedForProduction</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>packagedForProduction</code> record component</dd>
+<dd>the value of the <a href="#param-packagedForProduction"><code>packagedForProduction</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -311,10 +320,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="supportedProfiles()">
 <h3>supportedProfiles</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="RenderSettings.Profile.html" title="enum class in ke.ric.renderer.api">RenderSettings.Profile</a>&gt;</span>&nbsp;<span class="element-name">supportedProfiles</span>()</div>
-<div class="block">Returns the value of the <code>supportedProfiles</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-supportedProfiles"><code>supportedProfiles</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>supportedProfiles</code> record component</dd>
+<dd>the value of the <a href="#param-supportedProfiles"><code>supportedProfiles</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -322,10 +331,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="supportedAttachments()">
 <h3>supportedAttachments</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="Attachment.html" title="enum class in ke.ric.renderer.api">Attachment</a>&gt;</span>&nbsp;<span class="element-name">supportedAttachments</span>()</div>
-<div class="block">Returns the value of the <code>supportedAttachments</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-supportedAttachments"><code>supportedAttachments</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>supportedAttachments</code> record component</dd>
+<dd>the value of the <a href="#param-supportedAttachments"><code>supportedAttachments</code></a> record component</dd>
 </dl>
 </section>
 </li>

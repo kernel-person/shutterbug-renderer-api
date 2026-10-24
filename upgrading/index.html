@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Java consumer documentation for ShutterBug Renderer API v1.">
+        <meta name="description" content="Fluent snapshots, live feeds, scene composition and creative lighting for Java plugins.">
       
       
       
@@ -341,6 +341,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Upgrading
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -352,6 +365,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#moving-to-the-fluent-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Moving to the fluent preview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commercial-provider-upgrades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commercial provider upgrades
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -730,6 +780,75 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xray-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    X-ray camera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../live-feeds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Live feeds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creative-controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creative controls
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -757,6 +876,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#moving-to-the-fluent-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Moving to the fluent preview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commercial-provider-upgrades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commercial provider upgrades
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -772,6 +917,11 @@
 
 
 <h1 id="upgrade-and-rollback">Upgrade and rollback</h1>
+<h2 id="moving-to-the-fluent-preview">Moving to the fluent preview</h2>
+<p>Use the matching <code>2.3.0-preview.3</code> SDK, creative-controls development provider and native build as a pair. Update your provided/compile-only dependency and reload your IDE. A new SDK does not add support to an older provider. Existing constructors and the v1 binary baseline remain; you can migrate individual workflows to the facade without giving up manual scenes or attachments.</p>
+<p>Start with one plugin-owned <code>Renderer</code>; replace ordinary photo pipelines with <code>snapshot(...).captureMap(...)</code> and monitors with <code>stream(...).start()</code>. Keep your permissions, cooldowns, recipient delivery and gameplay policies. <code>captureMap()</code> now saves provider-owned photo data, while raw captures and streams allocate no durable photos. Back up provider photo storage, world map data/counter and inventories together before changing deployments.</p>
+<p>If adapting earlier development recipes, entity layers now respect scene occlusion by default. Add <code>Occlusion.SELECTED_ONLY</code> only where through-wall visibility is intentional. Keep exposure, final-layer brightness and FOV separate; check light limits before offering a rig to users.</p>
+<h2 id="commercial-provider-upgrades">Commercial provider upgrades</h2>
 <p>Read <a href="../release-notes/">release notes</a>, confirm <a href="../compatibility/">compatibility</a>, and back up <code>plugins/ShutterBugRenderer/config.yml</code> before changing files. Drain or cancel tasks and stop the server. Replace only <code>ShutterBugRenderer.jar</code> with the personalized JAR from your download for that platform; its native is embedded, verified, and extracted automatically. Leave <code>license-key</code> blank only for a separately verified and enabled automatic MCModels buyer flow; otherwise preserve a protected support-supplied manual override. See the current <a href="../operator-guide/">activation gate</a>. Start and verify product identity, activation, capabilities, and one disposable render.</p>
 <p>The published free SDK <code>v1.0.2</code> adds an immutable <code>excludedEntityIds</code> set to <code>CaptureRequest</code>, with a five-argument constructor and accessor. The original four-argument constructor still includes all otherwise renderable entities, and the existing v1 binary baseline is preserved. Constructor-based consumers need no source migration, but record patterns and record-component reflection must account for the fifth component when recompiling. New exclusion-aware consumers require the matching provider API. Do not shade the SDK or replace API classes inside a provider. Fresh Maven and Gradle consumers verified this release. Keep both <code>v1.0.1</code> and <code>v1.0.2</code> immutable; later documentation updates must not move or rewrite either tag.</p>
 <p>For rollback, stop the server and restore the previous verified <code>ShutterBugRenderer.jar</code> plus its matching configuration. Do not copy or manage an extracted native cache as a release input. Recapture scenes and register assets again after either upgrade or rollback because clients, scenes, handles, and tasks belong to one provider generation.</p>

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Java consumer documentation for ShutterBug Renderer API v1.">
+        <meta name="description" content="Fluent snapshots, live feeds, scene composition and creative lighting for Java plugins.">
       
       
       
@@ -460,6 +460,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Lifecycle
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -471,6 +484,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-owned-facade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plugin-owned facade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direct-clients-and-optional-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direct clients and optional providers
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -730,6 +780,75 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xray-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    X-ray camera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../live-feeds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Live feeds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creative-controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creative controls
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -757,6 +876,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-owned-facade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plugin-owned facade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direct-clients-and-optional-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direct clients and optional providers
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -772,6 +917,11 @@
 
 
 <h1 id="lifecycle-and-discovery">Lifecycle and discovery</h1>
+<h2 id="plugin-owned-facade">Plugin-owned facade</h2>
+<p>For the new API, create one <code>Renderer.forPlugin(this)</code> in <code>onEnable()</code> and close it from <code>onDisable()</code>, on the server thread. The <a href="../">quickstart</a> is a complete compiled example. The facade owns capture/render work, listeners, temporary streams and a bounded conversion worker. Owner disable also triggers cleanup automatically. Saved provider photos survive this cleanup.</p>
+<p>Service discovery is lazy: when no provider is ready, a new operation fails with <code>PROVIDER_DISABLED</code>. Provider replacement invalidates existing work; later requests can discover the new provider. Do not carry captured scenes or assets across generations. Affected world unload also invalidates pending work. Use the facade's callback overloads for Bukkit delivery and keep callbacks short.</p>
+<p><code>renderer.session()</code> and <code>renderer.client()</code> retain the advanced API. If you manage a separate low-level client, you own its lifecycle as shown below.</p>
+<h2 id="direct-clients-and-optional-providers">Direct clients and optional providers</h2>
 <p>For a hard dependency, direct API imports are safe: load <code>RendererService</code>, create one client for your plugin, retain it in the lifecycle owner, and call <code>close()</code> during disable. After a provider reload, discover a new service and client; do not retain old clients, assets, scenes, or tasks. See the <a href="https://github.com/kernel-person/shutterbug-renderer-api/tree/v1.0.2/sample-plugin">complete sample plugin</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">docs.examples</span><span class="p">;</span>
 

@@ -127,7 +127,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="RendererClient.html" title="interface in ke.ric.renderer.api">RendererClient</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#createClient(org.bukkit.plugin.Plugin)" class="member-name-link">createClient</a><wbr>(org.bukkit.plugin.Plugin&nbsp;owner)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Creates a lifecycle-bound client owned by the supplied enabled consuming plugin.</div>
+<div class="block">Creates a lifecycle-bound client for an enabled consuming plugin; discover/create on the server thread.</div>
 </div>
 </div>
 </div>
@@ -170,7 +170,13 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="createClient(org.bukkit.plugin.Plugin)">
 <h3>createClient</h3>
 <div class="member-signature"><span class="return-type"><a href="RendererClient.html" title="interface in ke.ric.renderer.api">RendererClient</a></span>&nbsp;<span class="element-name">createClient</span><wbr><span class="parameters">(org.bukkit.plugin.Plugin&nbsp;owner)</span></div>
-<div class="block">Creates a lifecycle-bound client owned by the supplied enabled consuming plugin.</div>
+<div class="block">Creates a lifecycle-bound client for an enabled consuming plugin; discover/create on the server thread.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>owner</code> - consuming plugin whose disable must release this client's work</dd>
+<dt>Returns:</dt>
+<dd>a new client, which must not be reused across provider reloads</dd>
+</dl>
 </section>
 </li>
 <li>

@@ -87,7 +87,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <hr>
 <div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">RenderTask</span></div>
-<div class="block">A nonblocking handle for one admitted asynchronous render.</div>
+<div class="block">A nonblocking task handle. Progress, cancellation and completion observation are safe from any thread.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -105,12 +105,12 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#cancel()" class="member-name-link">cancel</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Returns true only if this call wins cancellation of a nonterminal task.</div>
+<div class="block">Cooperatively cancels from any thread; returns true only when cancellation wins, false after any terminal outcome.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletionStage.html" title="class or interface in java.util.concurrent" class="external-link">CompletionStage</a><wbr>&lt;<a href="RenderResult.html" title="class in ke.ric.renderer.api">RenderResult</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#completion()" class="member-name-link">completion</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Returns the stage that yields an immutable result or a typed failure.</div>
+<div class="block">Returns the immutable frame or typed failure; continuations have no server-thread guarantee.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#id()" class="member-name-link">id</a>()</code></div>
@@ -120,7 +120,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="RenderProgress.html" title="class in ke.ric.renderer.api">RenderProgress</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#progress()" class="member-name-link">progress</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Returns the latest monotonic, actual-work progress snapshot.</div>
+<div class="block">Returns actual-work progress in 0..10000 basis points; repeated snapshots may be equal and failures retain the last value.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="RenderStatus.html" title="enum class in ke.ric.renderer.api">RenderStatus</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#status()" class="member-name-link">status</a>()</code></div>
@@ -159,21 +159,21 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="progress()">
 <h3>progress</h3>
 <div class="member-signature"><span class="return-type"><a href="RenderProgress.html" title="class in ke.ric.renderer.api">RenderProgress</a></span>&nbsp;<span class="element-name">progress</span>()</div>
-<div class="block">Returns the latest monotonic, actual-work progress snapshot.</div>
+<div class="block">Returns actual-work progress in 0..10000 basis points; repeated snapshots may be equal and failures retain the last value.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="cancel()">
 <h3>cancel</h3>
 <div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name">cancel</span>()</div>
-<div class="block">Returns true only if this call wins cancellation of a nonterminal task.</div>
+<div class="block">Cooperatively cancels from any thread; returns true only when cancellation wins, false after any terminal outcome.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="completion()">
 <h3>completion</h3>
 <div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletionStage.html" title="class or interface in java.util.concurrent" class="external-link">CompletionStage</a>&lt;<a href="RenderResult.html" title="class in ke.ric.renderer.api">RenderResult</a>&gt;</span>&nbsp;<span class="element-name">completion</span>()</div>
-<div class="block">Returns the stage that yields an immutable result or a typed failure.</div>
+<div class="block">Returns the immutable frame or typed failure; continuations have no server-thread guarantee. Never block the server thread.</div>
 </section>
 </li>
 </ul>

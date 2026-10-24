@@ -90,10 +90,17 @@ loadScripts(document, 'script');</script>
 </div>
 </div>
 <section class="class-description" id="class-description">
+<dl class="notes">
+<dt>Record Components:</dt>
+<dd><code><span id="param-declaredTextureWidth">declaredTextureWidth</span></code> - model-declared texture width in pixels, 1..65535</dd>
+<dd><code><span id="param-declaredTextureHeight">declaredTextureHeight</span></code> - model-declared texture height in pixels, 1..65535</dd>
+<dd><code><span id="param-triangles">triangles</span></code> - defensively copied nonempty triangle list</dd>
+</dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">ResolvedMesh</span>(int&nbsp;declaredTextureWidth, int&nbsp;declaredTextureHeight, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ResolvedTriangle.html" title="class in ke.ric.renderer.api">ResolvedTriangle</a>&gt;&nbsp;triangles)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a></span></div>
-<div class="block">Baked mesh; every triangle retains its exact material and texture evidence.</div>
+<div class="block">Immutable nonempty baked triangle list. Triangles must agree on alpha mode and sidedness;
+ every triangle retains its exact material/texture evidence.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -128,12 +135,12 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#declaredTextureHeight()" class="member-name-link">declaredTextureHeight</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>declaredTextureHeight</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-declaredTextureHeight"><code>declaredTextureHeight</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#declaredTextureWidth()" class="member-name-link">declaredTextureWidth</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>declaredTextureWidth</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-declaredTextureWidth"><code>declaredTextureWidth</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o)</code></div>
@@ -153,7 +160,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="ResolvedTriangle.html" title="class in ke.ric.renderer.api">ResolvedTriangle</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#triangles()" class="member-name-link">triangles</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>triangles</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-triangles"><code>triangles</code></a> record component.</div>
 </div>
 </div>
 </div>
@@ -181,9 +188,9 @@ loadScripts(document, 'script');</script>
 <div class="block">Creates an instance of a <code>ResolvedMesh</code> record class.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>declaredTextureWidth</code> - the value for the <code>declaredTextureWidth</code> record component</dd>
-<dd><code>declaredTextureHeight</code> - the value for the <code>declaredTextureHeight</code> record component</dd>
-<dd><code>triangles</code> - the value for the <code>triangles</code> record component</dd>
+<dd><code>declaredTextureWidth</code> - the value for the <a href="#param-declaredTextureWidth"><code>declaredTextureWidth</code></a> record component</dd>
+<dd><code>declaredTextureHeight</code> - the value for the <a href="#param-declaredTextureHeight"><code>declaredTextureHeight</code></a> record component</dd>
+<dd><code>triangles</code> - the value for the <a href="#param-triangles"><code>triangles</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -240,10 +247,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="declaredTextureWidth()">
 <h3>declaredTextureWidth</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">declaredTextureWidth</span>()</div>
-<div class="block">Returns the value of the <code>declaredTextureWidth</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-declaredTextureWidth"><code>declaredTextureWidth</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>declaredTextureWidth</code> record component</dd>
+<dd>the value of the <a href="#param-declaredTextureWidth"><code>declaredTextureWidth</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -251,10 +258,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="declaredTextureHeight()">
 <h3>declaredTextureHeight</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">declaredTextureHeight</span>()</div>
-<div class="block">Returns the value of the <code>declaredTextureHeight</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-declaredTextureHeight"><code>declaredTextureHeight</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>declaredTextureHeight</code> record component</dd>
+<dd>the value of the <a href="#param-declaredTextureHeight"><code>declaredTextureHeight</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -262,10 +269,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="triangles()">
 <h3>triangles</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ResolvedTriangle.html" title="class in ke.ric.renderer.api">ResolvedTriangle</a>&gt;</span>&nbsp;<span class="element-name">triangles</span>()</div>
-<div class="block">Returns the value of the <code>triangles</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-triangles"><code>triangles</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>triangles</code> record component</dd>
+<dd>the value of the <a href="#param-triangles"><code>triangles</code></a> record component</dd>
 </dl>
 </section>
 </li>

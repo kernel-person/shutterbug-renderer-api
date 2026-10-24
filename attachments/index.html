@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Java consumer documentation for ShutterBug Renderer API v1.">
+        <meta name="description" content="Fluent snapshots, live feeds, scene composition and creative lighting for Java plugins.">
       
       
       
@@ -598,6 +598,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Results and attachments
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -609,6 +622,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#frames-and-provenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frames and provenance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#native-attachments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Native attachments
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -730,6 +780,75 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xray-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    X-ray camera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../live-feeds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Live feeds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creative-controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creative controls
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -757,6 +876,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#frames-and-provenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frames and provenance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#native-attachments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Native attachments
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -772,6 +917,11 @@
 
 
 <h1 id="results-attachments-timings-and-visibility">Results, attachments, timings, and visibility</h1>
+<h2 id="frames-and-provenance">Frames and provenance</h2>
+<p><code>RenderedFrame.image()</code> / <code>toBufferedImage()</code> returns a new image of the final output. <code>savePng(...)</code> and <code>toMapItem(...)</code> convert asynchronously. For one pass, <code>result()</code> exposes native pixels, attachments, visibility and timings. <code>getVisiblePlayers()</code> and <code>getVisibleEntities()</code> return immutable identity records with UUIDs and visible-pixel counts; display names are not identities. Older results without native identity evidence report <code>UNSUPPORTED_CAPABILITY</code>, rather than inventing an empty list.</p>
+<p>For layered recipes, inspect each <code>RenderPassResult</code> through <code>passes()</code>. The final composition has no single native depth/object/visibility buffer, so ambiguous aggregate evidence access is rejected. Conversion uses the final composed image.</p>
+<p><code>provenance()</code> separates captured facts from rendering overrides: source world, camera, capture interval, time/weather and camera biome. <code>effectiveCamera()</code> gives the actual rendering camera, including roll. These are optional where older/manual evidence cannot supply them. Source facts survive reframing and environment overrides. See <a href="../creative-controls/">creative controls</a> and <a href="../live-feeds/">feed freshness</a>.</p>
+<h2 id="native-attachments">Native attachments</h2>
 <p>RGBA8 color is always present. Request optional <code>DEPTH</code>, <code>NORMAL</code>, <code>MATERIAL_ID</code>, or <code>OBJECT_ID</code> only when <code>supportedAttachments()</code> advertises it. An unrequested accessor returns <code>null</code>; result arrays and buffers are caller-owned defensive copies.</p>
 <p><code>RenderTimings</code> contains measured nanosecond phases. <code>UNAVAILABLE</code> means a phase did not occur inside the provider measurement boundary; zero is a real measurement. Use timings for diagnostics and comparison, not billing or guaranteed performance. <code>VisibilityStatistics</code> provides immutable semantic counts and pixel coverage for the completed frame; it is evidence from that render, not a world query.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">docs.examples</span><span class="p">;</span>

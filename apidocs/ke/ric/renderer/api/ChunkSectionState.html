@@ -119,11 +119,17 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Enum Constant</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code><a href="#EMPTY" class="member-name-link">EMPTY</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Evidence is present and the section is known to contain only air.</div>
+</div>
 <div class="col-first odd-row-color"><code><a href="#MISSING" class="member-name-link">MISSING</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">Evidence is unavailable; required missing sections cause MISSING_CHUNK instead of being treated as air.</div>
+</div>
 <div class="col-first even-row-color"><code><a href="#PALETTED" class="member-name-link">PALETTED</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Evidence is present and block states are supplied by a palette.</div>
+</div>
 </div>
 </section>
 </li>
@@ -173,18 +179,21 @@ the order they are declared.</div>
 <section class="detail" id="MISSING">
 <h3>MISSING</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="ChunkSectionState.html" title="enum class in ke.ric.renderer.api">ChunkSectionState</a></span>&nbsp;<span class="element-name">MISSING</span></div>
+<div class="block">Evidence is unavailable; required missing sections cause MISSING_CHUNK instead of being treated as air.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="EMPTY">
 <h3>EMPTY</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="ChunkSectionState.html" title="enum class in ke.ric.renderer.api">ChunkSectionState</a></span>&nbsp;<span class="element-name">EMPTY</span></div>
+<div class="block">Evidence is present and the section is known to contain only air.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="PALETTED">
 <h3>PALETTED</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="ChunkSectionState.html" title="enum class in ke.ric.renderer.api">ChunkSectionState</a></span>&nbsp;<span class="element-name">PALETTED</span></div>
+<div class="block">Evidence is present and block states are supplied by a palette.</div>
 </section>
 </li>
 </ul>

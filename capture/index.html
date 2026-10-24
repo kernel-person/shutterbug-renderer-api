@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Java consumer documentation for ShutterBug Renderer API v1.">
+        <meta name="description" content="Fluent snapshots, live feeds, scene composition and creative lighting for Java plugins.">
       
       
       
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#paper-capture" class="md-skip">
+        <a href="#capture-images-and-saved-photos" class="md-skip">
           Skip to content
         </a>
       
@@ -524,9 +524,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#player-visibility" class="md-nav__link">
+  <a href="#privacy-and-exclusions" class="md-nav__link">
     <span class="md-ellipsis">
-      Player visibility
+      Privacy and exclusions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#durable-map-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Durable map output
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#low-level-capture-remains-available" class="md-nav__link">
+    <span class="md-ellipsis">
+      Low-level capture remains available
     </span>
   </a>
   
@@ -780,6 +798,75 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xray-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    X-ray camera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../live-feeds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Live feeds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creative-controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creative controls
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -814,9 +901,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#player-visibility" class="md-nav__link">
+  <a href="#privacy-and-exclusions" class="md-nav__link">
     <span class="md-ellipsis">
-      Player visibility
+      Privacy and exclusions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#durable-map-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Durable map output
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#low-level-capture-remains-available" class="md-nav__link">
+    <span class="md-ellipsis">
+      Low-level capture remains available
     </span>
   </a>
   
@@ -847,8 +952,21 @@
 
 
 
-<h1 id="paper-capture">Paper capture</h1>
-<p><code>capture</code> is asynchronous. Required chunks must already be loaded, and <code>chunksPerTick</code> limits main-thread capture work. Do not synchronously load cold chunks or block the server thread for capture or rendering. The completion continuation has no general Paper-thread guarantee; return to the main thread before reading or mutating Bukkit state. See the <a href="https://github.com/kernel-person/shutterbug-renderer-api/tree/v1.0.2/sample-plugin">complete sample plugin</a>.</p>
+<h1 id="capture-images-and-saved-photos">Capture images and saved photos</h1>
+<p>Start with the compiled <a href="../">quickstart</a>. <code>renderer.snapshot(player).capture()</code> returns a future of <code>RenderedFrame</code>; <code>captureMap()</code> returns a future of a durably saved map item. Their success/error callback overloads run on the server thread. Raw captures allocate no Minecraft maps.</p>
+<p>Defaults are CLASSIC, 128×128 pixels, 70 degrees vertical FOV and a 16-block radius. Living entities use their eye pose at capture time and exclude themselves; nonliving entities use their location. A location source is copied when the builder is created. Set <code>.resolution(width, height)</code>, <code>.profile(...)</code>, <code>.fov(...)</code>, <code>.roll(...)</code>, <code>.radius(...)</code> or <code>.settings(...)</code> as needed. Builders are immutable.</p>
+<p>Required chunks must already be loaded. Snapshots default to at most two chunks per tick. <code>.chunksPerTick(...)</code> adjusts the capture budget; it does not authorize loading cold chunks. Cancelling the returned future propagates to active capture/render/conversion work. Do not block the server thread with <code>join()</code> or <code>get()</code>.</p>
+<h2 id="privacy-and-exclusions">Privacy and exclusions</h2>
+<p><code>.excluding(entities)</code> accepts a collection of entities, including a list or set. Use <code>.excludingIds(ids)</code> for UUID collections. Inputs are copied, entity identities are sampled on the server thread, and exclusions apply before visual capture. <code>.visibleTo(viewer)</code> adds that viewer's Bukkit visibility rules. Output recipients alone do not define privacy.</p>
+<p>Live capture also omits Spectator players and players with a true Bukkit <code>vanished</code> metadata value. If several plugins provide the flag, any true value wins. Ordinary invisibility effects or having vanish permissions are not equivalent to active vanish. Packet-only visibility cannot be inferred reliably without integration.</p>
+<p>Visibility is frozen into a snapshot. Changing game mode or vanishing later cannot recall pixels in previously distributed photos. Live streams recheck viewer visibility during reuse and before publication. Filters and layered recipes can only select permitted captured evidence.</p>
+<h2 id="durable-map-output">Durable map output</h2>
+<p><code>captureMap()</code> captures, converts and saves before publishing an item. <code>frame.toMapItem()</code> does the same output step for an existing frame. By default, one photo fits a 128×128 map with black aspect-preserving letterboxing. <code>MapOutputOptions</code> selects palette dithering. Conversion and atomic photo-record writes run off-thread; map attachment/allocation happens on the server thread.</p>
+<p>The provider owns the original palette and stable photo identity, creator and creation time. Photo items are tagged so an administrator can identify and repair them. Normal restart restoration checks the world, map ID, flags and persisted random marker before attaching pixels. Unavailable worlds, missing bindings and mismatched identities preserve the photo data for recovery. A raw capture, PNG save or live stream does not enter this store.</p>
+<p>A successful save does not guarantee inventory delivery: the consuming plugin owns offline players, full inventories, item metadata and mailboxes. Cancellation cannot undo a map allocation or atomic file replacement that has already completed. Photo storage and vanilla map saves are separate stores.</p>
+<p>Back up <strong>provider photo storage, world map data/counter, inventories and consumer data together</strong>. See <a href="../operator-guide/">operator recovery</a> before repairing a backup mismatch.</p>
+<h2 id="low-level-capture-remains-available">Low-level capture remains available</h2>
+<p>Use <code>renderer.client()</code> or <code>renderer.session()</code> when composing exact entities, managing assets or submitting manual scenes. The existing constructors and capture methods remain available. This compiled fixture demonstrates the direct capture path:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">docs.examples</span><span class="p">;</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">ke.ric.renderer.api.CaptureRequest</span><span class="p">;</span>
@@ -875,36 +993,11 @@
 <span class="w">        </span><span class="n">RenderSettings</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RenderSettings</span><span class="p">.</span><span class="na">classic</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">);</span>
 <span class="w">        </span><span class="n">CaptureRequest</span><span class="w"> </span><span class="n">capture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CaptureRequest</span><span class="p">(</span><span class="n">camera</span><span class="p">,</span><span class="w"> </span><span class="mf">16.0</span><span class="p">,</span><span class="w"> </span><span class="n">settings</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">target</span><span class="p">));</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="na">capture</span><span class="p">(</span><span class="n">capture</span><span class="p">)</span>
-<span class="w">                </span><span class="p">.</span><span class="na">thenCompose</span><span class="p">(</span><span class="n">scene</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="na">submit</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">RenderJob</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">scene</span><span class="p">,</span><span class="w"> </span><span class="n">settings</span><span class="p">)).</span><span class="na">completion</span><span class="p">());</span>
+<span class="w">                </span><span class="p">.</span><span class="na">thenCompose</span><span class="p">(</span><span class="n">scene</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="na">submit</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">RenderJob</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">scene</span><span class="p">,</span><span class="w"> </span><span class="n">settings</span><span class="p">)).</span><span class="na">completion</span><span class="p">());</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>SDK v1.0.2 adds the five-argument <code>CaptureRequest</code> constructor shown above. Its
-<code>excludedEntityIds</code> set is defensively copied and omits matching entities before
-their visual state is captured. Use it to omit a POV target's body without hiding
-the shared map or monitor. The original four-argument constructor remains binary
-compatible and defaults to an empty exclusion set. Exclusions do not recall pixels
-already frozen into earlier scenes or maps.</p>
-<h2 id="player-visibility">Player visibility</h2>
-<p>Live world captures omit players in <strong>Spectator</strong> mode and players with a true
-Bukkit <code>vanished</code> metadata value. If multiple plugins provide this flag, any
-true value wins. This happens before reading the player's name, equipment or
-appearance, and applies to the standalone provider as well as ShutterBug photos.
-ShutterBug selfies omit hidden photographers instead of failing the photograph;
-its viewfinder refreshes entity visibility on every click.</p>
-<p>ShutterBug's player-aware captures also respect
-<a href="https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/Player.html#canSee(org.bukkit.entity.Player)"><code>Player.canSee</code></a>
-for the photographer. The <code>vanished</code> flag is used by
-<a href="https://github.com/EssentialsX/Essentials/blob/2.x/Essentials/src/main/java/com/earth2me/essentials/User.java">EssentialsX</a>
-and other vanish plugins. Merely having OP/vanish permissions, or ordinary
-invisibility effects, is not treated as active vanish.</p>
-<p><code>CaptureRequest</code> is location-based and has no viewer identity. Therefore a vanish
-plugin that only changes client packets or per-viewer visibility, without exposing
-the <code>vanished</code> flag, needs an integration; it cannot be detected reliably by an
-automated camera. Do not assume every <code>/vanish</code> implementation is supported.</p>
-<p>Visibility is frozen <strong>at capture time</strong>. Changing game mode or vanishing later
-does not erase earlier photos, frames already captured, or manually supplied
-<code>SceneEntity</code> scene data. This is not a mechanism for recalling distributed images.</p>
+<p>The original four-argument <code>CaptureRequest</code> constructor still uses an empty exclusion set. The five-argument constructor defensively copies excluded UUIDs. The FOV-aware capture overload rejects unsupported values on older providers instead of pretending they were applied. Do not reuse scenes or assets across provider generations.</p>
 <h2 id="maps-inside-photographs">Maps inside photographs</h2>
 <p>Empty visible item frames use the installed Minecraft/resource-pack frame model:
 wooden border, inset backing, normal/glow textures, and all six mounting directions.

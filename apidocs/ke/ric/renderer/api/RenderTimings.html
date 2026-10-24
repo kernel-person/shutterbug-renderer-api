@@ -90,6 +90,17 @@ loadScripts(document, 'script');</script>
 </div>
 </div>
 <section class="class-description" id="class-description">
+<dl class="notes">
+<dt>Record Components:</dt>
+<dd><code><span id="param-captureNanos">captureNanos</span></code> - measured world-capture time in nanoseconds, or UNAVAILABLE</dd>
+<dd><code><span id="param-serializationNanos">serializationNanos</span></code> - scene serialization time in nanoseconds, or UNAVAILABLE</dd>
+<dd><code><span id="param-jniWallNanos">jniWallNanos</span></code> - native-call wall time in nanoseconds, or UNAVAILABLE</dd>
+<dd><code><span id="param-renderCoreNanos">renderCoreNanos</span></code> - core-render work in nanoseconds, or UNAVAILABLE</dd>
+<dd><code><span id="param-decodeNanos">decodeNanos</span></code> - output/diagnostic decode time in nanoseconds, or UNAVAILABLE</dd>
+<dd><code><span id="param-copyNanos">copyNanos</span></code> - immutable result-buffer copy time in nanoseconds, or UNAVAILABLE</dd>
+<dd><code><span id="param-conversionNanos">conversionNanos</span></code> - measured conversion time in nanoseconds, or UNAVAILABLE when outside provider measurement</dd>
+<dd><code><span id="param-totalNanos">totalNanos</span></code> - total measured request time in nanoseconds, or UNAVAILABLE</dd>
+</dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">RenderTimings</span>(long&nbsp;captureNanos, long&nbsp;serializationNanos, long&nbsp;jniWallNanos, long&nbsp;renderCoreNanos, long&nbsp;decodeNanos, long&nbsp;copyNanos, long&nbsp;conversionNanos, long&nbsp;totalNanos)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a></span></div>
@@ -129,7 +140,9 @@ loadScripts(document, 'script');</script>
  long&nbsp;renderCoreNanos,
  long&nbsp;conversionNanos,
  long&nbsp;totalNanos)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Legacy timing shape; JNI wall, decode and copy phases are marked <a href="#UNAVAILABLE"><code>UNAVAILABLE</code></a>.</div>
+</div>
 <div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(long,long,long,long,long,long,long,long)" class="member-name-link">RenderTimings</a><wbr>(long&nbsp;captureNanos,
  long&nbsp;serializationNanos,
  long&nbsp;jniWallNanos,
@@ -158,22 +171,22 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#captureNanos()" class="member-name-link">captureNanos</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>captureNanos</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-captureNanos"><code>captureNanos</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#conversionNanos()" class="member-name-link">conversionNanos</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>conversionNanos</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-conversionNanos"><code>conversionNanos</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#copyNanos()" class="member-name-link">copyNanos</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>copyNanos</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-copyNanos"><code>copyNanos</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#decodeNanos()" class="member-name-link">decodeNanos</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>decodeNanos</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-decodeNanos"><code>decodeNanos</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o)</code></div>
@@ -188,17 +201,17 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#jniWallNanos()" class="member-name-link">jniWallNanos</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>jniWallNanos</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-jniWallNanos"><code>jniWallNanos</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderCoreNanos()" class="member-name-link">renderCoreNanos</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>renderCoreNanos</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-renderCoreNanos"><code>renderCoreNanos</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#serializationNanos()" class="member-name-link">serializationNanos</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>serializationNanos</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-serializationNanos"><code>serializationNanos</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
@@ -208,7 +221,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#totalNanos()" class="member-name-link">totalNanos</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>totalNanos</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-totalNanos"><code>totalNanos</code></a> record component.</div>
 </div>
 </div>
 </div>
@@ -258,6 +271,7 @@ loadScripts(document, 'script');</script>
  long&nbsp;renderCoreNanos,
  long&nbsp;conversionNanos,
  long&nbsp;totalNanos)</span></div>
+<div class="block">Legacy timing shape; JNI wall, decode and copy phases are marked <a href="#UNAVAILABLE"><code>UNAVAILABLE</code></a>.</div>
 </section>
 </li>
 <li>
@@ -274,14 +288,14 @@ loadScripts(document, 'script');</script>
 <div class="block">Creates an instance of a <code>RenderTimings</code> record class.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>captureNanos</code> - the value for the <code>captureNanos</code> record component</dd>
-<dd><code>serializationNanos</code> - the value for the <code>serializationNanos</code> record component</dd>
-<dd><code>jniWallNanos</code> - the value for the <code>jniWallNanos</code> record component</dd>
-<dd><code>renderCoreNanos</code> - the value for the <code>renderCoreNanos</code> record component</dd>
-<dd><code>decodeNanos</code> - the value for the <code>decodeNanos</code> record component</dd>
-<dd><code>copyNanos</code> - the value for the <code>copyNanos</code> record component</dd>
-<dd><code>conversionNanos</code> - the value for the <code>conversionNanos</code> record component</dd>
-<dd><code>totalNanos</code> - the value for the <code>totalNanos</code> record component</dd>
+<dd><code>captureNanos</code> - the value for the <a href="#param-captureNanos"><code>captureNanos</code></a> record component</dd>
+<dd><code>serializationNanos</code> - the value for the <a href="#param-serializationNanos"><code>serializationNanos</code></a> record component</dd>
+<dd><code>jniWallNanos</code> - the value for the <a href="#param-jniWallNanos"><code>jniWallNanos</code></a> record component</dd>
+<dd><code>renderCoreNanos</code> - the value for the <a href="#param-renderCoreNanos"><code>renderCoreNanos</code></a> record component</dd>
+<dd><code>decodeNanos</code> - the value for the <a href="#param-decodeNanos"><code>decodeNanos</code></a> record component</dd>
+<dd><code>copyNanos</code> - the value for the <a href="#param-copyNanos"><code>copyNanos</code></a> record component</dd>
+<dd><code>conversionNanos</code> - the value for the <a href="#param-conversionNanos"><code>conversionNanos</code></a> record component</dd>
+<dd><code>totalNanos</code> - the value for the <a href="#param-totalNanos"><code>totalNanos</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -338,10 +352,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="captureNanos()">
 <h3>captureNanos</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">captureNanos</span>()</div>
-<div class="block">Returns the value of the <code>captureNanos</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-captureNanos"><code>captureNanos</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>captureNanos</code> record component</dd>
+<dd>the value of the <a href="#param-captureNanos"><code>captureNanos</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -349,10 +363,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="serializationNanos()">
 <h3>serializationNanos</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">serializationNanos</span>()</div>
-<div class="block">Returns the value of the <code>serializationNanos</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-serializationNanos"><code>serializationNanos</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>serializationNanos</code> record component</dd>
+<dd>the value of the <a href="#param-serializationNanos"><code>serializationNanos</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -360,10 +374,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="jniWallNanos()">
 <h3>jniWallNanos</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">jniWallNanos</span>()</div>
-<div class="block">Returns the value of the <code>jniWallNanos</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-jniWallNanos"><code>jniWallNanos</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>jniWallNanos</code> record component</dd>
+<dd>the value of the <a href="#param-jniWallNanos"><code>jniWallNanos</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -371,10 +385,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="renderCoreNanos()">
 <h3>renderCoreNanos</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">renderCoreNanos</span>()</div>
-<div class="block">Returns the value of the <code>renderCoreNanos</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-renderCoreNanos"><code>renderCoreNanos</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>renderCoreNanos</code> record component</dd>
+<dd>the value of the <a href="#param-renderCoreNanos"><code>renderCoreNanos</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -382,10 +396,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="decodeNanos()">
 <h3>decodeNanos</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">decodeNanos</span>()</div>
-<div class="block">Returns the value of the <code>decodeNanos</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-decodeNanos"><code>decodeNanos</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>decodeNanos</code> record component</dd>
+<dd>the value of the <a href="#param-decodeNanos"><code>decodeNanos</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -393,10 +407,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="copyNanos()">
 <h3>copyNanos</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">copyNanos</span>()</div>
-<div class="block">Returns the value of the <code>copyNanos</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-copyNanos"><code>copyNanos</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>copyNanos</code> record component</dd>
+<dd>the value of the <a href="#param-copyNanos"><code>copyNanos</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -404,10 +418,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="conversionNanos()">
 <h3>conversionNanos</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">conversionNanos</span>()</div>
-<div class="block">Returns the value of the <code>conversionNanos</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-conversionNanos"><code>conversionNanos</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>conversionNanos</code> record component</dd>
+<dd>the value of the <a href="#param-conversionNanos"><code>conversionNanos</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -415,10 +429,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="totalNanos()">
 <h3>totalNanos</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">totalNanos</span>()</div>
-<div class="block">Returns the value of the <code>totalNanos</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-totalNanos"><code>totalNanos</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>totalNanos</code> record component</dd>
+<dd>the value of the <a href="#param-totalNanos"><code>totalNanos</code></a> record component</dd>
 </dl>
 </section>
 </li>

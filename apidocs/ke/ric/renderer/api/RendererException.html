@@ -37,7 +37,7 @@ loadScripts(document, 'script');</script>
 <li>
 <p>Summary:</p>
 <ul>
-<li>Nested</li>
+<li><a href="#nested-class-summary">Nested</a></li>
 <li>Field</li>
 <li><a href="#constructor-summary">Constr</a></li>
 <li><a href="#method-summary">Method</a></li>
@@ -57,7 +57,7 @@ loadScripts(document, 'script');</script>
 <div id="navbar-sub-list">
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested-class-summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
@@ -113,6 +113,23 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static enum&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="RendererException.Detail.html" class="type-name-link" title="enum class in ke.ric.renderer.api">RendererException.Detail</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">Optional narrower reason within the broad failure category.</div>
+</div>
+</div>
+</section>
+</li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <li>
 <section class="constructor-summary" id="constructor-summary">
@@ -123,11 +140,28 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(ke.ric.renderer.api.RenderFailureCode,java.lang.String)" class="member-name-link">RendererException</a><wbr>(<a href="RenderFailureCode.html" title="enum class in ke.ric.renderer.api">RenderFailureCode</a>&nbsp;code,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Creates a typed failure with UNSPECIFIED detail; a cause may still be supplied through initCause.</div>
+</div>
 <div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(ke.ric.renderer.api.RenderFailureCode,java.lang.String,java.lang.Throwable)" class="member-name-link">RendererException</a><wbr>(<a href="RenderFailureCode.html" title="enum class in ke.ric.renderer.api">RenderFailureCode</a>&nbsp;code,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;cause)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">Creates a typed failure preserving its cause and using UNSPECIFIED detail.</div>
+</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(ke.ric.renderer.api.RenderFailureCode,ke.ric.renderer.api.RendererException.Detail,java.lang.String)" class="member-name-link">RendererException</a><wbr>(<a href="RenderFailureCode.html" title="enum class in ke.ric.renderer.api">RenderFailureCode</a>&nbsp;code,
+ <a href="RendererException.Detail.html" title="enum class in ke.ric.renderer.api">RendererException.Detail</a>&nbsp;detail,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Creates a failure with a non-null structured detail; message text is diagnostic, not a parsing contract.</div>
+</div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(ke.ric.renderer.api.RenderFailureCode,ke.ric.renderer.api.RendererException.Detail,java.lang.String,java.lang.Throwable)" class="member-name-link">RendererException</a><wbr>(<a href="RenderFailureCode.html" title="enum class in ke.ric.renderer.api">RenderFailureCode</a>&nbsp;code,
+ <a href="RendererException.Detail.html" title="enum class in ke.ric.renderer.api">RendererException.Detail</a>&nbsp;detail,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;cause)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Creates a failure preserving the broad category, non-null narrower detail and original cause.</div>
+</div>
 </div>
 </section>
 </li>
@@ -146,6 +180,11 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#code()" class="member-name-link">code</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the stable failure category; callers should not parse exception text.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="RendererException.Detail.html" title="enum class in ke.ric.renderer.api">RendererException.Detail</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#detail()" class="member-name-link">detail</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns a structured narrower reason without requiring message parsing.</div>
 </div>
 </div>
 </div>
@@ -172,6 +211,7 @@ loadScripts(document, 'script');</script>
 <h3>RendererException</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">RendererException</span><wbr><span class="parameters">(<a href="RenderFailureCode.html" title="enum class in ke.ric.renderer.api">RenderFailureCode</a>&nbsp;code,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</span></div>
+<div class="block">Creates a typed failure with UNSPECIFIED detail; a cause may still be supplied through initCause.</div>
 </section>
 </li>
 <li>
@@ -180,6 +220,26 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">RendererException</span><wbr><span class="parameters">(<a href="RenderFailureCode.html" title="enum class in ke.ric.renderer.api">RenderFailureCode</a>&nbsp;code,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;cause)</span></div>
+<div class="block">Creates a typed failure preserving its cause and using UNSPECIFIED detail.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(ke.ric.renderer.api.RenderFailureCode,ke.ric.renderer.api.RendererException.Detail,java.lang.String)">
+<h3>RendererException</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">RendererException</span><wbr><span class="parameters">(<a href="RenderFailureCode.html" title="enum class in ke.ric.renderer.api">RenderFailureCode</a>&nbsp;code,
+ <a href="RendererException.Detail.html" title="enum class in ke.ric.renderer.api">RendererException.Detail</a>&nbsp;detail,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</span></div>
+<div class="block">Creates a failure with a non-null structured detail; message text is diagnostic, not a parsing contract.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(ke.ric.renderer.api.RenderFailureCode,ke.ric.renderer.api.RendererException.Detail,java.lang.String,java.lang.Throwable)">
+<h3>RendererException</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">RendererException</span><wbr><span class="parameters">(<a href="RenderFailureCode.html" title="enum class in ke.ric.renderer.api">RenderFailureCode</a>&nbsp;code,
+ <a href="RendererException.Detail.html" title="enum class in ke.ric.renderer.api">RendererException.Detail</a>&nbsp;detail,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;cause)</span></div>
+<div class="block">Creates a failure preserving the broad category, non-null narrower detail and original cause.</div>
 </section>
 </li>
 </ul>
@@ -195,6 +255,13 @@ loadScripts(document, 'script');</script>
 <h3>code</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="RenderFailureCode.html" title="enum class in ke.ric.renderer.api">RenderFailureCode</a></span>&nbsp;<span class="element-name">code</span>()</div>
 <div class="block">Returns the stable failure category; callers should not parse exception text.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="detail()">
+<h3>detail</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="RendererException.Detail.html" title="enum class in ke.ric.renderer.api">RendererException.Detail</a></span>&nbsp;<span class="element-name">detail</span>()</div>
+<div class="block">Returns a structured narrower reason without requiring message parsing.</div>
 </section>
 </li>
 </ul>

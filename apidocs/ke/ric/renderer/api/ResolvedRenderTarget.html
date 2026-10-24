@@ -90,10 +90,24 @@ loadScripts(document, 'script');</script>
 </div>
 </div>
 <section class="class-description" id="class-description">
+<dl class="notes">
+<dt>Record Components:</dt>
+<dd><code><span id="param-transform">transform</span></code> - finite world position in blocks and yaw in degrees</dd>
+<dd><code><span id="param-minX">minX</span></code> - minimum world X bound in blocks</dd>
+<dd><code><span id="param-minY">minY</span></code> - minimum world Y bound in blocks</dd>
+<dd><code><span id="param-minZ">minZ</span></code> - minimum world Z bound in blocks</dd>
+<dd><code><span id="param-maxX">maxX</span></code> - maximum world X bound in blocks</dd>
+<dd><code><span id="param-maxY">maxY</span></code> - maximum world Y bound in blocks</dd>
+<dd><code><span id="param-maxZ">maxZ</span></code> - maximum world Z bound in blocks</dd>
+<dd><code><span id="param-meshes">meshes</span></code> - defensively copied resolved mesh list</dd>
+<dd><code><span id="param-fallbackArgb">fallbackArgb</span></code> - packed ARGB fallback color</dd>
+<dd><code><span id="param-tintRgb">tintRgb</span></code> - packed 24-bit RGB tint; the high byte must be zero</dd>
+<dd><code><span id="param-translucent">translucent</span></code> - whether this target is translucent</dd>
+</dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">ResolvedRenderTarget</span>(<a href="ResolvedTransform.html" title="class in ke.ric.renderer.api">ResolvedTransform</a>&nbsp;transform, double&nbsp;minX, double&nbsp;minY, double&nbsp;minZ, double&nbsp;maxX, double&nbsp;maxY, double&nbsp;maxZ, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ResolvedMesh.html" title="class in ke.ric.renderer.api">ResolvedMesh</a>&gt;&nbsp;meshes, int&nbsp;fallbackArgb, int&nbsp;tintRgb, boolean&nbsp;translucent)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a></span></div>
-<div class="block">One complete entity render target, including its independent world placement and visual evidence.</div>
+<div class="block">One immutable entity render target with independent world placement and complete visual evidence.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -107,7 +121,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.List)" class="member-name-link">ResolvedRenderTarget</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ResolvedMesh.html" title="class in ke.ric.renderer.api">ResolvedMesh</a>&gt;&nbsp;meshes)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Creates an unplaced target using inferred translucency and the standard fallback color.</div>
+<div class="block">Creates an unplaced target with inferred BLEND translucency, magenta fallback ARGB and zero tint.</div>
 </div>
 <div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.util.List,int,int,boolean)" class="member-name-link">ResolvedRenderTarget</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ResolvedMesh.html" title="class in ke.ric.renderer.api">ResolvedMesh</a>&gt;&nbsp;meshes,
  int&nbsp;fallbackArgb,
@@ -152,7 +166,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#fallbackArgb()" class="member-name-link">fallbackArgb</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>fallbackArgb</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-fallbackArgb"><code>fallbackArgb</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
@@ -162,42 +176,42 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#maxX()" class="member-name-link">maxX</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>maxX</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-maxX"><code>maxX</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#maxY()" class="member-name-link">maxY</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>maxY</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-maxY"><code>maxY</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#maxZ()" class="member-name-link">maxZ</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>maxZ</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-maxZ"><code>maxZ</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="ResolvedMesh.html" title="class in ke.ric.renderer.api">ResolvedMesh</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#meshes()" class="member-name-link">meshes</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>meshes</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-meshes"><code>meshes</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#minX()" class="member-name-link">minX</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>minX</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-minX"><code>minX</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#minY()" class="member-name-link">minY</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>minY</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-minY"><code>minY</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#minZ()" class="member-name-link">minZ</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>minZ</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-minZ"><code>minZ</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tintRgb()" class="member-name-link">tintRgb</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>tintRgb</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-tintRgb"><code>tintRgb</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
@@ -207,12 +221,12 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ResolvedTransform.html" title="class in ke.ric.renderer.api">ResolvedTransform</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#transform()" class="member-name-link">transform</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>transform</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-transform"><code>transform</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#translucent()" class="member-name-link">translucent</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>translucent</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-translucent"><code>translucent</code></a> record component.</div>
 </div>
 </div>
 </div>
@@ -235,7 +249,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;(java.util.List)">
 <h3>ResolvedRenderTarget</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ResolvedRenderTarget</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ResolvedMesh.html" title="class in ke.ric.renderer.api">ResolvedMesh</a>&gt;&nbsp;meshes)</span></div>
-<div class="block">Creates an unplaced target using inferred translucency and the standard fallback color.</div>
+<div class="block">Creates an unplaced target with inferred BLEND translucency, magenta fallback ARGB and zero tint.</div>
 </section>
 </li>
 <li>
@@ -265,17 +279,17 @@ loadScripts(document, 'script');</script>
 <div class="block">Creates an instance of a <code>ResolvedRenderTarget</code> record class.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>transform</code> - the value for the <code>transform</code> record component</dd>
-<dd><code>minX</code> - the value for the <code>minX</code> record component</dd>
-<dd><code>minY</code> - the value for the <code>minY</code> record component</dd>
-<dd><code>minZ</code> - the value for the <code>minZ</code> record component</dd>
-<dd><code>maxX</code> - the value for the <code>maxX</code> record component</dd>
-<dd><code>maxY</code> - the value for the <code>maxY</code> record component</dd>
-<dd><code>maxZ</code> - the value for the <code>maxZ</code> record component</dd>
-<dd><code>meshes</code> - the value for the <code>meshes</code> record component</dd>
-<dd><code>fallbackArgb</code> - the value for the <code>fallbackArgb</code> record component</dd>
-<dd><code>tintRgb</code> - the value for the <code>tintRgb</code> record component</dd>
-<dd><code>translucent</code> - the value for the <code>translucent</code> record component</dd>
+<dd><code>transform</code> - the value for the <a href="#param-transform"><code>transform</code></a> record component</dd>
+<dd><code>minX</code> - the value for the <a href="#param-minX"><code>minX</code></a> record component</dd>
+<dd><code>minY</code> - the value for the <a href="#param-minY"><code>minY</code></a> record component</dd>
+<dd><code>minZ</code> - the value for the <a href="#param-minZ"><code>minZ</code></a> record component</dd>
+<dd><code>maxX</code> - the value for the <a href="#param-maxX"><code>maxX</code></a> record component</dd>
+<dd><code>maxY</code> - the value for the <a href="#param-maxY"><code>maxY</code></a> record component</dd>
+<dd><code>maxZ</code> - the value for the <a href="#param-maxZ"><code>maxZ</code></a> record component</dd>
+<dd><code>meshes</code> - the value for the <a href="#param-meshes"><code>meshes</code></a> record component</dd>
+<dd><code>fallbackArgb</code> - the value for the <a href="#param-fallbackArgb"><code>fallbackArgb</code></a> record component</dd>
+<dd><code>tintRgb</code> - the value for the <a href="#param-tintRgb"><code>tintRgb</code></a> record component</dd>
+<dd><code>translucent</code> - the value for the <a href="#param-translucent"><code>translucent</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -332,10 +346,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="transform()">
 <h3>transform</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ResolvedTransform.html" title="class in ke.ric.renderer.api">ResolvedTransform</a></span>&nbsp;<span class="element-name">transform</span>()</div>
-<div class="block">Returns the value of the <code>transform</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-transform"><code>transform</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>transform</code> record component</dd>
+<dd>the value of the <a href="#param-transform"><code>transform</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -343,10 +357,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="minX()">
 <h3>minX</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">minX</span>()</div>
-<div class="block">Returns the value of the <code>minX</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-minX"><code>minX</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>minX</code> record component</dd>
+<dd>the value of the <a href="#param-minX"><code>minX</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -354,10 +368,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="minY()">
 <h3>minY</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">minY</span>()</div>
-<div class="block">Returns the value of the <code>minY</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-minY"><code>minY</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>minY</code> record component</dd>
+<dd>the value of the <a href="#param-minY"><code>minY</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -365,10 +379,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="minZ()">
 <h3>minZ</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">minZ</span>()</div>
-<div class="block">Returns the value of the <code>minZ</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-minZ"><code>minZ</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>minZ</code> record component</dd>
+<dd>the value of the <a href="#param-minZ"><code>minZ</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -376,10 +390,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="maxX()">
 <h3>maxX</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">maxX</span>()</div>
-<div class="block">Returns the value of the <code>maxX</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-maxX"><code>maxX</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>maxX</code> record component</dd>
+<dd>the value of the <a href="#param-maxX"><code>maxX</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -387,10 +401,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="maxY()">
 <h3>maxY</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">maxY</span>()</div>
-<div class="block">Returns the value of the <code>maxY</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-maxY"><code>maxY</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>maxY</code> record component</dd>
+<dd>the value of the <a href="#param-maxY"><code>maxY</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -398,10 +412,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="maxZ()">
 <h3>maxZ</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">maxZ</span>()</div>
-<div class="block">Returns the value of the <code>maxZ</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-maxZ"><code>maxZ</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>maxZ</code> record component</dd>
+<dd>the value of the <a href="#param-maxZ"><code>maxZ</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -409,10 +423,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="meshes()">
 <h3>meshes</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ResolvedMesh.html" title="class in ke.ric.renderer.api">ResolvedMesh</a>&gt;</span>&nbsp;<span class="element-name">meshes</span>()</div>
-<div class="block">Returns the value of the <code>meshes</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-meshes"><code>meshes</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>meshes</code> record component</dd>
+<dd>the value of the <a href="#param-meshes"><code>meshes</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -420,10 +434,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="fallbackArgb()">
 <h3>fallbackArgb</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">fallbackArgb</span>()</div>
-<div class="block">Returns the value of the <code>fallbackArgb</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-fallbackArgb"><code>fallbackArgb</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>fallbackArgb</code> record component</dd>
+<dd>the value of the <a href="#param-fallbackArgb"><code>fallbackArgb</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -431,10 +445,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="tintRgb()">
 <h3>tintRgb</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">tintRgb</span>()</div>
-<div class="block">Returns the value of the <code>tintRgb</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-tintRgb"><code>tintRgb</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>tintRgb</code> record component</dd>
+<dd>the value of the <a href="#param-tintRgb"><code>tintRgb</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -442,10 +456,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="translucent()">
 <h3>translucent</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">translucent</span>()</div>
-<div class="block">Returns the value of the <code>translucent</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-translucent"><code>translucent</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>translucent</code> record component</dd>
+<dd>the value of the <a href="#param-translucent"><code>translucent</code></a> record component</dd>
 </dl>
 </section>
 </li>

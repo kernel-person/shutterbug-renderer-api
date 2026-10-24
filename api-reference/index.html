@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Java consumer documentation for ShutterBug Renderer API v1.">
+        <meta name="description" content="Fluent snapshots, live feeds, scene composition and creative lighting for Java plugins.">
       
       
       
@@ -730,6 +730,75 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xray-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    X-ray camera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../live-feeds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Live feeds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creative-controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creative controls
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -772,30 +841,61 @@
 
 
 <h1 id="public-api-reference">Public API reference</h1>
-<p>These links are the complete public top-level and nested type inventory for SDK v1.0.2. The generated Javadocs are built from the same source and verified against the unchanged v1 binary baseline.</p>
+<p>The current <a href="https://shutterbug-maven.pages.dev/javadocs/2.3.0-preview.3/index.html">preview.3 JavaDoc</a> includes the fluent API, creative controls, parameter units, defaults, limits and lifecycle contracts. Matching sources and JavaDoc JARs accompany <code>ke.ric:renderer-api:2.3.0-preview.3</code> for IDE hover help. Use the matching development provider/native build; an older provider cannot gain new runtime controls from this dependency.</p>
+<p>Start with <code>Renderer</code>, <code>SnapshotBuilder</code>, <code>StreamBuilder</code> and <code>RenderedFrame</code>. <code>RenderRecipe</code> / <code>RenderLayer</code> compose selected output. <code>RenderEnvironment</code>, <code>RenderAppearance</code> and <code>RenderLighting</code> control rendering independently. <code>RendererSession</code> / <code>RendererClient</code> retain advanced capture, scenes, assets and submission.</p>
+<p>The complete public type inventory below links the same generated reference included with this documentation build. Historical SDK releases and their existing versioned JavaDoc URLs remain unchanged.</p>
 <ul>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/AssetHandle.html">AssetHandle</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/AssetPack.html">AssetPack</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/Attachment.html">Attachment</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/CaptureProvenance.html">CaptureProvenance</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/CaptureRequest.html">CaptureRequest</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/CapturedEntity.html">CapturedEntity</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/ChunkSectionState.html">ChunkSectionState</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/CompositionLease.html">CompositionLease</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/EntitySelector.html">EntitySelector</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/FrameProgress.html">FrameProgress</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/FrameProgress.Stage.html">FrameProgress.Stage</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/LayerColor.html">LayerColor</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/LayerColor.Mode.html">LayerColor.Mode</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/LightDirection.html">LightDirection</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/LightSpace.html">LightSpace</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/LightingCapabilities.html">LightingCapabilities</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/MapDither.html">MapDither</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/MapFrame.html">MapFrame</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/MapOutputOptions.html">MapOutputOptions</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/MapSink.html">MapSink</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/MinecraftMapConverter.html">MinecraftMapConverter</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/Occlusion.html">Occlusion</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/PngConverter.html">PngConverter</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/PointLight.html">PointLight</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderAppearance.html">RenderAppearance</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderEnvironment.html">RenderEnvironment</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderFailureCode.html">RenderFailureCode</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderJob.html">RenderJob</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderLayer.html">RenderLayer</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderLighting.html">RenderLighting</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderPassResult.html">RenderPassResult</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderProgress.html">RenderProgress</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderProgress.Phase.html">RenderProgress.Phase</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderRecipe.html">RenderRecipe</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderResult.html">RenderResult</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderSettings.html">RenderSettings</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderSettings.Profile.html">RenderSettings.Profile</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderStatus.html">RenderStatus</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderStream.html">RenderStream</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderStream.Status.html">RenderStream.Status</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderTask.html">RenderTask</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderTimings.html">RenderTimings</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderedFrame.html">RenderedFrame</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RenderedMap.html">RenderedMap</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/Renderer.html">Renderer</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RendererCapabilities.html">RendererCapabilities</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RendererClient.html">RendererClient</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RendererException.html">RendererException</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RendererException.Detail.html">RendererException.Detail</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RendererService.html">RendererService</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/RendererSession.html">RendererSession</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/ResolvedLabel.html">ResolvedLabel</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/ResolvedMaterial.html">ResolvedMaterial</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/ResolvedMaterial.AlphaMode.html">ResolvedMaterial.AlphaMode</a></li>
@@ -807,10 +907,23 @@
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/ResolvedTriangle.Face.html">ResolvedTriangle.Face</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/Scene.html">Scene</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/SceneBuilder.html">SceneBuilder</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/SceneCamera.html">SceneCamera</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/SceneContent.html">SceneContent</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/SceneEntity.html">SceneEntity</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/SceneEntity.Builder.html">SceneEntity.Builder</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/SceneOperation.html">SceneOperation</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/SceneReusePolicy.html">SceneReusePolicy</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/SceneSelection.html">SceneSelection</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/SceneSelection.EntityMode.html">SceneSelection.EntityMode</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/SceneStructure.html">SceneStructure</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/SceneTransform.html">SceneTransform</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/SnapshotBuilder.html">SnapshotBuilder</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/SpotLight.html">SpotLight</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/StreamBuilder.html">StreamBuilder</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/VirtualLight.html">VirtualLight</a></li>
 <li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/VisibilityStatistics.html">VisibilityStatistics</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/VisibleEntity.html">VisibleEntity</a></li>
+<li><a href="https://kernel-person.github.io/shutterbug-renderer-api/apidocs/ke/ric/renderer/api/Weather.html">Weather</a></li>
 </ul>
 
 

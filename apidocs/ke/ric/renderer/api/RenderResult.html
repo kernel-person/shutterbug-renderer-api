@@ -114,7 +114,9 @@ loadScripts(document, 'script');</script>
  int[]&nbsp;object,
  <a href="VisibilityStatistics.html" title="class in ke.ric.renderer.api">VisibilityStatistics</a>&nbsp;visibility,
  <a href="RenderTimings.html" title="class in ke.ric.renderer.api">RenderTimings</a>&nbsp;timings)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Copies a positive-sized immutable frame; optional attachments may be null when unrequested.</div>
+</div>
 <div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(int,int,byte%5B%5D,float%5B%5D,float%5B%5D,int%5B%5D,int%5B%5D,ke.ric.renderer.api.VisibilityStatistics,ke.ric.renderer.api.RenderTimings,java.lang.Runnable)" class="member-name-link">RenderResult</a><wbr>(int&nbsp;width,
  int&nbsp;height,
  byte[]&nbsp;rgba,
@@ -147,18 +149,23 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns copied depth values, or null when not requested.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#height()" class="member-name-link">height</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasEntityIdentities()" class="member-name-link">hasEntityIdentities</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Whether per-entity UUID diagnostics are available; false is not evidence of an empty frame.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#height()" class="member-name-link">height</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the frame height in pixels.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#materialIds()" class="member-name-link">materialIds</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#materialIds()" class="member-name-link">materialIds</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns copied material identifiers, or null when not requested.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="RenderResult.html" title="class in ke.ric.renderer.api">RenderResult</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#measuredCopy(int,int,byte%5B%5D,float%5B%5D,float%5B%5D,int%5B%5D,int%5B%5D,ke.ric.renderer.api.VisibilityStatistics,java.lang.Runnable,long,java.util.function.LongSupplier,java.util.function.BiFunction)" class="member-name-link">measuredCopy</a><wbr>(int&nbsp;width,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="RenderResult.html" title="class in ke.ric.renderer.api">RenderResult</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#measuredCopy(int,int,byte%5B%5D,float%5B%5D,float%5B%5D,int%5B%5D,int%5B%5D,ke.ric.renderer.api.VisibilityStatistics,java.lang.Runnable,long,java.util.function.LongSupplier,java.util.function.BiFunction)" class="member-name-link">measuredCopy</a><wbr>(int&nbsp;width,
  int&nbsp;height,
  byte[]&nbsp;rgba,
  float[]&nbsp;depth,
@@ -170,44 +177,64 @@ loadScripts(document, 'script');</script>
  long&nbsp;copyStartedNanos,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/LongSupplier.html" title="class or interface in java.util.function" class="external-link">LongSupplier</a>&nbsp;nanoTime,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiFunction.html" title="class or interface in java.util.function" class="external-link">BiFunction</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>,<wbr><a href="RenderTimings.html" title="class in ke.ric.renderer.api">RenderTimings</a>&gt;&nbsp;timingFinalizer)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Copies all retained buffers, then finalizes timings so construction work remains inside
  copy and total accounting.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#normals()" class="member-name-link">normals</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns copied XYZ normal values, or null when not requested.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#objectIds()" class="member-name-link">objectIds</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#normals()" class="member-name-link">normals</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns copied caller-visible object identifiers, or null when not requested.</div>
+<div class="block">Returns copied row-major XYZ normal triples, three floats per pixel, or null when not requested.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>byte[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#rgba8()" class="member-name-link">rgba8</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#objectIds()" class="member-name-link">objectIds</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns copied row-major caller-visible object IDs, one integer per pixel, or null when not requested.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>byte[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#rgba8()" class="member-name-link">rgba8</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a copy of row-major RGBA8 color, four bytes per pixel.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#rgbaBuffer()" class="member-name-link">rgbaBuffer</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#rgbaBuffer()" class="member-name-link">rgbaBuffer</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a read-only buffer over a defensive copy of row-major RGBA8 color.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="RenderTimings.html" title="class in ke.ric.renderer.api">RenderTimings</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#timings()" class="member-name-link">timings</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="RenderTimings.html" title="class in ke.ric.renderer.api">RenderTimings</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#timings()" class="member-name-link">timings</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns measured provider timings for the frame.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="VisibilityStatistics.html" title="class in ke.ric.renderer.api">VisibilityStatistics</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#visibility()" class="member-name-link">visibility</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="VisibilityStatistics.html" title="class in ke.ric.renderer.api">VisibilityStatistics</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#visibility()" class="member-name-link">visibility</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns immutable visibility statistics for the frame.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="VisibleEntity.html" title="class in ke.ric.renderer.api">VisibleEntity</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#visibleEntities()" class="member-name-link">visibleEntities</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns immutable captured identities; consult <a href="#hasEntityIdentities()"><code>hasEntityIdentities()</code></a> for availability.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#width()" class="member-name-link">width</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the frame width in pixels.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="RenderResult.html" title="class in ke.ric.renderer.api">RenderResult</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withVisibleEntities(java.util.List)" class="member-name-link">withVisibleEntities</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="VisibleEntity.html" title="class in ke.ric.renderer.api">VisibleEntity</a>&gt;&nbsp;entities)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns a result with copied entity identities, sharing only already-immutable image buffers.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="RenderResult.html" title="class in ke.ric.renderer.api">RenderResult</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withWorldCapturedNanos(long)" class="member-name-link">withWorldCapturedNanos</a><wbr>(long&nbsp;capturedNanos)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Adds scene capture timing without recopying already-immutable image buffers.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#worldCapturedNanos()" class="member-name-link">worldCapturedNanos</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Monotonic timestamp of the scene's first world read, or zero when unavailable.</div>
 </div>
 </div>
 </div>
@@ -238,6 +265,19 @@ loadScripts(document, 'script');</script>
  int[]&nbsp;object,
  <a href="VisibilityStatistics.html" title="class in ke.ric.renderer.api">VisibilityStatistics</a>&nbsp;visibility,
  <a href="RenderTimings.html" title="class in ke.ric.renderer.api">RenderTimings</a>&nbsp;timings)</span></div>
+<div class="block">Copies a positive-sized immutable frame; optional attachments may be null when unrequested.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>width</code> - positive pixel width</dd>
+<dd><code>height</code> - positive pixel height</dd>
+<dd><code>rgba</code> - exactly width*height*4 row-major RGBA8 bytes</dd>
+<dd><code>depth</code> - optional one-float-per-pixel depth array</dd>
+<dd><code>normals</code> - optional three-float-XYZ-per-pixel normal array</dd>
+<dd><code>material</code> - optional one-integer-per-pixel material ID array</dd>
+<dd><code>object</code> - optional one-integer-per-pixel stable object ID array</dd>
+<dd><code>visibility</code> - non-null immutable rendered visibility statistics</dd>
+<dd><code>timings</code> - non-null measured nanosecond timings; unavailable phases use UNAVAILABLE</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -285,6 +325,44 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="withVisibleEntities(java.util.List)">
+<h3>withVisibleEntities</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="RenderResult.html" title="class in ke.ric.renderer.api">RenderResult</a></span>&nbsp;<span class="element-name">withVisibleEntities</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="VisibleEntity.html" title="class in ke.ric.renderer.api">VisibleEntity</a>&gt;&nbsp;entities)</span></div>
+<div class="block">Returns a result with copied entity identities, sharing only already-immutable image buffers.
+ An empty list means complete diagnostics found no visible entities; older constructors leave
+ identity diagnostics unavailable instead. Duplicate UUIDs/object IDs and impossible coverage
+ are rejected.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="worldCapturedNanos()">
+<h3>worldCapturedNanos</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">worldCapturedNanos</span>()</div>
+<div class="block">Monotonic timestamp of the scene's first world read, or zero when unavailable.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="withWorldCapturedNanos(long)">
+<h3>withWorldCapturedNanos</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="RenderResult.html" title="class in ke.ric.renderer.api">RenderResult</a></span>&nbsp;<span class="element-name">withWorldCapturedNanos</span><wbr><span class="parameters">(long&nbsp;capturedNanos)</span></div>
+<div class="block">Adds scene capture timing without recopying already-immutable image buffers.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="hasEntityIdentities()">
+<h3>hasEntityIdentities</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasEntityIdentities</span>()</div>
+<div class="block">Whether per-entity UUID diagnostics are available; false is not evidence of an empty frame.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="visibleEntities()">
+<h3>visibleEntities</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="VisibleEntity.html" title="class in ke.ric.renderer.api">VisibleEntity</a>&gt;</span>&nbsp;<span class="element-name">visibleEntities</span>()</div>
+<div class="block">Returns immutable captured identities; consult <a href="#hasEntityIdentities()"><code>hasEntityIdentities()</code></a> for availability.</div>
+</section>
+</li>
+<li>
 <section class="detail" id="width()">
 <h3>width</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">width</span>()</div>
@@ -323,7 +401,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="normals()">
 <h3>normals</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">float[]</span>&nbsp;<span class="element-name">normals</span>()</div>
-<div class="block">Returns copied XYZ normal values, or null when not requested.</div>
+<div class="block">Returns copied row-major XYZ normal triples, three floats per pixel, or null when not requested.</div>
 </section>
 </li>
 <li>
@@ -337,7 +415,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="objectIds()">
 <h3>objectIds</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int[]</span>&nbsp;<span class="element-name">objectIds</span>()</div>
-<div class="block">Returns copied caller-visible object identifiers, or null when not requested.</div>
+<div class="block">Returns copied row-major caller-visible object IDs, one integer per pixel, or null when not requested.</div>
 </section>
 </li>
 <li>

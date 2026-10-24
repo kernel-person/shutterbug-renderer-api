@@ -90,6 +90,15 @@ loadScripts(document, 'script');</script>
 </div>
 </div>
 <section class="class-description" id="class-description">
+<dl class="notes">
+<dt>Record Components:</dt>
+<dd><code><span id="param-entities">entities</span></code> - visible entity-key counts produced by this render</dd>
+<dd><code><span id="param-materials">materials</span></code> - visible material-key counts produced by this render</dd>
+<dd><code><span id="param-structures">structures</span></code> - visible structure-key counts produced by this render</dd>
+<dd><code><span id="param-biomes">biomes</span></code> - visible biome-key counts produced by this render</dd>
+<dd><code><span id="param-skyPixels">skyPixels</span></code> - number of pixels classified as sky</dd>
+<dd><code><span id="param-totalPixels">totalPixels</span></code> - total number of frame pixels</dd>
+</dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">VisibilityStatistics</span>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;entities, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;materials, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;structures, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;biomes, int&nbsp;skyPixels, int&nbsp;totalPixels)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a></span></div>
@@ -132,15 +141,17 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#biomes()" class="member-name-link">biomes</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>biomes</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-biomes"><code>biomes</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="VisibilityStatistics.html" title="class in ke.ric.renderer.api">VisibilityStatistics</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#empty(int)" class="member-name-link">empty</a><wbr>(int&nbsp;pixels)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Returns empty semantic maps and classifies all supplied frame pixels as sky.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#entities()" class="member-name-link">entities</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>entities</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-entities"><code>entities</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o)</code></div>
@@ -155,17 +166,17 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#materials()" class="member-name-link">materials</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>materials</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-materials"><code>materials</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#skyPixels()" class="member-name-link">skyPixels</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>skyPixels</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-skyPixels"><code>skyPixels</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#structures()" class="member-name-link">structures</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>structures</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-structures"><code>structures</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
@@ -175,7 +186,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#totalPixels()" class="member-name-link">totalPixels</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>totalPixels</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-totalPixels"><code>totalPixels</code></a> record component.</div>
 </div>
 </div>
 </div>
@@ -206,12 +217,12 @@ loadScripts(document, 'script');</script>
 <div class="block">Creates an instance of a <code>VisibilityStatistics</code> record class.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>entities</code> - the value for the <code>entities</code> record component</dd>
-<dd><code>materials</code> - the value for the <code>materials</code> record component</dd>
-<dd><code>structures</code> - the value for the <code>structures</code> record component</dd>
-<dd><code>biomes</code> - the value for the <code>biomes</code> record component</dd>
-<dd><code>skyPixels</code> - the value for the <code>skyPixels</code> record component</dd>
-<dd><code>totalPixels</code> - the value for the <code>totalPixels</code> record component</dd>
+<dd><code>entities</code> - the value for the <a href="#param-entities"><code>entities</code></a> record component</dd>
+<dd><code>materials</code> - the value for the <a href="#param-materials"><code>materials</code></a> record component</dd>
+<dd><code>structures</code> - the value for the <a href="#param-structures"><code>structures</code></a> record component</dd>
+<dd><code>biomes</code> - the value for the <a href="#param-biomes"><code>biomes</code></a> record component</dd>
+<dd><code>skyPixels</code> - the value for the <a href="#param-skyPixels"><code>skyPixels</code></a> record component</dd>
+<dd><code>totalPixels</code> - the value for the <a href="#param-totalPixels"><code>totalPixels</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -227,6 +238,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="empty(int)">
 <h3>empty</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="VisibilityStatistics.html" title="class in ke.ric.renderer.api">VisibilityStatistics</a></span>&nbsp;<span class="element-name">empty</span><wbr><span class="parameters">(int&nbsp;pixels)</span></div>
+<div class="block">Returns empty semantic maps and classifies all supplied frame pixels as sky.</div>
 </section>
 </li>
 <li>
@@ -274,10 +286,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="entities()">
 <h3>entities</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</span>&nbsp;<span class="element-name">entities</span>()</div>
-<div class="block">Returns the value of the <code>entities</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-entities"><code>entities</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>entities</code> record component</dd>
+<dd>the value of the <a href="#param-entities"><code>entities</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -285,10 +297,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="materials()">
 <h3>materials</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</span>&nbsp;<span class="element-name">materials</span>()</div>
-<div class="block">Returns the value of the <code>materials</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-materials"><code>materials</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>materials</code> record component</dd>
+<dd>the value of the <a href="#param-materials"><code>materials</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -296,10 +308,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="structures()">
 <h3>structures</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</span>&nbsp;<span class="element-name">structures</span>()</div>
-<div class="block">Returns the value of the <code>structures</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-structures"><code>structures</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>structures</code> record component</dd>
+<dd>the value of the <a href="#param-structures"><code>structures</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -307,10 +319,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="biomes()">
 <h3>biomes</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</span>&nbsp;<span class="element-name">biomes</span>()</div>
-<div class="block">Returns the value of the <code>biomes</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-biomes"><code>biomes</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>biomes</code> record component</dd>
+<dd>the value of the <a href="#param-biomes"><code>biomes</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -318,10 +330,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="skyPixels()">
 <h3>skyPixels</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">skyPixels</span>()</div>
-<div class="block">Returns the value of the <code>skyPixels</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-skyPixels"><code>skyPixels</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>skyPixels</code> record component</dd>
+<dd>the value of the <a href="#param-skyPixels"><code>skyPixels</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -329,10 +341,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="totalPixels()">
 <h3>totalPixels</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">totalPixels</span>()</div>
-<div class="block">Returns the value of the <code>totalPixels</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-totalPixels"><code>totalPixels</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>totalPixels</code> record component</dd>
+<dd>the value of the <a href="#param-totalPixels"><code>totalPixels</code></a> record component</dd>
 </dl>
 </section>
 </li>

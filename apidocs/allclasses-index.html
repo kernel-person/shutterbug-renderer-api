@@ -67,6 +67,15 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab3">
 <div class="block">Optional per-pixel data that can accompany the always-present RGBA8 color frame.</div>
 </div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/CapturedEntity.html" title="class in ke.ric.renderer.api">CapturedEntity</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Frozen identity/classification used for selector masks, never a live Bukkit entity.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/CaptureProvenance.html" title="class in ke.ric.renderer.api">CaptureProvenance</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Immutable facts from the original capture, retained unchanged by scene derivation and camera
+ reuse.</div>
+</div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/CaptureRequest.html" title="class in ke.ric.renderer.api">CaptureRequest</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
 <div class="block">Describes an asynchronous Paper-world capture centered on a camera location.</div>
@@ -75,41 +84,138 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab3">
 <div class="block">Exact evidence state for one 16x16x16 chunk section.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/MapDither.html" title="enum class in ke.ric.renderer.api">MapDither</a></div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="ke/ric/renderer/api/CompositionLease.html" title="interface in ke.ric.renderer.api">CompositionLease</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
+<div class="block">Provider-generation composition memory reservation, released on client/provider shutdown.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/EntitySelector.html" title="class in ke.ric.renderer.api">EntitySelector</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Immutable predicate over copied entity metadata.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/FrameProgress.html" title="class in ke.ric.renderer.api">FrameProgress</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Measured progress within one stage of a snapshot or stream frame.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/FrameProgress.Stage.html" title="enum class in ke.ric.renderer.api">FrameProgress.Stage</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
+<div class="block">Available work stages.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/LayerColor.html" title="class in ke.ric.renderer.api">LayerColor</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Immutable RGB treatment for a recipe layer.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/LayerColor.Mode.html" title="enum class in ke.ric.renderer.api">LayerColor.Mode</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
+<div class="block">Available color treatments.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/LightDirection.html" title="class in ke.ric.renderer.api">LightDirection</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Immutable unit direction.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/LightingCapabilities.html" title="class in ke.ric.renderer.api">LightingCapabilities</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Immutable provider limits for explicit lighting and primary-camera visibility controls.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/LightSpace.html" title="enum class in ke.ric.renderer.api">LightSpace</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
+<div class="block">Coordinate system for explicit light positions and directions.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/MapDither.html" title="enum class in ke.ric.renderer.api">MapDither</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
 <div class="block">Dithering strategy used while quantizing RGBA8 output to Minecraft's map palette.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/MapFrame.html" title="class in ke.ric.renderer.api">MapFrame</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Immutable 128×128 Minecraft map palette plus the original frame that produced it.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/MapOutputOptions.html" title="class in ke.ric.renderer.api">MapOutputOptions</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Immutable Minecraft map-palette conversion options.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="ke/ric/renderer/api/MapSink.html" title="interface in ke.ric.renderer.api">MapSink</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
+<div class="block">Caller-owned palette destination for a stream.</div>
 </div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/MinecraftMapConverter.html" title="class in ke.ric.renderer.api">MinecraftMapConverter</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
-<div class="block">Converts immutable render output to exact Minecraft map-palette bytes.</div>
+<div class="block">Converts copied frame RGB colors to Minecraft palette bytes; run nontrivial conversion on a private worker executor.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/PngConverter.html" title="class in ke.ric.renderer.api">PngConverter</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/Occlusion.html" title="enum class in ke.ric.renderer.api">Occlusion</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
+<div class="block">Primary-camera visibility policy for selected entity layers.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/PngConverter.html" title="class in ke.ric.renderer.api">PngConverter</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Converts immutable RGBA8 render output into a PNG byte stream.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/RendererCapabilities.html" title="class in ke.ric.renderer.api">RendererCapabilities</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab4">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/PointLight.html" title="class in ke.ric.renderer.api">PointLight</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Immutable omnidirectional point emitter with optional hard shadows.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/RenderAppearance.html" title="class in ke.ric.renderer.api">RenderAppearance</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Immutable per-field rendering appearance overrides.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/RenderedFrame.html" title="class in ke.ric.renderer.api">RenderedFrame</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Immutable rendered pixels and original capture/pass evidence, with optional asynchronous PNG
+ and durable photo-map output.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/RenderedMap.html" title="class in ke.ric.renderer.api">RenderedMap</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Optional 128x128 palette-backed map, created fresh for its caller.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/RenderEnvironment.html" title="class in ke.ric.renderer.api">RenderEnvironment</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Immutable rendered-environment overrides.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/Renderer.html" title="class in ke.ric.renderer.api">Renderer</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Plugin-owned entry point for immutable snapshots and live camera streams.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/RendererCapabilities.html" title="class in ke.ric.renderer.api">RendererCapabilities</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
 <div class="block">Immutable snapshot of capabilities advertised by the current provider runtime.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="ke/ric/renderer/api/RendererClient.html" title="interface in ke.ric.renderer.api">RendererClient</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="ke/ric/renderer/api/RendererClient.html" title="interface in ke.ric.renderer.api">RendererClient</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
 <div class="block">A consuming plugin's lifecycle and ownership boundary for captures, scenes, assets, and tasks.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab5"><a href="ke/ric/renderer/api/RendererException.html" title="class in ke.ric.renderer.api">RendererException</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab5">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab5"><a href="ke/ric/renderer/api/RendererException.html" title="class in ke.ric.renderer.api">RendererException</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab5">
 <div class="block">Provider failure carrying a stable machine-readable <a href="ke/ric/renderer/api/RenderFailureCode.html" title="enum class in ke.ric.renderer.api"><code>RenderFailureCode</code></a>.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/RendererException.Detail.html" title="enum class in ke.ric.renderer.api">RendererException.Detail</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
+<div class="block">Optional narrower reason within the broad failure category.</div>
 </div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="ke/ric/renderer/api/RendererService.html" title="interface in ke.ric.renderer.api">RendererService</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
 <div class="block">Bukkit service used to discover the current renderer provider generation.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/RenderFailureCode.html" title="enum class in ke.ric.renderer.api">RenderFailureCode</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/RendererSession.html" title="class in ke.ric.renderer.api">RendererSession</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Optional plugin-owned capture/render lifecycle.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/RenderFailureCode.html" title="enum class in ke.ric.renderer.api">RenderFailureCode</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
 <div class="block">Stable machine-readable categories for failures reported by the renderer provider.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/RenderJob.html" title="class in ke.ric.renderer.api">RenderJob</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/RenderJob.html" title="class in ke.ric.renderer.api">RenderJob</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab4">
 <div class="block">One immutable submission joining a scene, render settings, and selected registered assets.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/RenderLayer.html" title="class in ke.ric.renderer.api">RenderLayer</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
+<div class="block">One immutable pass in a <a href="ke/ric/renderer/api/RenderRecipe.html" title="class in ke.ric.renderer.api"><code>RenderRecipe</code></a>.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/RenderLighting.html" title="class in ke.ric.renderer.api">RenderLighting</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Immutable lighting for a request or one recipe layer.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/RenderPassResult.html" title="class in ke.ric.renderer.api">RenderPassResult</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Immutable original native evidence for one recipe layer.</div>
 </div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/RenderProgress.html" title="class in ke.ric.renderer.api">RenderProgress</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab4">
@@ -119,89 +225,153 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
 <div class="block">Ordered provider work phases exposed without implementation-specific timing estimates.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/RenderResult.html" title="class in ke.ric.renderer.api">RenderResult</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/RenderRecipe.html" title="class in ke.ric.renderer.api">RenderRecipe</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Immutable, nonempty ordered render layers derived independently from one original capture.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/RenderResult.html" title="class in ke.ric.renderer.api">RenderResult</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Immutable rendered frame, optional attachments, visibility statistics, and measured timings.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab4">
 <div class="block">Immutable output, quality, attachment, memory, worker, and deadline settings for a render.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/RenderSettings.Profile.html" title="enum class in ke.ric.renderer.api">RenderSettings.Profile</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/RenderSettings.Profile.html" title="enum class in ke.ric.renderer.api">RenderSettings.Profile</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
 <div class="block">Stable consumer-facing quality intents; implementations may choose their internal settings.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/RenderStatus.html" title="enum class in ke.ric.renderer.api">RenderStatus</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/RenderStatus.html" title="enum class in ke.ric.renderer.api">RenderStatus</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
 <div class="block">Coarse lifecycle state for an asynchronous render task.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="ke/ric/renderer/api/RenderTask.html" title="interface in ke.ric.renderer.api">RenderTask</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
-<div class="block">A nonblocking handle for one admitted asynchronous render.</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/RenderStream.html" title="class in ke.ric.renderer.api">RenderStream</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Lifecycle handle for a live camera feed.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/RenderTimings.html" title="class in ke.ric.renderer.api">RenderTimings</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/RenderStream.Status.html" title="enum class in ke.ric.renderer.api">RenderStream.Status</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
+<div class="block">Current externally useful state; absence of recent evidence produces NO_SIGNAL.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="ke/ric/renderer/api/RenderTask.html" title="interface in ke.ric.renderer.api">RenderTask</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
+<div class="block">A nonblocking task handle.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/RenderTimings.html" title="class in ke.ric.renderer.api">RenderTimings</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab4">
 <div class="block">Measured nanosecond durations for the provider phases represented in a result.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/ResolvedLabel.html" title="class in ke.ric.renderer.api">ResolvedLabel</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/ResolvedLabel.html" title="class in ke.ric.renderer.api">ResolvedLabel</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Exact baked RGBA label evidence and placement.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/ResolvedMaterial.html" title="class in ke.ric.renderer.api">ResolvedMaterial</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
-<div class="block">Exact texture and alpha behavior for one resolved mesh.</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/ResolvedMaterial.html" title="class in ke.ric.renderer.api">ResolvedMaterial</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Exact texture and alpha behavior for a resolved mesh; textures are immutable evidence, not live resource lookups.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/ResolvedMaterial.AlphaMode.html" title="enum class in ke.ric.renderer.api">ResolvedMaterial.AlphaMode</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/ResolvedMaterial.AlphaMode.html" title="enum class in ke.ric.renderer.api">ResolvedMaterial.AlphaMode</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
 <div class="block">How the renderer interprets source alpha for the material.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/ResolvedMesh.html" title="class in ke.ric.renderer.api">ResolvedMesh</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
-<div class="block">Baked mesh; every triangle retains its exact material and texture evidence.</div>
-</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/ResolvedRenderTarget.html" title="class in ke.ric.renderer.api">ResolvedRenderTarget</a></div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/ResolvedMesh.html" title="class in ke.ric.renderer.api">ResolvedMesh</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab4">
-<div class="block">One complete entity render target, including its independent world placement and visual evidence.</div>
+<div class="block">Immutable nonempty baked triangle list.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/ResolvedTexture.html" title="class in ke.ric.renderer.api">ResolvedTexture</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/ResolvedRenderTarget.html" title="class in ke.ric.renderer.api">ResolvedRenderTarget</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
+<div class="block">One immutable entity render target with independent world placement and complete visual evidence.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/ResolvedTexture.html" title="class in ke.ric.renderer.api">ResolvedTexture</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Exact immutable RGBA8 texture evidence used by a resolved render target.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/ResolvedTransform.html" title="class in ke.ric.renderer.api">ResolvedTransform</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab4">
-<div class="block">Exact world transform applied to a resolved entity target.</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/ResolvedTransform.html" title="class in ke.ric.renderer.api">ResolvedTransform</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Exact finite world transform applied to a resolved entity target; unlike SceneBuilder camera angles, yaw uses degrees.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/ResolvedTriangle.html" title="class in ke.ric.renderer.api">ResolvedTriangle</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/ResolvedTriangle.html" title="class in ke.ric.renderer.api">ResolvedTriangle</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">One fully baked engine-neutral triangle.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/ResolvedTriangle.Face.html" title="enum class in ke.ric.renderer.api">ResolvedTriangle.Face</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/ResolvedTriangle.Face.html" title="enum class in ke.ric.renderer.api">ResolvedTriangle.Face</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
 <div class="block">Optional source-face orientation retained for lighting and culling semantics.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="ke/ric/renderer/api/Scene.html" title="interface in ke.ric.renderer.api">Scene</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="ke/ric/renderer/api/Scene.html" title="interface in ke.ric.renderer.api">Scene</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
 <div class="block">Immutable engine-neutral scene.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="ke/ric/renderer/api/SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="ke/ric/renderer/api/SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
 <div class="block">Builds a complete caller-supplied engine-neutral scene owned by one <a href="ke/ric/renderer/api/RendererClient.html" title="interface in ke.ric.renderer.api"><code>RendererClient</code></a>.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/SceneEntity.html" title="class in ke.ric.renderer.api">SceneEntity</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
-<div class="block">Resolved entity evidence grouped by one stable caller-visible object identity.</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/SceneCamera.html" title="class in ke.ric.renderer.api">SceneCamera</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Immutable camera pose in world blocks and radians.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
-<div class="block">Fluent builder for immutable <a href="ke/ric/renderer/api/SceneEntity.html" title="class in ke.ric.renderer.api"><code>SceneEntity</code></a> evidence.</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/SceneContent.html" title="class in ke.ric.renderer.api">SceneContent</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Immutable selection of geometry retained in a derived scene.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/SceneStructure.html" title="class in ke.ric.renderer.api">SceneStructure</a></div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/SceneEntity.html" title="class in ke.ric.renderer.api">SceneEntity</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Immutable entity evidence grouped by one stable nonzero object ID.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Mutable builder for immutable entity evidence; do not share it concurrently.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/SceneOperation.html" title="enum class in ke.ric.renderer.api">SceneOperation</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
+<div class="block">Optional operations on immutable client-owned scene evidence.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/SceneReusePolicy.html" title="class in ke.ric.renderer.api">SceneReusePolicy</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Immutable limits for reusing unchanged world evidence with a different camera pose.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/SceneSelection.html" title="class in ke.ric.renderer.api">SceneSelection</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Selects evidence retained in an immutable scene derivative.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/SceneSelection.EntityMode.html" title="enum class in ke.ric.renderer.api">SceneSelection.EntityMode</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
+<div class="block">Entity evidence to retain, using the captured or caller-supplied living flag.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/SceneStructure.html" title="class in ke.ric.renderer.api">SceneStructure</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab4">
 <div class="block">One namespaced structure key and finite inclusive world-space bounds supplied to a manual scene.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/SceneTransform.html" title="class in ke.ric.renderer.api">SceneTransform</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Immutable scene evidence overrides.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/SnapshotBuilder.html" title="class in ke.ric.renderer.api">SnapshotBuilder</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Immutable settings for one snapshot.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/SpotLight.html" title="class in ke.ric.renderer.api">SpotLight</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Immutable directional spot emitter with a smooth falloff between its inner and outer cones.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="ke/ric/renderer/api/StreamBuilder.html" title="class in ke.ric.renderer.api">StreamBuilder</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Immutable live-camera configuration.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="ke/ric/renderer/api/VirtualLight.html" title="interface in ke.ric.renderer.api">VirtualLight</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
+<div class="block">Common read-only light properties.</div>
 </div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/VisibilityStatistics.html" title="class in ke.ric.renderer.api">VisibilityStatistics</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab4">
 <div class="block">Immutable counts of visible semantic evidence and covered pixels in a completed frame.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab4"><a href="ke/ric/renderer/api/VisibleEntity.html" title="class in ke.ric.renderer.api">VisibleEntity</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Immutable identity and primary-ray pixel coverage of an entity in a rendered image.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="ke/ric/renderer/api/Weather.html" title="enum class in ke.ric.renderer.api">Weather</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
+<div class="block">Explicit scene precipitation, independent of the live world.</div>
 </div>
 </div>
 </div>

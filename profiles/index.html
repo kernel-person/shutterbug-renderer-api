@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Java consumer documentation for ShutterBug Renderer API v1.">
+        <meta name="description" content="Fluent snapshots, live feeds, scene composition and creative lighting for Java plugins.">
       
       
       
@@ -730,6 +730,75 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xray-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    X-ray camera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../live-feeds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Live feeds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creative-controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creative controls
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -772,6 +841,8 @@
 
 
 <h1 id="profiles-and-capabilities">Profiles and capabilities</h1>
+<p>The fluent API defaults to CLASSIC at 128×128. Set <code>.profile(...)</code> and <code>.resolution(width, height)</code> independently, or supply <code>RenderSettings</code> for attachments and advanced limits. Higher quality or larger images can reduce delivered feed rate; 20 FPS remains a scheduling target.</p>
+<p>Explicit point/spot lights and requested shadows work in every supported profile. Captured world-emitter detail still follows the existing profile. Query <code>renderer.client().lightingCapabilities()</code> for creative-light limits as well as the general capabilities below. Older providers explicitly reject unavailable controls.</p>
 <p>Check <code>RendererCapabilities.supportedProfiles()</code> before submission. The stable names are <code>CLASSIC</code>, <code>CLASSIC_HQ</code>, <code>NORMAL</code>, <code>CINEMATIC</code>, <code>ULTRA</code>, <code>ULTRA_PLUS</code>, and <code>EXTREME</code>. A consumer should select a supported fallback rather than assume every provider exposes every profile. <code>nativeAvailable()</code> reports current runtime availability; <code>packagedForProduction()</code> reports verified package identity, not license state or general development usability. Keep operator activation failures separate from API capability handling.</p>
 
 

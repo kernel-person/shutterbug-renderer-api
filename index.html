@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Java consumer documentation for ShutterBug Renderer API v1.">
+        <meta name="description" content="Fluent snapshots, live feeds, scene composition and creative lighting for Java plugins.">
       
       
       
@@ -242,6 +242,33 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-live-camera-in-four-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      A live camera in four lines
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-first-photo-and-live-feed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Your first photo and live feed
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-server-owners" class="md-nav__link">
+    <span class="md-ellipsis">
+      For server owners
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#build-free-or-paid-add-ons" class="md-nav__link">
@@ -767,6 +794,75 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="xray-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    X-ray camera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="live-feeds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Live feeds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="creative-controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creative controls
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -801,6 +897,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#a-live-camera-in-four-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      A live camera in four lines
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-first-photo-and-live-feed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Your first photo and live feed
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-server-owners" class="md-nav__link">
+    <span class="md-ellipsis">
+      For server owners
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#build-free-or-paid-add-ons" class="md-nav__link">
     <span class="md-ellipsis">
       Build free or paid add-ons
@@ -826,11 +949,59 @@
 
 
 <h1 id="shutterbug-renderer">ShutterBug Renderer</h1>
-<p>ShutterBug Renderer 1.0.0 by Kernel Person is a separately installed rendering provider for Java 21 plugins on the exact documented Paper adapter. The published free Apache-2.0 SDK at <code>com.github.kernel-person:shutterbug-renderer-api:v1.0.2</code> contains consumer contracts and converters; it does not contain, unlock, or redistribute the commercial renderer. Its immutable tag and JitPack artifact are verified through fresh Maven and Gradle consumers. The published <code>v1.0.1</code> remains available unchanged.</p>
-<p>Server owners should begin with <a href="operator-guide/">installation and activation</a>. Plugin developers should use <a href="setup/">Maven or Gradle setup</a>, then follow the <a href="sample-walkthrough/">complete sample walkthrough</a> and <a href="api-reference/">public API reference</a>. Read the <a href="compatibility/">compatibility matrix</a> before deployment: the current delivery supports macOS ARM64, Linux x86-64, and Windows x86-64 within the tested runtime scope.</p>
+<p>Take a photograph, stream a camera to a map, or compose a scene with your own lighting. Start with <code>Renderer.forPlugin(this)</code>; the same API keeps manual scenes, assets, attachments and low-level rendering available when you need them.</p>
+<p>These developer guides use <strong><code>ke.ric:renderer-api:2.3.0-preview.3</code></strong>, the free Apache-2.0 SDK with the new fluent API and creative controls. It requires the matching development provider and native library. Installing this SDK alone does not upgrade an older provider. The stable <code>2.2</code> SDK, historical previews and JitPack <code>v1.0.2</code> remain available unchanged. See <a href="setup/">setup and IDE documentation</a> and <a href="compatibility/">compatibility</a> before choosing a build.</p>
+<h2 id="a-live-camera-in-four-lines">A live camera in four lines</h2>
+<p>Create one <code>Renderer</code> with <code>Renderer.forPlugin(this)</code> in <code>onEnable()</code>. Then start a feed on the server thread, using an entity as <code>camera</code> and a player as <code>viewer</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="n">RenderStream</span><span class="w"> </span><span class="n">feed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">renderer</span><span class="p">.</span><span class="na">stream</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">fov</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">toPlayer</span><span class="p">(</span><span class="n">viewer</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+</code></pre></div>
+<p>The viewer needs a free inventory slot for the live map. Keep <code>feed</code> and call <code>feed.stop()</code> when the monitor ends. To apply that viewer's visibility rules, also chain <code>.visibleTo(viewer)</code>.</p>
+<h2 id="your-first-photo-and-live-feed">Your first photo and live feed</h2>
+<p>This complete class adds a saved photograph and plugin cleanup:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">docs.examples</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">ke.ric.renderer.api.Renderer</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ke.ric.renderer.api.RenderStream</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.bukkit.entity.Entity</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.bukkit.entity.Player</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.bukkit.plugin.java.JavaPlugin</span><span class="p">;</span>
+
+<span class="cm">/** Call these methods from your plugin's commands or events on the server thread. */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FluentExample</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">JavaPlugin</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Renderer</span><span class="w"> </span><span class="n">renderer</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@Override</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onEnable</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">renderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Renderer</span><span class="p">.</span><span class="na">forPlugin</span><span class="p">(</span><span class="k">this</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">photograph</span><span class="p">(</span><span class="n">Player</span><span class="w"> </span><span class="n">player</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">renderer</span><span class="p">.</span><span class="na">snapshot</span><span class="p">(</span><span class="n">player</span><span class="p">).</span><span class="na">fov</span><span class="p">(</span><span class="mi">75</span><span class="p">).</span><span class="na">captureMap</span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Callbacks run on the server thread. This example drops inventory overflow.</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="na">isOnline</span><span class="p">())</span><span class="w"> </span><span class="n">player</span><span class="p">.</span><span class="na">getInventory</span><span class="p">().</span><span class="na">addItem</span><span class="p">(</span><span class="n">item</span><span class="p">).</span><span class="na">values</span><span class="p">().</span><span class="na">forEach</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">extra</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">player</span><span class="p">.</span><span class="na">getWorld</span><span class="p">().</span><span class="na">dropItemNaturally</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="na">getLocation</span><span class="p">(),</span><span class="w"> </span><span class="n">extra</span><span class="p">));</span>
+<span class="w">        </span><span class="p">},</span><span class="w"> </span><span class="n">failure</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">getLogger</span><span class="p">().</span><span class="na">warning</span><span class="p">(</span><span class="s">"Photo failed: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">failure</span><span class="p">.</span><span class="na">getMessage</span><span class="p">()));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">RenderStream</span><span class="w"> </span><span class="nf">monitor</span><span class="p">(</span><span class="n">Entity</span><span class="w"> </span><span class="n">camera</span><span class="p">,</span><span class="w"> </span><span class="n">Player</span><span class="w"> </span><span class="n">viewer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">RenderStream</span><span class="w"> </span><span class="n">feed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">renderer</span><span class="p">.</span><span class="na">stream</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">fov</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">toPlayer</span><span class="p">(</span><span class="n">viewer</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">feed</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onDisable</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">renderer</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="n">renderer</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>A photo is durably saved before the callback receives its map item. A stream reuses temporary map output and cleans up when stopped or when your plugin disables. Call <code>stop()</code> on the returned stream when that particular monitor ends. Raw <code>capture()</code> returns an image frame without allocating maps. Your plugin decides permissions, cooldowns and delivery; a production photo workflow should retain delivery for a player who disconnects while capture is running.</p>
+<p>Defaults are CLASSIC, 128×128 pixels, a 70-degree vertical field of view and a 16-block radius. Builders are immutable: keep the value returned by each setting. Living entity cameras use eye position and exclude themselves. Callback overloads run on the server thread; ordinary futures retain ordinary Java threading rules.</p>
+<p>Continue with <a href="capture/">capture and saved photos</a>, <a href="live-feeds/">live feeds</a>, <a href="creative-controls/">creative controls</a>, or the <a href="xray-camera/">small X-ray example</a>. The <a href="api-reference/">API reference</a> links every public type and the JavaDoc that also powers IDE hover descriptions.</p>
+<h2 id="for-server-owners">For server owners</h2>
+<p>Begin with <a href="operator-guide/">installation and activation</a>. The commercial provider is installed separately and owns the renderer runtime. The free SDK does not contain or unlock it. The SDK compiles on Java 21; the documented Paper 26.2 / Minecraft 26.2 server requires Java 25. Development-preview documentation does not announce a new commercial provider release or add platform support.</p>
 <h2 id="build-free-or-paid-add-ons">Build free or paid add-ons</h2>
-<p>Both are welcome. You may sell your own plugins that depend on ShutterBug Renderer. Tell buyers that ShutterBug Renderer is required and purchased separately: the server owner needs a valid provider license within its seat limits, not every player or a separate purchase per add-on on the same server. Do not redistribute the commercial provider, its native binaries or activation credentials.</p>
-<p>The <a href="https://github.com/kernel-person/shutterbug-renderer-examples/releases/tag/v1.2.0">four independent Java examples</a> are Apache-2.0 source you can adapt: Postcards, Redstone Camera, Painter's Easel and Admin POV Monitor. Begin with Postcards, then follow the <a href="sample-walkthrough/">example walkthrough</a>. Published Examples 1.2.0 use the verified SDK v1.0.2, shared POV/map capture and six-direction cameras; they retain the byte-identical resource pack 1.1.0. Their publication does not establish matching-provider Paper acceptance or genuine buyer activation. Latest exact-artifact client acceptance remains separately documented in the examples repository.</p>
+<p>Both are welcome. You may sell plugins that depend on ShutterBug Renderer. Tell buyers that the provider is required and purchased separately: the server owner needs a valid provider license within its seat limits, not every player or a separate purchase per add-on on the same server. Do not redistribute the commercial provider, native binaries or activation credentials.</p>
+<p>The <a href="https://github.com/kernel-person/shutterbug-renderer-examples/releases/tag/v1.2.0">published four-example release</a> contains Postcards, Redstone Camera, Painter's Easel and Admin POV Monitor. That historical release uses SDK v1.0.2; its source is not evidence that an older provider supports the new fluent API. This guide's compiled examples use the current preview. Albums, collections, posing, item delivery and other gameplay belong to the consuming plugin.</p>
 
 
 

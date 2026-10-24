@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Java consumer documentation for ShutterBug Renderer API v1.">
+        <meta name="description" content="Fluent snapshots, live feeds, scene composition and creative lighting for Java plugins.">
       
       
       
@@ -334,6 +334,15 @@
   <a href="#disable-or-remove" class="md-nav__link">
     <span class="md-ellipsis">
       Disable or remove
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saved-photos-in-the-development-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Saved photos in the development preview
     </span>
   </a>
   
@@ -789,6 +798,75 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xray-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    X-ray camera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../live-feeds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Live feeds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creative-controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creative controls
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -849,6 +927,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#saved-photos-in-the-development-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Saved photos in the development preview
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -866,7 +953,8 @@
 
 
 <h1 id="operator-installation-and-activation">Operator installation and activation</h1>
-<p>ShutterBug Renderer 1.0.0 is a separately installed commercial provider by Kernel Person. Stop the server and copy only the personalized <code>ShutterBugRenderer.jar</code> from your MCModels download for the server platform into <code>plugins/</code>. The matching native <code>.so</code>, <code>.dylib</code>, or <code>.dll</code> is embedded in that JAR, checksum-verified, and extracted automatically to the provider's managed cache. Do not install a separate native file. Start the server and read the provider startup result before enabling dependent plugins. The current delivery supports macOS ARM64, Linux x86-64, and Windows x86-64; see the <a href="../compatibility/">tested runtime and acceptance scope</a>.</p>
+<p>This page retains commercial installation guidance. The new fluent/creative API is a separate development preview requiring the matching provider/native build; the older commercial download does not gain those controls from SDK installation. See <a href="../compatibility/">compatibility</a>.</p>
+<p>ShutterBug Renderer 1.0.0 is a separately installed commercial provider by Kernel Person. Stop the server and copy only the personalized <code>ShutterBugRenderer.jar</code> from your MCModels download for the server platform into <code>plugins/</code>. The matching native <code>.so</code> or <code>.dylib</code> is embedded in that JAR, checksum-verified, and extracted automatically to the provider's managed cache. Do not install a separate native file. Start the server and read the provider startup result before enabling dependent plugins. The supported launch platforms are macOS ARM64 and Linux x86-64; Windows is coming soon, not included yet.</p>
 <h2 id="activate-safely">Activate safely</h2>
 <p>Automatic activation is designed for a personalized MCModels download: when the Renderer-specific buyer flow is verified and enabled, leave <code>plugins/ShutterBugRenderer/config.yml</code>'s <code>license-key</code> field blank and the JAR's purchase information supplies activation. That production buyer flow is currently pending separate verification; do not treat SDK publication or a generic download as evidence that automatic issuance is enabled. Start Paper on Java 25 with Paper 26.2 / Minecraft 26.2 and wait for the provider startup result. A non-personalized or incomplete JAR cannot activate merely because it was copied into <code>plugins/</code>.</p>
 <p>If support supplies a separate manual activation value, start Paper once to generate <code>plugins/ShutterBugRenderer/config.yml</code>, stop the server, and set that value in <code>license-key</code>. An explicitly configured manual value takes precedence over the personalized-download information for fresh activation. Restrict the config and its backups so only the Paper server account can read them. Never print or copy activation values into logs, shell history, tickets, screenshots, startup arguments, or public issues. Restart after changing the value; do not hot-edit provider files while jobs are running.</p>
@@ -877,6 +965,36 @@
 <p>Do not automate repeated activation attempts. Treat <code>not entitled</code>, <code>seat limit</code>, <code>lease unavailable</code>, clock/trust, and product mismatch as operator actions, not renderer retries. Support may ask for product version, platform key, provider startup code, sanitized capability output, and artifact checksums; never include the license value or full environment dumps.</p>
 <h2 id="disable-or-remove">Disable or remove</h2>
 <p>Stop submissions, disable dependent plugins, and perform a clean server shutdown before removing the provider. Keep the release archive and its checksums for rollback. Removing the provider does not remove the free API from developer builds, but hard-dependent plugins will no longer start.</p>
+<h2 id="saved-photos-in-the-development-preview">Saved photos in the development preview</h2>
+<p>The matching preview provider saves photo palettes and stable identities in <code>plugins/ShutterBugRenderer/photos/</code>. A successful <code>captureMap()</code> finishes persistence before returning the item. Streams use temporary maps and never enter this store. Normal startup indexes records asynchronously, restores valid map bindings on the server thread and waits for worlds that load later. Startup status distinguishes indexed photos from maps actually restored.</p>
+<p>Administrators with <code>shutterbugrenderer.admin</code> can use:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/renderer status</code></td>
+<td>Check render/photo readiness, indexed and restored totals, storage issues and unavailable worlds.</td>
+</tr>
+<tr>
+<td><code>/renderer storage</code></td>
+<td>Inspect saved-map counts and actual disk usage grouped by creator plugin.</td>
+</tr>
+<tr>
+<td><code>/renderer repair</code></td>
+<td>Repair the tagged renderer photo in your main hand, retaining photo identity and item metadata.</td>
+</tr>
+</tbody>
+</table>
+<p>Storage notices default to 10,000 saved maps or 256 MiB. Configure <code>photos.warn-maps</code> and <code>photos.warn-bytes</code>; zero disables that notice. They report at startup when already exceeded and when crossing a threshold. Notices neither delete photos nor prevent saving. <code>photos.palette-cache-maps</code> bounds the palette cache, defaults to 64, and accepts 1–4096.</p>
+<p>Back up the <strong>world save, vanilla map data and global map counter, inventories/item metadata, provider photo storage and consumer-owned data together</strong>. A photo palette alone is not a matching vanilla map backup. Keep original records and backups while investigating corruption; one bad record does not discard the library.</p>
+<p>If saving fails, check the reported storage path, free space and filesystem permissions, correct the problem and retry the photograph. An unhealthy photo store does not imply raw rendering is unavailable. If the source world is unavailable, load that world before restoration/repair can complete.</p>
+<p>If map identity differs after restoring mismatched backups, the provider preserves the photo bytes and refuses to overwrite an unrelated map. Use a consistent backup, or hold a tagged photo and run <code>/renderer repair</code> to reuse a valid binding or allocate a safe replacement. Repair rechecks the held item before delivery. Missing or corrupt source records require recovery from backup.</p>
+<p>If allocation reports a rolled-back global map counter, restore matching vanilla map data/counter and restart. The provider does not rewrite world files automatically or overwrite occupied IDs. Repair cannot bypass an unsafe allocator.</p>
 
 
 

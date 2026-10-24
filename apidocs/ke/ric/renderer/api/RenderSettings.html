@@ -184,67 +184,100 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#classic(int,int)" class="member-name-link">classic</a><wbr>(int&nbsp;width,
  int&nbsp;height)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Creates v1 Classic settings with no optional attachments and conservative defaults.</div>
+<div class="block">Creates v1 Classic settings with no optional attachments, a 512 MiB memory ceiling,
+ <a href="#defaultWorkers()"><code>defaultWorkers()</code></a> workers and a two-minute render timeout.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#defaultWorkers()" class="member-name-link">defaultWorkers</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#defaults()" class="member-name-link">defaults</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Creates Classic settings at 128 by 128 pixels, suitable for one Minecraft map.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#defaultWorkers()" class="member-name-link">defaultWorkers</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a conservative worker count based on the current runtime.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Indicates whether some other object is "equal to" this one.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a hash code value for this object.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#height()" class="member-name-link">height</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#height()" class="member-name-link">height</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <a href="#param-height"><code>height</code></a> record component.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#nativeMemoryLimitBytes()" class="member-name-link">nativeMemoryLimitBytes</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#nativeMemoryLimitBytes()" class="member-name-link">nativeMemoryLimitBytes</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <a href="#param-nativeMemoryLimitBytes"><code>nativeMemoryLimitBytes</code></a> record component.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="RenderSettings.Profile.html" title="enum class in ke.ric.renderer.api">RenderSettings.Profile</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#profile()" class="member-name-link">profile</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="RenderSettings.Profile.html" title="enum class in ke.ric.renderer.api">RenderSettings.Profile</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#profile()" class="member-name-link">profile</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <a href="#param-profile"><code>profile</code></a> record component.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link">Duration</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#timeout()" class="member-name-link">timeout</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link">Duration</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#timeout()" class="member-name-link">timeout</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <a href="#param-timeout"><code>timeout</code></a> record component.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a string representation of this record class.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#version()" class="member-name-link">version</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#version()" class="member-name-link">version</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <a href="#param-version"><code>version</code></a> record component.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#width()" class="member-name-link">width</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#width()" class="member-name-link">width</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <a href="#param-width"><code>width</code></a> record component.</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withAttachments(java.util.Set)" class="member-name-link">withAttachments</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="Attachment.html" title="enum class in ke.ric.renderer.api">Attachment</a>&gt;&nbsp;attachments)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns a copy replacing optional attachments.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withAttachments(java.util.Set)" class="member-name-link">withAttachments</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="Attachment.html" title="enum class in ke.ric.renderer.api">Attachment</a>&gt;&nbsp;values)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withAttachments(ke.ric.renderer.api.Attachment,ke.ric.renderer.api.Attachment...)" class="member-name-link">withAttachments</a><wbr>(<a href="Attachment.html" title="enum class in ke.ric.renderer.api">Attachment</a>&nbsp;first,
+ <a href="Attachment.html" title="enum class in ke.ric.renderer.api">Attachment</a>...&nbsp;additional)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns a copy with the requested attachments.</div>
+<div class="block">Returns a copy replacing optional attachments without constructing a set.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withProfile(ke.ric.renderer.api.RenderSettings.Profile)" class="member-name-link">withProfile</a><wbr>(<a href="RenderSettings.Profile.html" title="enum class in ke.ric.renderer.api">RenderSettings.Profile</a>&nbsp;value)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withMemoryLimit(long)" class="member-name-link">withMemoryLimit</a><wbr>(long&nbsp;memoryLimitBytes)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns a copy with a different stable quality profile.</div>
+<div class="block">Returns a copy with a per-request memory ceiling; the provider's lower limit wins.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withProfile(ke.ric.renderer.api.RenderSettings.Profile)" class="member-name-link">withProfile</a><wbr>(<a href="RenderSettings.Profile.html" title="enum class in ke.ric.renderer.api">RenderSettings.Profile</a>&nbsp;profile)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns a copy with a different quality intent.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withResolution(int,int)" class="member-name-link">withResolution</a><wbr>(int&nbsp;width,
+ int&nbsp;height)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns a copy changing only the output dimensions.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withTimeout(java.time.Duration)" class="member-name-link">withTimeout</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link">Duration</a>&nbsp;timeout)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns a copy with a positive timeout that fits in nanoseconds; null restores two minutes.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withWorkers(int)" class="member-name-link">withWorkers</a><wbr>(int&nbsp;workers)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns a copy requesting a bounded native worker count.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#workers()" class="member-name-link">workers</a>()</code></div>
@@ -332,25 +365,136 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="defaults()">
+<h3>defaults</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></span>&nbsp;<span class="element-name">defaults</span>()</div>
+<div class="block">Creates Classic settings at 128 by 128 pixels, suitable for one Minecraft map.
+ Uses no optional attachments, a 512 MiB memory ceiling, <a href="#defaultWorkers()"><code>defaultWorkers()</code></a>
+ workers and a two-minute timeout. Provider limits still apply.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>immutable defaults; use <a href="#withResolution(int,int)"><code>withResolution(int, int)</code></a> for another size</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="classic(int,int)">
 <h3>classic</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></span>&nbsp;<span class="element-name">classic</span><wbr><span class="parameters">(int&nbsp;width,
  int&nbsp;height)</span></div>
-<div class="block">Creates v1 Classic settings with no optional attachments and conservative defaults.</div>
+<div class="block">Creates v1 Classic settings with no optional attachments, a 512 MiB memory ceiling,
+ <a href="#defaultWorkers()"><code>defaultWorkers()</code></a> workers and a two-minute render timeout.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>width</code> - positive output width in pixels</dd>
+<dd><code>height</code> - positive output height in pixels</dd>
+<dt>Returns:</dt>
+<dd>immutable settings; use capabilities to check the provider's supported output</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withResolution(int,int)">
+<h3>withResolution</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></span>&nbsp;<span class="element-name">withResolution</span><wbr><span class="parameters">(int&nbsp;width,
+ int&nbsp;height)</span></div>
+<div class="block">Returns a copy changing only the output dimensions. Does not resize an already captured scene.
+ Set the resolution before capture, and check the provider's supported dimensions.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>width</code> - positive output width in pixels</dd>
+<dd><code>height</code> - positive output height in pixels</dd>
+<dt>Returns:</dt>
+<dd>immutable settings preserving quality, attachments and resource limits</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if either dimension is not positive</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="withAttachments(java.util.Set)">
 <h3>withAttachments</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></span>&nbsp;<span class="element-name">withAttachments</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="Attachment.html" title="enum class in ke.ric.renderer.api">Attachment</a>&gt;&nbsp;values)</span></div>
-<div class="block">Returns a copy with the requested attachments.</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></span>&nbsp;<span class="element-name">withAttachments</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="Attachment.html" title="enum class in ke.ric.renderer.api">Attachment</a>&gt;&nbsp;attachments)</span></div>
+<div class="block">Returns a copy replacing optional attachments. RGBA8 is always included.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>attachments</code> - requested outputs advertised by provider capabilities; null means none</dd>
+<dt>Returns:</dt>
+<dd>immutable settings with a defensive attachment-set copy</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withAttachments(ke.ric.renderer.api.Attachment,ke.ric.renderer.api.Attachment...)">
+<h3>withAttachments</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></span>&nbsp;<span class="element-name">withAttachments</span><wbr><span class="parameters">(<a href="Attachment.html" title="enum class in ke.ric.renderer.api">Attachment</a>&nbsp;first,
+ <a href="Attachment.html" title="enum class in ke.ric.renderer.api">Attachment</a>...&nbsp;additional)</span></div>
+<div class="block">Returns a copy replacing optional attachments without constructing a set.
+ For example, <code>withAttachments(Attachment.OBJECT_ID, Attachment.DEPTH)</code>.
+ Duplicate attachments are included only once; RGBA8 is always included.
+ Use <a href="#withAttachments(java.util.Set)"><code>withAttachments(Set)</code></a> with an empty set to request none.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>first</code> - first requested output advertised by provider capabilities</dd>
+<dd><code>additional</code> - any further requested outputs; copied, not retained</dd>
+<dt>Returns:</dt>
+<dd>immutable settings with exactly these optional attachments</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/NullPointerException.html" title="class or interface in java.lang" class="external-link">NullPointerException</a></code> - if any attachment or the additional array is null</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="withProfile(ke.ric.renderer.api.RenderSettings.Profile)">
 <h3>withProfile</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></span>&nbsp;<span class="element-name">withProfile</span><wbr><span class="parameters">(<a href="RenderSettings.Profile.html" title="enum class in ke.ric.renderer.api">RenderSettings.Profile</a>&nbsp;value)</span></div>
-<div class="block">Returns a copy with a different stable quality profile.</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></span>&nbsp;<span class="element-name">withProfile</span><wbr><span class="parameters">(<a href="RenderSettings.Profile.html" title="enum class in ke.ric.renderer.api">RenderSettings.Profile</a>&nbsp;profile)</span></div>
+<div class="block">Returns a copy with a different quality intent.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>profile</code> - non-null stable profile advertised by the provider</dd>
+<dt>Returns:</dt>
+<dd>copied settings with the new profile</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withWorkers(int)">
+<h3>withWorkers</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></span>&nbsp;<span class="element-name">withWorkers</span><wbr><span class="parameters">(int&nbsp;workers)</span></div>
+<div class="block">Returns a copy requesting a bounded native worker count.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>workers</code> - positive worker count, not exceeding the provider's configured limit</dd>
+<dt>Returns:</dt>
+<dd>copied settings with the new worker request</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withMemoryLimit(long)">
+<h3>withMemoryLimit</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></span>&nbsp;<span class="element-name">withMemoryLimit</span><wbr><span class="parameters">(long&nbsp;memoryLimitBytes)</span></div>
+<div class="block">Returns a copy with a per-request memory ceiling; the provider's lower limit wins.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>memoryLimitBytes</code> - positive native-memory ceiling in bytes (not MiB)</dd>
+<dt>Returns:</dt>
+<dd>copied settings with the new memory ceiling</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withTimeout(java.time.Duration)">
+<h3>withTimeout</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></span>&nbsp;<span class="element-name">withTimeout</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link">Duration</a>&nbsp;timeout)</span></div>
+<div class="block">Returns a copy with a positive timeout that fits in nanoseconds; null restores two minutes.
+ Low-level tasks start this deadline at submission; <a href="RendererSession.html" title="class in ke.ric.renderer.api"><code>RendererSession</code></a> shares it across capture and render.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>timeout</code> - positive duration representable in nanoseconds, or null for two minutes</dd>
+<dt>Returns:</dt>
+<dd>copied settings with the new deadline duration</dd>
+</dl>
 </section>
 </li>
 <li>

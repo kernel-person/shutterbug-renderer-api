@@ -113,12 +113,12 @@ loadScripts(document, 'script');</script>
  int&nbsp;skyLight,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;biome)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Adds one exact block-state, light, and biome sample.</div>
+<div class="block">Adds one world-block sample with namespaced state/biome keys and block/sky light levels in 0..15.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="Scene.html" title="interface in ke.ric.renderer.api">Scene</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#build()" class="member-name-link">build</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Validates and returns an immutable provider-owned scene.</div>
+<div class="block">Returns an immutable scene or throws a typed failure such as MISSING_CHUNK; the provider never invents absent evidence.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#camera(double,double,double,double,double,double)" class="member-name-link">camera</a><wbr>(double&nbsp;x,
@@ -128,60 +128,66 @@ loadScripts(document, 'script');</script>
  double&nbsp;pitchRadians,
  double&nbsp;fovRadians)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Sets camera position, orientation, and field of view in radians.</div>
+<div class="block">Sets the camera in world-block coordinates and orientation/field of view in radians.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#chunkSection(int,int,int,boolean)" class="member-name-link">chunkSection</a><wbr>(int&nbsp;sectionX,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#camera(ke.ric.renderer.api.SceneCamera)" class="member-name-link">camera</a><wbr>(<a href="SceneCamera.html" title="class in ke.ric.renderer.api">SceneCamera</a>&nbsp;camera)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Sets a camera including local roll; older providers accept only zero roll.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#chunkSection(int,int,int,boolean)" class="member-name-link">chunkSection</a><wbr>(int&nbsp;sectionX,
  int&nbsp;sectionY,
  int&nbsp;sectionZ,
  boolean&nbsp;present)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Records whether a 16x16x16 chunk section is present.</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Records legacy section presence at section coordinates (block coordinates divided by 16): false means missing;
+ true permits empty or populated evidence.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#chunkSection(int,int,int,ke.ric.renderer.api.ChunkSectionState)" class="member-name-link">chunkSection</a><wbr>(int&nbsp;sectionX,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#chunkSection(int,int,int,ke.ric.renderer.api.ChunkSectionState)" class="member-name-link">chunkSection</a><wbr>(int&nbsp;sectionX,
  int&nbsp;sectionY,
  int&nbsp;sectionZ,
  <a href="ChunkSectionState.html" title="enum class in ke.ric.renderer.api">ChunkSectionState</a>&nbsp;state)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Records the exact evidence state for a 16x16x16 chunk section.</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Records MISSING, known EMPTY, or PALETTED evidence for a section; known air must not be recorded as missing.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#dimensions(int,int)" class="member-name-link">dimensions</a><wbr>(int&nbsp;width,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#dimensions(int,int)" class="member-name-link">dimensions</a><wbr>(int&nbsp;width,
  int&nbsp;height)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Sets the positive output dimensions.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#entity(ke.ric.renderer.api.SceneEntity)" class="member-name-link">entity</a><wbr>(<a href="SceneEntity.html" title="class in ke.ric.renderer.api">SceneEntity</a>&nbsp;entity)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Adds one resolved entity and its stable object identity.</div>
+<div class="block">Sets positive output dimensions in pixels; these must match the submitted <a href="RenderSettings.html" title="class in ke.ric.renderer.api"><code>RenderSettings</code></a>.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#requireChunk(int,int)" class="member-name-link">requireChunk</a><wbr>(int&nbsp;chunkX,
- int&nbsp;chunkZ)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#entity(ke.ric.renderer.api.SceneEntity)" class="member-name-link">entity</a><wbr>(<a href="SceneEntity.html" title="class in ke.ric.renderer.api">SceneEntity</a>&nbsp;entity)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Marks a chunk as required for scene completeness.</div>
+<div class="block">Adds resolved immutable entity visuals and their stable nonzero object ID; metadata alone cannot supply missing visuals.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#structure(ke.ric.renderer.api.SceneStructure)" class="member-name-link">structure</a><wbr>(<a href="SceneStructure.html" title="class in ke.ric.renderer.api">SceneStructure</a>&nbsp;structure)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#requireChunk(int,int)" class="member-name-link">requireChunk</a><wbr>(int&nbsp;chunkX,
+ int&nbsp;chunkZ)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Marks chunk coordinates (block coordinates divided by 16) as required; every world-height section needs explicit evidence.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#structure(ke.ric.renderer.api.SceneStructure)" class="member-name-link">structure</a><wbr>(<a href="SceneStructure.html" title="class in ke.ric.renderer.api">SceneStructure</a>&nbsp;structure)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Adds one structure key and bounds.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#weather(boolean,boolean)" class="member-name-link">weather</a><wbr>(boolean&nbsp;raining,
- boolean&nbsp;snowy)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Sets captured rain and snow state.</div>
-</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#world(java.lang.String,java.lang.String,long,int,int)" class="member-name-link">world</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;namespacedEnvironment,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#weather(boolean,boolean)" class="member-name-link">weather</a><wbr>(boolean&nbsp;raining,
+ boolean&nbsp;snowy)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Sets explicit rain and snow evidence; this does not query or mutate any live world.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#world(java.lang.String,java.lang.String,long,int,int)" class="member-name-link">world</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;namespacedEnvironment,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;worldName,
  long&nbsp;time,
  int&nbsp;minHeight,
  int&nbsp;maxHeight)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Sets immutable world identity, time, and build-height evidence.</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Sets world/environment names, time in Minecraft ticks, and minimum/maximum build heights in blocks.</div>
 </div>
 </div>
 </div>
@@ -202,7 +208,7 @@ loadScripts(document, 'script');</script>
 <h3>dimensions</h3>
 <div class="member-signature"><span class="return-type"><a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></span>&nbsp;<span class="element-name">dimensions</span><wbr><span class="parameters">(int&nbsp;width,
  int&nbsp;height)</span></div>
-<div class="block">Sets the positive output dimensions.</div>
+<div class="block">Sets positive output dimensions in pixels; these must match the submitted <a href="RenderSettings.html" title="class in ke.ric.renderer.api"><code>RenderSettings</code></a>.</div>
 </section>
 </li>
 <li>
@@ -214,7 +220,25 @@ loadScripts(document, 'script');</script>
  double&nbsp;yawRadians,
  double&nbsp;pitchRadians,
  double&nbsp;fovRadians)</span></div>
-<div class="block">Sets camera position, orientation, and field of view in radians.</div>
+<div class="block">Sets the camera in world-block coordinates and orientation/field of view in radians.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>x</code> - world X coordinate in blocks</dd>
+<dd><code>y</code> - world Y coordinate in blocks</dd>
+<dd><code>z</code> - world Z coordinate in blocks</dd>
+<dd><code>yawRadians</code> - horizontal orientation, in radians (not Bukkit degrees)</dd>
+<dd><code>pitchRadians</code> - vertical orientation, in radians (not Bukkit degrees)</dd>
+<dd><code>fovRadians</code> - camera field of view, in radians</dd>
+<dt>Returns:</dt>
+<dd>this builder</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="camera(ke.ric.renderer.api.SceneCamera)">
+<h3>camera</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></span>&nbsp;<span class="element-name">camera</span><wbr><span class="parameters">(<a href="SceneCamera.html" title="class in ke.ric.renderer.api">SceneCamera</a>&nbsp;camera)</span></div>
+<div class="block">Sets a camera including local roll; older providers accept only zero roll.</div>
 </section>
 </li>
 <li>
@@ -225,7 +249,7 @@ loadScripts(document, 'script');</script>
  long&nbsp;time,
  int&nbsp;minHeight,
  int&nbsp;maxHeight)</span></div>
-<div class="block">Sets immutable world identity, time, and build-height evidence.</div>
+<div class="block">Sets world/environment names, time in Minecraft ticks, and minimum/maximum build heights in blocks.</div>
 </section>
 </li>
 <li>
@@ -233,7 +257,7 @@ loadScripts(document, 'script');</script>
 <h3>weather</h3>
 <div class="member-signature"><span class="return-type"><a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></span>&nbsp;<span class="element-name">weather</span><wbr><span class="parameters">(boolean&nbsp;raining,
  boolean&nbsp;snowy)</span></div>
-<div class="block">Sets captured rain and snow state.</div>
+<div class="block">Sets explicit rain and snow evidence; this does not query or mutate any live world.</div>
 </section>
 </li>
 <li>
@@ -246,14 +270,14 @@ loadScripts(document, 'script');</script>
  int&nbsp;blockLight,
  int&nbsp;skyLight,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;biome)</span></div>
-<div class="block">Adds one exact block-state, light, and biome sample.</div>
+<div class="block">Adds one world-block sample with namespaced state/biome keys and block/sky light levels in 0..15.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="entity(ke.ric.renderer.api.SceneEntity)">
 <h3>entity</h3>
 <div class="member-signature"><span class="return-type"><a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></span>&nbsp;<span class="element-name">entity</span><wbr><span class="parameters">(<a href="SceneEntity.html" title="class in ke.ric.renderer.api">SceneEntity</a>&nbsp;entity)</span></div>
-<div class="block">Adds one resolved entity and its stable object identity.</div>
+<div class="block">Adds resolved immutable entity visuals and their stable nonzero object ID; metadata alone cannot supply missing visuals.</div>
 </section>
 </li>
 <li>
@@ -270,7 +294,8 @@ loadScripts(document, 'script');</script>
  int&nbsp;sectionY,
  int&nbsp;sectionZ,
  boolean&nbsp;present)</span></div>
-<div class="block">Records whether a 16x16x16 chunk section is present.</div>
+<div class="block">Records legacy section presence at section coordinates (block coordinates divided by 16): false means missing;
+ true permits empty or populated evidence. Use the state overload to distinguish known empty from paletted sections.</div>
 </section>
 </li>
 <li>
@@ -280,7 +305,7 @@ loadScripts(document, 'script');</script>
  int&nbsp;sectionY,
  int&nbsp;sectionZ,
  <a href="ChunkSectionState.html" title="enum class in ke.ric.renderer.api">ChunkSectionState</a>&nbsp;state)</span></div>
-<div class="block">Records the exact evidence state for a 16x16x16 chunk section.</div>
+<div class="block">Records MISSING, known EMPTY, or PALETTED evidence for a section; known air must not be recorded as missing.</div>
 </section>
 </li>
 <li>
@@ -288,14 +313,14 @@ loadScripts(document, 'script');</script>
 <h3>requireChunk</h3>
 <div class="member-signature"><span class="return-type"><a href="SceneBuilder.html" title="interface in ke.ric.renderer.api">SceneBuilder</a></span>&nbsp;<span class="element-name">requireChunk</span><wbr><span class="parameters">(int&nbsp;chunkX,
  int&nbsp;chunkZ)</span></div>
-<div class="block">Marks a chunk as required for scene completeness.</div>
+<div class="block">Marks chunk coordinates (block coordinates divided by 16) as required; every world-height section needs explicit evidence.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="build()">
 <h3>build</h3>
 <div class="member-signature"><span class="return-type"><a href="Scene.html" title="interface in ke.ric.renderer.api">Scene</a></span>&nbsp;<span class="element-name">build</span>()</div>
-<div class="block">Validates and returns an immutable provider-owned scene.</div>
+<div class="block">Returns an immutable scene or throws a typed failure such as MISSING_CHUNK; the provider never invents absent evidence.</div>
 </section>
 </li>
 </ul>

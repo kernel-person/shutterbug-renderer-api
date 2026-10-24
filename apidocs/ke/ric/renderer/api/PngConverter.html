@@ -109,7 +109,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static byte[]</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#encode(ke.ric.renderer.api.RenderResult)" class="member-name-link">encode</a><wbr>(<a href="RenderResult.html" title="class in ke.ric.renderer.api">RenderResult</a>&nbsp;frame)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Encodes the frame without modifying it.</div>
+<div class="block">Encodes copied RGBA8 including alpha without modifying the frame; run away from the server thread for nontrivial images.</div>
 </div>
 </div>
 </div>
@@ -132,7 +132,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="encode(ke.ric.renderer.api.RenderResult)">
 <h3>encode</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name">encode</span><wbr><span class="parameters">(<a href="RenderResult.html" title="class in ke.ric.renderer.api">RenderResult</a>&nbsp;frame)</span></div>
-<div class="block">Encodes the frame without modifying it.</div>
+<div class="block">Encodes copied RGBA8 including alpha without modifying the frame; run away from the server thread for nontrivial images.</div>
 </section>
 </li>
 </ul>

@@ -91,7 +91,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public final class </span><span class="element-name type-name-label">MinecraftMapConverter</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">Converts immutable render output to exact Minecraft map-palette bytes.</div>
+<div class="block">Converts copied frame RGB colors to Minecraft palette bytes; run nontrivial conversion on a private worker executor.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -110,13 +110,13 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#quantize(ke.ric.renderer.api.RenderResult,ke.ric.renderer.api.MapDither)" class="member-name-link">quantize</a><wbr>(<a href="RenderResult.html" title="class in ke.ric.renderer.api">RenderResult</a>&nbsp;frame,
  <a href="MapDither.html" title="enum class in ke.ric.renderer.api">MapDither</a>&nbsp;mode)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Returns one row-major map-palette byte per render pixel.</div>
+<div class="block">Returns one row-major palette byte per pixel; RGB is quantized with the selected dither and source alpha is not composited.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static byte[][]</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#tiles(ke.ric.renderer.api.RenderResult,ke.ric.renderer.api.MapDither)" class="member-name-link">tiles</a><wbr>(<a href="RenderResult.html" title="class in ke.ric.renderer.api">RenderResult</a>&nbsp;frame,
  <a href="MapDither.html" title="enum class in ke.ric.renderer.api">MapDither</a>&nbsp;mode)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Returns row-major 128x128 tiles; both frame dimensions must be multiples of 128.</div>
+<div class="block">Returns newly allocated 128x128 palette tiles in row-major tile order; both frame dimensions must be multiples of 128.</div>
 </div>
 </div>
 </div>
@@ -140,7 +140,7 @@ loadScripts(document, 'script');</script>
 <h3>quantize</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name">quantize</span><wbr><span class="parameters">(<a href="RenderResult.html" title="class in ke.ric.renderer.api">RenderResult</a>&nbsp;frame,
  <a href="MapDither.html" title="enum class in ke.ric.renderer.api">MapDither</a>&nbsp;mode)</span></div>
-<div class="block">Returns one row-major map-palette byte per render pixel.</div>
+<div class="block">Returns one row-major palette byte per pixel; RGB is quantized with the selected dither and source alpha is not composited.</div>
 </section>
 </li>
 <li>
@@ -148,7 +148,7 @@ loadScripts(document, 'script');</script>
 <h3>tiles</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">byte[][]</span>&nbsp;<span class="element-name">tiles</span><wbr><span class="parameters">(<a href="RenderResult.html" title="class in ke.ric.renderer.api">RenderResult</a>&nbsp;frame,
  <a href="MapDither.html" title="enum class in ke.ric.renderer.api">MapDither</a>&nbsp;mode)</span></div>
-<div class="block">Returns row-major 128x128 tiles; both frame dimensions must be multiples of 128.</div>
+<div class="block">Returns newly allocated 128x128 palette tiles in row-major tile order; both frame dimensions must be multiples of 128.</div>
 </section>
 </li>
 </ul>

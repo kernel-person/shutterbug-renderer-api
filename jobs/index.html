@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Java consumer documentation for ShutterBug Renderer API v1.">
+        <meta name="description" content="Fluent snapshots, live feeds, scene composition and creative lighting for Java plugins.">
       
       
       
@@ -552,6 +552,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Jobs and progress
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -563,6 +576,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#snapshot-and-stream-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Snapshot and stream progress
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#low-level-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Low-level jobs
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -730,6 +780,75 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xray-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    X-ray camera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../live-feeds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Live feeds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creative-controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creative controls
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -757,6 +876,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#snapshot-and-stream-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Snapshot and stream progress
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#low-level-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Low-level jobs
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -772,7 +917,12 @@
 
 
 <h1 id="jobs-and-progress">Jobs and progress</h1>
-<p><code>submit</code> performs bounded admission and returns a <code>RenderTask</code>; queue admission can fail synchronously with <code>QUEUE_FULL</code>. <code>RenderSettings.timeout()</code> begins at task creation and covers queueing, preparation, native work, diagnostics, and output copy. Poll <code>progress()</code> without blocking: phases are <code>QUEUED</code>, <code>PREPARING</code>, <code>DECODING</code>, <code>RENDERING</code>, <code>POST_PROCESSING</code>, <code>DIAGNOSTICS</code>, <code>COPYING_OUTPUT</code>, and terminal <code>COMPLETE</code>. Progress is monotonic actual work, not a wall-clock estimate; successful completion is <code>COMPLETE/10_000</code>.</p>
+<h2 id="snapshot-and-stream-progress">Snapshot and stream progress</h2>
+<p><code>.onProgress(...)</code> receives measured <code>FrameProgress</code> for capture, each render pass, conversion and saving. Callbacks run on the server thread at most once per tick. <code>basisPoints()</code> ranges from zero to 10,000 <strong>within the current stage</strong>, and rendering identifies its pass index/count. A new stage or pass can restart at zero; this is not an estimated total duration or overall percentage. Updates are coalesced, so callers must not depend on receiving every transition.</p>
+<p>Cancel a snapshot's returned future to cancel its current stage. Stop a stream to end future frames and remove owned temporary output. Cancellation and lifecycle loss suppress late callbacks. A completed map allocation or atomic file write cannot be undone by cancelling a later step.</p>
+<h2 id="low-level-jobs">Low-level jobs</h2>
+<p><code>submit</code> performs bounded admission and returns a <code>RenderTask</code>; queue admission can fail synchronously with <code>QUEUE_FULL</code>. The provider defaults to one concurrent native render, queue capacity 16 and a 512 MiB aggregate native-memory budget. An operator can configure concurrency; consumers must still respect admission and memory failures. A job's effective memory ceiling is the lower of its requested limit and the provider limit. Admission reserves scene, selected assets, render, attachment and copy memory, and releases the reservation on every terminal path. Manual scene construction and asset registration are bounded too.</p>
+<p><code>RenderSettings.timeout()</code> begins at task creation and covers queueing, preparation, native work, diagnostics, and output copy. Poll <code>progress()</code> without blocking: phases are <code>QUEUED</code>, <code>PREPARING</code>, <code>DECODING</code>, <code>RENDERING</code>, <code>POST_PROCESSING</code>, <code>DIAGNOSTICS</code>, <code>COPYING_OUTPUT</code>, and terminal <code>COMPLETE</code>. Progress is monotonic actual work, not a wall-clock estimate; successful completion is <code>COMPLETE/10_000</code>.</p>
 <p><code>cancel()</code> returns true only when it wins a nonterminal transition; completion then fails with <code>CANCELLED</code>, while a terminal race returns false. <code>status()</code> is the coarse task state. Bound concurrent submissions in the consumer, back off after <code>QUEUE_FULL</code>, and retain a task only until its completion/cancellation handling finishes. See the <a href="https://github.com/kernel-person/shutterbug-renderer-api/tree/v1.0.2/sample-plugin">complete sample plugin</a>.</p>
 
 

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Java consumer documentation for ShutterBug Renderer API v1.">
+        <meta name="description" content="Fluent snapshots, live feeds, scene composition and creative lighting for Java plugins.">
       
       
       
@@ -295,6 +295,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Compatibility
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -306,6 +319,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fluent-and-creative-controls-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluent and creative-controls preview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historical-commercial-release-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Historical commercial release matrix
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -730,6 +780,75 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xray-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    X-ray camera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../live-feeds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Live feeds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creative-controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creative controls
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -757,6 +876,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fluent-and-creative-controls-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluent and creative-controls preview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historical-commercial-release-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Historical commercial release matrix
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -772,7 +917,11 @@
 
 
 <h1 id="compatibility-and-platform-status">Compatibility and platform status</h1>
-<p>The commercial product is ShutterBug Renderer 1.0.0. The free SDK distribution coordinate is <code>com.github.kernel-person:shutterbug-renderer-api:v1.0.2</code>; it preserves the v1 public Java API and binary baseline.</p>
+<h2 id="fluent-and-creative-controls-preview">Fluent and creative-controls preview</h2>
+<p>The current developer SDK is <strong><code>ke.ric:renderer-api:2.3.0-preview.3</code></strong>. It requires the <strong>matching development provider</strong> and native library containing the fluent API, persistent photos, reuse and creative controls. Development functionality and packaged ABI checks have been validated on macOS ARM64. These docs do not announce Linux or Windows acceptance for this new preview pair or replace a commercial provider download.</p>
+<p>The stable Maven SDK <code>2.2</code>, preview.1, preview.2 and historical JitPack SDK v1.0.2 remain immutable. Binary compatibility preserves existing consumers; it does not make a new method or native lighting contract available in an old provider. Unsupported controls fail explicitly. Compile on Java 21; run the pinned Paper adapter on Java 25.</p>
+<h2 id="historical-commercial-release-matrix">Historical commercial release matrix</h2>
+<p>The commercial product is ShutterBug Renderer 1.0.0. Its historical SDK distribution coordinate is <code>com.github.kernel-person:shutterbug-renderer-api:v1.0.2</code>; it preserves the v1 public Java API and binary baseline.</p>
 <table>
 <thead>
 <tr>
@@ -794,13 +943,13 @@
 </tr>
 <tr>
 <td><code>windows-x86_64</code></td>
-<td>Supported on the tested runtime below</td>
-<td>Windows x86-64</td>
+<td>Coming soon; not yet supported or included</td>
+<td>Windows x86-64 future target</td>
 </tr>
 </tbody>
 </table>
-<p>The current Renderer 1.0.0 delivery includes macOS ARM64, Linux x86-64, and Windows x86-64. Windows acceptance on 2026-10-18 used Windows Server 2025 10.0 (amd64), Paper 26.2 build 129 / Minecraft 26.2, and Java 25 (Eclipse Adoptium Temurin 25.0.4.1+1). The exact packaged Java/native pair passed its Windows canary and Paper initial-start, cached-restart, and shutdown checks. This is server-runtime acceptance, not Windows-client visual acceptance or a performance guarantee.</p>
-<p>Other Windows versions and ARM Windows remain unverified. A Windows archive, workflow entry, or linked DLL alone is not evidence of runtime support. The same release also passed macOS ARM64 native server checks and Linux x86-64 server checks under Docker amd64 emulation; this is not a claim of native Linux-host testing.</p>
+<p>Windows x86-64 must remain pending until the exact packaged Java/native pair passes the Windows canary and Paper acceptance gate. A Windows archive or workflow entry is not evidence of runtime support. Do not advertise or deploy Windows production support before the release evidence changes this matrix.</p>
+<p>The initial delivery contains macOS ARM64 and Linux x86-64 only. Windows acceptance does not block this two-platform release, but Windows support must not be claimed until its own runtime tests pass.</p>
 <p>The SDK compilation baseline is Java 21. The server runtime is Paper 26.2 / Minecraft 26.2 on Java 25. The frozen adapter identifier <code>paper-26.2-minecraft-1.21.10</code> retains its historical compile-target name for compatibility; it is not an instruction to run Paper 26.2 on Java 21. Other Paper revisions, server implementations, CPU architectures, and operating systems are unverified. Consumers should check runtime capabilities rather than infer them from the host name.</p>
 <p>Patch releases of the SDK may improve docs, samples, and packaging while retaining the v1 binary baseline. A future incompatible API requires a new major contract and coordinate; upgrading the commercial provider does not grant consumers permission to compile against private implementation packages.</p>
 

@@ -24,6 +24,6 @@ public final class CaptureExample {
         RenderSettings settings = RenderSettings.classic(128, 128);
         CaptureRequest capture = new CaptureRequest(camera, 16.0, settings, 2, Set.of(target));
         return client.capture(capture)
-                .thenCompose(scene -> client.submit(new RenderJob(2, scene, settings)).completion());
+                .thenCompose(scene -> client.submit(new RenderJob(1, scene, settings)).completion());
     }
 }

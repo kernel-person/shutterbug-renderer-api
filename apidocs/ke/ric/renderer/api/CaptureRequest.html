@@ -136,16 +136,27 @@ loadScripts(document, 'script');</script>
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="CaptureRequest.html" title="class in ke.ric.renderer.api">CaptureRequest</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#at(org.bukkit.Location)" class="member-name-link">at</a><wbr>(org.bukkit.Location&nbsp;camera)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Starts a capture with <a href="RenderSettings.html#defaults()"><code>RenderSettings.defaults()</code></a>: Classic at 128 by 128 pixels.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="CaptureRequest.html" title="class in ke.ric.renderer.api">CaptureRequest</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#at(org.bukkit.Location,ke.ric.renderer.api.RenderSettings)" class="member-name-link">at</a><wbr>(org.bukkit.Location&nbsp;camera,
+ <a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a>&nbsp;settings)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Starts a request with radius 16 blocks, at most two chunks per server tick and no exclusions.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.bukkit.Location</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#camera()" class="member-name-link">camera</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <a href="#param-camera"><code>camera</code></a> record component.</div>
+<div class="block">Returns a fresh copy of the camera location; changing it cannot alter this request.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#chunksPerTick()" class="member-name-link">chunksPerTick</a>()</code></div>
@@ -162,25 +173,40 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <a href="#param-excludedEntityIds"><code>excludedEntityIds</code></a> record component.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="CaptureRequest.html" title="class in ke.ric.renderer.api">CaptureRequest</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#excluding(java.util.Set)" class="member-name-link">excluding</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&gt;&nbsp;excludedEntityIds)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns a copy replacing the exclusion set before entity visual capture.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a hash code value for this object.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#radius()" class="member-name-link">radius</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#radius()" class="member-name-link">radius</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <a href="#param-radius"><code>radius</code></a> record component.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#settings()" class="member-name-link">settings</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#settings()" class="member-name-link">settings</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <a href="#param-settings"><code>settings</code></a> record component.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a string representation of this record class.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="CaptureRequest.html" title="class in ke.ric.renderer.api">CaptureRequest</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withChunksPerTick(int)" class="member-name-link">withChunksPerTick</a><wbr>(int&nbsp;chunksPerTick)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns a copy limiting world reads per server tick.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="CaptureRequest.html" title="class in ke.ric.renderer.api">CaptureRequest</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withRadius(double)" class="member-name-link">withRadius</a><wbr>(double&nbsp;radiusBlocks)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns an immutable copy with a finite positive capture radius.</div>
 </div>
 </div>
 </div>
@@ -240,10 +266,76 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="camera()">
 <h3>camera</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.bukkit.Location</span>&nbsp;<span class="element-name">camera</span>()</div>
-<div class="block">Returns the value of the <a href="#param-camera"><code>camera</code></a> record component.</div>
+<div class="block">Returns a fresh copy of the camera location; changing it cannot alter this request.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="at(org.bukkit.Location)">
+<h3>at</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="CaptureRequest.html" title="class in ke.ric.renderer.api">CaptureRequest</a></span>&nbsp;<span class="element-name">at</span><wbr><span class="parameters">(org.bukkit.Location&nbsp;camera)</span></div>
+<div class="block">Starts a capture with <a href="RenderSettings.html#defaults()"><code>RenderSettings.defaults()</code></a>: Classic at 128 by 128 pixels.
+ Uses a 16-block radius, at most two chunks per server tick and no exclusions.
+ Construction copies the location; it does not read or load the world.</div>
 <dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>camera</code> - camera position/orientation, with the world to capture</dd>
 <dt>Returns:</dt>
-<dd>the value of the <a href="#param-camera"><code>camera</code></a> record component</dd>
+<dd>immutable request; required chunks must already be loaded when captured</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="at(org.bukkit.Location,ke.ric.renderer.api.RenderSettings)">
+<h3>at</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="CaptureRequest.html" title="class in ke.ric.renderer.api">CaptureRequest</a></span>&nbsp;<span class="element-name">at</span><wbr><span class="parameters">(org.bukkit.Location&nbsp;camera,
+ <a href="RenderSettings.html" title="class in ke.ric.renderer.api">RenderSettings</a>&nbsp;settings)</span></div>
+<div class="block">Starts a request with radius 16 blocks, at most two chunks per server tick and no exclusions.
+ Construction copies the location; it does not read or load the world.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>camera</code> - camera position/orientation, with the world to capture</dd>
+<dd><code>settings</code> - render dimensions, quality and resource limits</dd>
+<dt>Returns:</dt>
+<dd>immutable request; required chunks must already be loaded when captured</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withRadius(double)">
+<h3>withRadius</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="CaptureRequest.html" title="class in ke.ric.renderer.api">CaptureRequest</a></span>&nbsp;<span class="element-name">withRadius</span><wbr><span class="parameters">(double&nbsp;radiusBlocks)</span></div>
+<div class="block">Returns an immutable copy with a finite positive capture radius. Provider limits still apply.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>radiusBlocks</code> - finite positive capture radius in world blocks</dd>
+<dt>Returns:</dt>
+<dd>copied request with the new radius</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withChunksPerTick(int)">
+<h3>withChunksPerTick</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="CaptureRequest.html" title="class in ke.ric.renderer.api">CaptureRequest</a></span>&nbsp;<span class="element-name">withChunksPerTick</span><wbr><span class="parameters">(int&nbsp;chunksPerTick)</span></div>
+<div class="block">Returns a copy limiting world reads per server tick.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>chunksPerTick</code> - positive maximum chunks to read in one tick, subject to provider limits</dd>
+<dt>Returns:</dt>
+<dd>copied request with the new per-tick budget</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="excluding(java.util.Set)">
+<h3>excluding</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="CaptureRequest.html" title="class in ke.ric.renderer.api">CaptureRequest</a></span>&nbsp;<span class="element-name">excluding</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&gt;&nbsp;excludedEntityIds)</span></div>
+<div class="block">Returns a copy replacing the exclusion set before entity visual capture.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>excludedEntityIds</code> - non-null UUID set; copied, and must not contain null</dd>
+<dt>Returns:</dt>
+<dd>copied request excluding exactly these UUIDs</dd>
 </dl>
 </section>
 </li>

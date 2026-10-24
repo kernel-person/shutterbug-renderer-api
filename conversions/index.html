@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Java consumer documentation for ShutterBug Renderer API v1.">
+        <meta name="description" content="Fluent snapshots, live feeds, scene composition and creative lighting for Java plugins.">
       
       
       
@@ -621,6 +621,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Conversions
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -632,6 +645,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#convenient-frame-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convenient frame output
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direct-conversion-and-multi-map-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direct conversion and multi-map output
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -730,6 +780,75 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xray-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    X-ray camera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../live-feeds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Live feeds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creative-controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creative controls
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -757,6 +876,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#convenient-frame-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convenient frame output
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direct-conversion-and-multi-map-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direct conversion and multi-map output
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -772,6 +917,11 @@
 
 
 <h1 id="png-and-map-conversions">PNG and map conversions</h1>
+<h2 id="convenient-frame-output">Convenient frame output</h2>
+<p>Use <code>frame.image()</code> for a newly allocated <code>BufferedImage</code>, <code>frame.savePng(path)</code> for asynchronous PNG encoding and atomic file replacement, or <code>frame.toMapItem()</code> for a provider-owned durable photo. <code>captureMap()</code> combines capture and map saving. The PNG parent directory must exist; unsupported atomic replacement or filesystem errors fail the future.</p>
+<p>Saved-map delivery waits for persistence. One map is fitted with black aspect-preserving letterboxing; <code>MapOutputOptions</code> selects palette dithering. Raw capture and PNG output allocate no maps. See <a href="../capture/">saved photos</a> for backup and ownership semantics.</p>
+<h2 id="direct-conversion-and-multi-map-output">Direct conversion and multi-map output</h2>
+<p>The existing conversion utilities remain available for custom filters, palettes and multi-map grouping. A consumer-owned <code>MapSink</code> receives an immutable <code>MapFrame</code> containing fitted palette bytes and the original frame evidence. The consuming plugin owns filtered-image identity, tile grouping, item delivery and any archival format beyond explicit provider photo saving.</p>
 <p>Run nontrivial conversion off the main thread. PNG encoding preserves the result, while map quantization returns one map-palette byte per pixel. Map tiles require both dimensions to be multiples of 128. Store or transmit the returned copies under your plugin's own bounds and retention policy.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">docs.examples</span><span class="p">;</span>
 

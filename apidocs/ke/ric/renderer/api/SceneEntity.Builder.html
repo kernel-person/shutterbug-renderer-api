@@ -95,7 +95,9 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public static final class </span><span class="element-name type-name-label">SceneEntity.Builder</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">Fluent builder for immutable <a href="SceneEntity.html" title="class in ke.ric.renderer.api"><code>SceneEntity</code></a> evidence.</div>
+<div class="block">Mutable builder for immutable entity evidence; do not share it concurrently. Defaults to origin,
+ zero yaw, unit bounds, living/adult, cube size 1, air equipment and a UUID-derived nonzero ID.
+ Callers still supply complete resolved targets when the scene requires entity visuals.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -111,77 +113,117 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#baby(boolean)" class="member-name-link">baby</a><wbr>(boolean&nbsp;v)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#baby(boolean)" class="member-name-link">baby</a><wbr>(boolean&nbsp;baby)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets baby/adult metadata.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#bounds(double,double,double,double,double,double)" class="member-name-link">bounds</a><wbr>(double&nbsp;a,
- double&nbsp;b,
- double&nbsp;c,
- double&nbsp;d,
- double&nbsp;e,
- double&nbsp;f)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#bounds(double,double,double,double,double,double)" class="member-name-link">bounds</a><wbr>(double&nbsp;minX,
+ double&nbsp;minY,
+ double&nbsp;minZ,
+ double&nbsp;maxX,
+ double&nbsp;maxY,
+ double&nbsp;maxZ)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets finite world-space minimum/maximum bounds, in blocks.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.html" title="class in ke.ric.renderer.api">SceneEntity</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#build()" class="member-name-link">build</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Validates and builds immutable evidence without reading any live Bukkit object.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#containedBlock(java.lang.String)" class="member-name-link">containedBlock</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;v)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#containedBlock(java.lang.String)" class="member-name-link">containedBlock</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;containedBlock)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets optional contained-block state metadata.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#cubeSize(int)" class="member-name-link">cubeSize</a><wbr>(int&nbsp;v)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#cubeSize(int)" class="member-name-link">cubeSize</a><wbr>(int&nbsp;cubeSize)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets a positive cube-entity size; default 1.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#displayName(java.lang.String)" class="member-name-link">displayName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;v)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#displayName(java.lang.String)" class="member-name-link">displayName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;displayName)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the optional display name used with a primary resolved label.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equipment(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)" class="member-name-link">equipment</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;a,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;b,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;c,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;d,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;e,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;f)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equipment(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)" class="member-name-link">equipment</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;mainHand,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;offHand,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;helmet,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;chestplate,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;leggings,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;boots)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets namespaced equipment item keys in main-hand, off-hand, helmet, chestplate, leggings, boots order.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#label(ke.ric.renderer.api.ResolvedLabel)" class="member-name-link">label</a><wbr>(<a href="ResolvedLabel.html" title="class in ke.ric.renderer.api">ResolvedLabel</a>&nbsp;v)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#label(ke.ric.renderer.api.ResolvedLabel)" class="member-name-link">label</a><wbr>(<a href="ResolvedLabel.html" title="class in ke.ric.renderer.api">ResolvedLabel</a>&nbsp;label)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets optional primary label evidence; build requires a display name and at least one target.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#living(boolean)" class="member-name-link">living</a><wbr>(boolean&nbsp;v)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#living(boolean)" class="member-name-link">living</a><wbr>(boolean&nbsp;living)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the immutable classification used by living-only scene selection.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#material(java.lang.String)" class="member-name-link">material</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;v)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#material(java.lang.String)" class="member-name-link">material</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;material)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets optional material metadata.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#model(java.lang.String)" class="member-name-link">model</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;v)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#model(java.lang.String)" class="member-name-link">model</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;model)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets model metadata; complete resolved visual targets remain the caller's responsibility.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#objectId(int)" class="member-name-link">objectId</a><wbr>(int&nbsp;v)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#objectId(int)" class="member-name-link">objectId</a><wbr>(int&nbsp;objectId)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets a nonzero stable output object ID, replacing the UUID-derived default.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#pose(java.lang.String)" class="member-name-link">pose</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;v)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#pose(java.lang.String)" class="member-name-link">pose</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pose)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets optional pose metadata.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#position(double,double,double)" class="member-name-link">position</a><wbr>(double&nbsp;x,
  double&nbsp;y,
  double&nbsp;z)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets entity position in world blocks.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resolvedTarget(ke.ric.renderer.api.ResolvedRenderTarget)" class="member-name-link">resolvedTarget</a><wbr>(<a href="ResolvedRenderTarget.html" title="class in ke.ric.renderer.api">ResolvedRenderTarget</a>&nbsp;v)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resolvedTarget(ke.ric.renderer.api.ResolvedRenderTarget)" class="member-name-link">resolvedTarget</a><wbr>(<a href="ResolvedRenderTarget.html" title="class in ke.ric.renderer.api">ResolvedRenderTarget</a>&nbsp;target)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Selects one legacy target, placed at this entity's transform/bounds when built; clears any target list.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resolvedTargets(java.util.List)" class="member-name-link">resolvedTargets</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ResolvedRenderTarget.html" title="class in ke.ric.renderer.api">ResolvedRenderTarget</a>&gt;&nbsp;v)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resolvedTargets(java.util.List)" class="member-name-link">resolvedTargets</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ResolvedRenderTarget.html" title="class in ke.ric.renderer.api">ResolvedRenderTarget</a>&gt;&nbsp;targets)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Copies independently placed targets, replacing the legacy single target.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#skin(java.lang.String)" class="member-name-link">skin</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;v)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#skin(java.lang.String)" class="member-name-link">skin</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;skin)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets optional skin metadata without performing a network lookup.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#transform(ke.ric.renderer.api.ResolvedTransform)" class="member-name-link">transform</a><wbr>(<a href="ResolvedTransform.html" title="class in ke.ric.renderer.api">ResolvedTransform</a>&nbsp;v)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#transform(ke.ric.renderer.api.ResolvedTransform)" class="member-name-link">transform</a><wbr>(<a href="ResolvedTransform.html" title="class in ke.ric.renderer.api">ResolvedTransform</a>&nbsp;transform)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Copies position and degree-based yaw from this transform.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#variant(java.lang.String)" class="member-name-link">variant</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;v)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#variant(java.lang.String)" class="member-name-link">variant</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;variant)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets optional variant metadata; does not resolve missing visual evidence.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#yaw(float)" class="member-name-link">yaw</a><wbr>(float&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#yaw(float)" class="member-name-link">yaw</a><wbr>(float&nbsp;yawDegrees)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets horizontal orientation in degrees, not radians.</div>
+</div>
 </div>
 </div>
 </div>
@@ -205,130 +247,150 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">position</span><wbr><span class="parameters">(double&nbsp;x,
  double&nbsp;y,
  double&nbsp;z)</span></div>
+<div class="block">Sets entity position in world blocks.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="yaw(float)">
 <h3>yaw</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">yaw</span><wbr><span class="parameters">(float&nbsp;value)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">yaw</span><wbr><span class="parameters">(float&nbsp;yawDegrees)</span></div>
+<div class="block">Sets horizontal orientation in degrees, not radians.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="transform(ke.ric.renderer.api.ResolvedTransform)">
 <h3>transform</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">transform</span><wbr><span class="parameters">(<a href="ResolvedTransform.html" title="class in ke.ric.renderer.api">ResolvedTransform</a>&nbsp;v)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">transform</span><wbr><span class="parameters">(<a href="ResolvedTransform.html" title="class in ke.ric.renderer.api">ResolvedTransform</a>&nbsp;transform)</span></div>
+<div class="block">Copies position and degree-based yaw from this transform.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="bounds(double,double,double,double,double,double)">
 <h3>bounds</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">bounds</span><wbr><span class="parameters">(double&nbsp;a,
- double&nbsp;b,
- double&nbsp;c,
- double&nbsp;d,
- double&nbsp;e,
- double&nbsp;f)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">bounds</span><wbr><span class="parameters">(double&nbsp;minX,
+ double&nbsp;minY,
+ double&nbsp;minZ,
+ double&nbsp;maxX,
+ double&nbsp;maxY,
+ double&nbsp;maxZ)</span></div>
+<div class="block">Sets finite world-space minimum/maximum bounds, in blocks.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="displayName(java.lang.String)">
 <h3>displayName</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">displayName</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;v)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">displayName</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;displayName)</span></div>
+<div class="block">Sets the optional display name used with a primary resolved label.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="living(boolean)">
 <h3>living</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">living</span><wbr><span class="parameters">(boolean&nbsp;v)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">living</span><wbr><span class="parameters">(boolean&nbsp;living)</span></div>
+<div class="block">Sets the immutable classification used by living-only scene selection.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="baby(boolean)">
 <h3>baby</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">baby</span><wbr><span class="parameters">(boolean&nbsp;v)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">baby</span><wbr><span class="parameters">(boolean&nbsp;baby)</span></div>
+<div class="block">Sets baby/adult metadata.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="variant(java.lang.String)">
 <h3>variant</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">variant</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;v)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">variant</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;variant)</span></div>
+<div class="block">Sets optional variant metadata; does not resolve missing visual evidence.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="cubeSize(int)">
 <h3>cubeSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">cubeSize</span><wbr><span class="parameters">(int&nbsp;v)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">cubeSize</span><wbr><span class="parameters">(int&nbsp;cubeSize)</span></div>
+<div class="block">Sets a positive cube-entity size; default 1.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="model(java.lang.String)">
 <h3>model</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">model</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;v)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">model</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;model)</span></div>
+<div class="block">Sets model metadata; complete resolved visual targets remain the caller's responsibility.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="skin(java.lang.String)">
 <h3>skin</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">skin</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;v)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">skin</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;skin)</span></div>
+<div class="block">Sets optional skin metadata without performing a network lookup.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="material(java.lang.String)">
 <h3>material</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">material</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;v)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">material</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;material)</span></div>
+<div class="block">Sets optional material metadata.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="pose(java.lang.String)">
 <h3>pose</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">pose</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;v)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">pose</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pose)</span></div>
+<div class="block">Sets optional pose metadata.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="containedBlock(java.lang.String)">
 <h3>containedBlock</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">containedBlock</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;v)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">containedBlock</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;containedBlock)</span></div>
+<div class="block">Sets optional contained-block state metadata.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="objectId(int)">
 <h3>objectId</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">objectId</span><wbr><span class="parameters">(int&nbsp;v)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">objectId</span><wbr><span class="parameters">(int&nbsp;objectId)</span></div>
+<div class="block">Sets a nonzero stable output object ID, replacing the UUID-derived default.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="resolvedTarget(ke.ric.renderer.api.ResolvedRenderTarget)">
 <h3>resolvedTarget</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">resolvedTarget</span><wbr><span class="parameters">(<a href="ResolvedRenderTarget.html" title="class in ke.ric.renderer.api">ResolvedRenderTarget</a>&nbsp;v)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">resolvedTarget</span><wbr><span class="parameters">(<a href="ResolvedRenderTarget.html" title="class in ke.ric.renderer.api">ResolvedRenderTarget</a>&nbsp;target)</span></div>
+<div class="block">Selects one legacy target, placed at this entity's transform/bounds when built; clears any target list.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="resolvedTargets(java.util.List)">
 <h3>resolvedTargets</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">resolvedTargets</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ResolvedRenderTarget.html" title="class in ke.ric.renderer.api">ResolvedRenderTarget</a>&gt;&nbsp;v)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">resolvedTargets</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ResolvedRenderTarget.html" title="class in ke.ric.renderer.api">ResolvedRenderTarget</a>&gt;&nbsp;targets)</span></div>
+<div class="block">Copies independently placed targets, replacing the legacy single target.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="label(ke.ric.renderer.api.ResolvedLabel)">
 <h3>label</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">label</span><wbr><span class="parameters">(<a href="ResolvedLabel.html" title="class in ke.ric.renderer.api">ResolvedLabel</a>&nbsp;v)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">label</span><wbr><span class="parameters">(<a href="ResolvedLabel.html" title="class in ke.ric.renderer.api">ResolvedLabel</a>&nbsp;label)</span></div>
+<div class="block">Sets optional primary label evidence; build requires a display name and at least one target.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="equipment(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
 <h3>equipment</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">equipment</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;a,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;b,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;c,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;d,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;e,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;f)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></span>&nbsp;<span class="element-name">equipment</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;mainHand,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;offHand,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;helmet,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;chestplate,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;leggings,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;boots)</span></div>
+<div class="block">Sets namespaced equipment item keys in main-hand, off-hand, helmet, chestplate, leggings, boots order.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="build()">
 <h3>build</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SceneEntity.html" title="class in ke.ric.renderer.api">SceneEntity</a></span>&nbsp;<span class="element-name">build</span>()</div>
+<div class="block">Validates and builds immutable evidence without reading any live Bukkit object.</div>
 </section>
 </li>
 </ul>

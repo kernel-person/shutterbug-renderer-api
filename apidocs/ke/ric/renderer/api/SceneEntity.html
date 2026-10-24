@@ -90,10 +90,46 @@ loadScripts(document, 'script');</script>
 </div>
 </div>
 <section class="class-description" id="class-description">
+<dl class="notes">
+<dt>Record Components:</dt>
+<dd><code><span id="param-uuid">uuid</span></code> - stable entity UUID</dd>
+<dd><code><span id="param-type">type</span></code> - namespaced entity type</dd>
+<dd><code><span id="param-x">x</span></code> - world X position in blocks</dd>
+<dd><code><span id="param-y">y</span></code> - world Y position in blocks</dd>
+<dd><code><span id="param-z">z</span></code> - world Z position in blocks</dd>
+<dd><code><span id="param-yaw">yaw</span></code> - horizontal orientation in degrees</dd>
+<dd><code><span id="param-minX">minX</span></code> - minimum world X bound in blocks</dd>
+<dd><code><span id="param-minY">minY</span></code> - minimum world Y bound in blocks</dd>
+<dd><code><span id="param-minZ">minZ</span></code> - minimum world Z bound in blocks</dd>
+<dd><code><span id="param-maxX">maxX</span></code> - maximum world X bound in blocks</dd>
+<dd><code><span id="param-maxY">maxY</span></code> - maximum world Y bound in blocks</dd>
+<dd><code><span id="param-maxZ">maxZ</span></code> - maximum world Z bound in blocks</dd>
+<dd><code><span id="param-displayName">displayName</span></code> - optional entity display name</dd>
+<dd><code><span id="param-living">living</span></code> - immutable living-entity classification used by scene selection</dd>
+<dd><code><span id="param-mainHand">mainHand</span></code> - namespaced main-hand item key</dd>
+<dd><code><span id="param-offHand">offHand</span></code> - namespaced off-hand item key</dd>
+<dd><code><span id="param-helmet">helmet</span></code> - namespaced helmet item key</dd>
+<dd><code><span id="param-chestplate">chestplate</span></code> - namespaced chestplate item key</dd>
+<dd><code><span id="param-leggings">leggings</span></code> - namespaced leggings item key</dd>
+<dd><code><span id="param-boots">boots</span></code> - namespaced boots item key</dd>
+<dd><code><span id="param-baby">baby</span></code> - whether this entity has baby proportions</dd>
+<dd><code><span id="param-variant">variant</span></code> - optional variant metadata</dd>
+<dd><code><span id="param-cubeSize">cubeSize</span></code> - positive cube-entity size</dd>
+<dd><code><span id="param-model">model</span></code> - optional model metadata</dd>
+<dd><code><span id="param-skin">skin</span></code> - optional skin metadata</dd>
+<dd><code><span id="param-material">material</span></code> - optional material metadata</dd>
+<dd><code><span id="param-pose">pose</span></code> - optional pose metadata</dd>
+<dd><code><span id="param-containedBlock">containedBlock</span></code> - optional contained-block state metadata</dd>
+<dd><code><span id="param-objectId">objectId</span></code> - nonzero caller-visible identity retained in OBJECT_ID output</dd>
+<dd><code><span id="param-resolvedTargets">resolvedTargets</span></code> - copied independently placed visual-target list; null means empty</dd>
+<dd><code><span id="param-resolvedLabel">resolvedLabel</span></code> - optional primary label; requires a display name and resolved target</dd>
+</dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">SceneEntity</span>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;uuid, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type, double&nbsp;x, double&nbsp;y, double&nbsp;z, float&nbsp;yaw, double&nbsp;minX, double&nbsp;minY, double&nbsp;minZ, double&nbsp;maxX, double&nbsp;maxY, double&nbsp;maxZ, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;displayName, boolean&nbsp;living, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;mainHand, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;offHand, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;helmet, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;chestplate, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;leggings, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;boots, boolean&nbsp;baby, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;variant, int&nbsp;cubeSize, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;model, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;skin, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;material, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pose, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;containedBlock, int&nbsp;objectId, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ResolvedRenderTarget.html" title="class in ke.ric.renderer.api">ResolvedRenderTarget</a>&gt;&nbsp;resolvedTargets, <a href="ResolvedLabel.html" title="class in ke.ric.renderer.api">ResolvedLabel</a>&nbsp;resolvedLabel)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a></span></div>
-<div class="block">Resolved entity evidence grouped by one stable caller-visible object identity.</div>
+<div class="block">Immutable entity evidence grouped by one stable nonzero object ID. Positions/bounds use world
+ blocks; yaw uses degrees. Resolved target/label evidence is copied, never looked up in live entities.
+ Prefer <a href="#builder(java.util.UUID,java.lang.String)"><code>builder(UUID, String)</code></a> to the legacy metadata-only constructors.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -109,7 +145,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>static final class&nbsp;</code></div>
 <div class="col-second even-row-color"><code><a href="SceneEntity.Builder.html" class="type-name-link" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Fluent builder for immutable <a href="SceneEntity.html" title="class in ke.ric.renderer.api"><code>SceneEntity</code></a> evidence.</div>
+<div class="block">Mutable builder for immutable entity evidence; do not share it concurrently.</div>
 </div>
 </div>
 </section>
@@ -145,7 +181,9 @@ loadScripts(document, 'script');</script>
  boolean&nbsp;baby,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;variant,
  int&nbsp;cubeSize)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Legacy metadata-only convenience constructor; defaults model/material to the type and omits resolved visuals.</div>
+</div>
 <div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.util.UUID,java.lang.String,double,double,double,float,double,double,double,double,double,double,java.lang.String,boolean,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,boolean,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)" class="member-name-link">SceneEntity</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;uuid,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type,
  double&nbsp;x,
@@ -261,12 +299,12 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#baby()" class="member-name-link">baby</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>baby</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-baby"><code>baby</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#boots()" class="member-name-link">boots</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>boots</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-boots"><code>boots</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="SceneEntity.Builder.html" title="class in ke.ric.renderer.api">SceneEntity.Builder</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#builder(java.util.UUID,java.lang.String)" class="member-name-link">builder</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;uuid,
@@ -277,22 +315,22 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#chestplate()" class="member-name-link">chestplate</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>chestplate</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-chestplate"><code>chestplate</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#containedBlock()" class="member-name-link">containedBlock</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>containedBlock</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-containedBlock"><code>containedBlock</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#cubeSize()" class="member-name-link">cubeSize</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>cubeSize</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-cubeSize"><code>cubeSize</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#displayName()" class="member-name-link">displayName</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>displayName</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-displayName"><code>displayName</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o)</code></div>
@@ -307,82 +345,82 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#helmet()" class="member-name-link">helmet</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>helmet</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-helmet"><code>helmet</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#leggings()" class="member-name-link">leggings</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>leggings</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-leggings"><code>leggings</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#living()" class="member-name-link">living</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>living</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-living"><code>living</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#mainHand()" class="member-name-link">mainHand</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>mainHand</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-mainHand"><code>mainHand</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#material()" class="member-name-link">material</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>material</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-material"><code>material</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#maxX()" class="member-name-link">maxX</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>maxX</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-maxX"><code>maxX</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#maxY()" class="member-name-link">maxY</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>maxY</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-maxY"><code>maxY</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#maxZ()" class="member-name-link">maxZ</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>maxZ</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-maxZ"><code>maxZ</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#minX()" class="member-name-link">minX</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>minX</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-minX"><code>minX</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#minY()" class="member-name-link">minY</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>minY</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-minY"><code>minY</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#minZ()" class="member-name-link">minZ</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>minZ</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-minZ"><code>minZ</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#model()" class="member-name-link">model</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>model</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-model"><code>model</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#objectId()" class="member-name-link">objectId</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>objectId</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-objectId"><code>objectId</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#offHand()" class="member-name-link">offHand</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>offHand</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-offHand"><code>offHand</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#pose()" class="member-name-link">pose</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>pose</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-pose"><code>pose</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ResolvedLabel.html" title="class in ke.ric.renderer.api">ResolvedLabel</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resolvedLabel()" class="member-name-link">resolvedLabel</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>resolvedLabel</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-resolvedLabel"><code>resolvedLabel</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="ResolvedRenderTarget.html" title="class in ke.ric.renderer.api">ResolvedRenderTarget</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#resolvedTarget()" class="member-name-link">resolvedTarget</a>()</code></div>
@@ -392,12 +430,12 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="ResolvedRenderTarget.html" title="class in ke.ric.renderer.api">ResolvedRenderTarget</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resolvedTargets()" class="member-name-link">resolvedTargets</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>resolvedTargets</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-resolvedTargets"><code>resolvedTargets</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#skin()" class="member-name-link">skin</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>skin</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-skin"><code>skin</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
@@ -407,37 +445,37 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#type()" class="member-name-link">type</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>type</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-type"><code>type</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#uuid()" class="member-name-link">uuid</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>uuid</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-uuid"><code>uuid</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#variant()" class="member-name-link">variant</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>variant</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-variant"><code>variant</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#x()" class="member-name-link">x</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>x</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-x"><code>x</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#y()" class="member-name-link">y</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>y</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-y"><code>y</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#yaw()" class="member-name-link">yaw</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>yaw</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-yaw"><code>yaw</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#z()" class="member-name-link">z</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>z</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-z"><code>z</code></a> record component.</div>
 </div>
 </div>
 </div>
@@ -493,37 +531,37 @@ loadScripts(document, 'script');</script>
 <div class="block">Creates an instance of a <code>SceneEntity</code> record class.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>uuid</code> - the value for the <code>uuid</code> record component</dd>
-<dd><code>type</code> - the value for the <code>type</code> record component</dd>
-<dd><code>x</code> - the value for the <code>x</code> record component</dd>
-<dd><code>y</code> - the value for the <code>y</code> record component</dd>
-<dd><code>z</code> - the value for the <code>z</code> record component</dd>
-<dd><code>yaw</code> - the value for the <code>yaw</code> record component</dd>
-<dd><code>minX</code> - the value for the <code>minX</code> record component</dd>
-<dd><code>minY</code> - the value for the <code>minY</code> record component</dd>
-<dd><code>minZ</code> - the value for the <code>minZ</code> record component</dd>
-<dd><code>maxX</code> - the value for the <code>maxX</code> record component</dd>
-<dd><code>maxY</code> - the value for the <code>maxY</code> record component</dd>
-<dd><code>maxZ</code> - the value for the <code>maxZ</code> record component</dd>
-<dd><code>displayName</code> - the value for the <code>displayName</code> record component</dd>
-<dd><code>living</code> - the value for the <code>living</code> record component</dd>
-<dd><code>mainHand</code> - the value for the <code>mainHand</code> record component</dd>
-<dd><code>offHand</code> - the value for the <code>offHand</code> record component</dd>
-<dd><code>helmet</code> - the value for the <code>helmet</code> record component</dd>
-<dd><code>chestplate</code> - the value for the <code>chestplate</code> record component</dd>
-<dd><code>leggings</code> - the value for the <code>leggings</code> record component</dd>
-<dd><code>boots</code> - the value for the <code>boots</code> record component</dd>
-<dd><code>baby</code> - the value for the <code>baby</code> record component</dd>
-<dd><code>variant</code> - the value for the <code>variant</code> record component</dd>
-<dd><code>cubeSize</code> - the value for the <code>cubeSize</code> record component</dd>
-<dd><code>model</code> - the value for the <code>model</code> record component</dd>
-<dd><code>skin</code> - the value for the <code>skin</code> record component</dd>
-<dd><code>material</code> - the value for the <code>material</code> record component</dd>
-<dd><code>pose</code> - the value for the <code>pose</code> record component</dd>
-<dd><code>containedBlock</code> - the value for the <code>containedBlock</code> record component</dd>
-<dd><code>objectId</code> - the value for the <code>objectId</code> record component</dd>
-<dd><code>resolvedTargets</code> - the value for the <code>resolvedTargets</code> record component</dd>
-<dd><code>resolvedLabel</code> - the value for the <code>resolvedLabel</code> record component</dd>
+<dd><code>uuid</code> - the value for the <a href="#param-uuid"><code>uuid</code></a> record component</dd>
+<dd><code>type</code> - the value for the <a href="#param-type"><code>type</code></a> record component</dd>
+<dd><code>x</code> - the value for the <a href="#param-x"><code>x</code></a> record component</dd>
+<dd><code>y</code> - the value for the <a href="#param-y"><code>y</code></a> record component</dd>
+<dd><code>z</code> - the value for the <a href="#param-z"><code>z</code></a> record component</dd>
+<dd><code>yaw</code> - the value for the <a href="#param-yaw"><code>yaw</code></a> record component</dd>
+<dd><code>minX</code> - the value for the <a href="#param-minX"><code>minX</code></a> record component</dd>
+<dd><code>minY</code> - the value for the <a href="#param-minY"><code>minY</code></a> record component</dd>
+<dd><code>minZ</code> - the value for the <a href="#param-minZ"><code>minZ</code></a> record component</dd>
+<dd><code>maxX</code> - the value for the <a href="#param-maxX"><code>maxX</code></a> record component</dd>
+<dd><code>maxY</code> - the value for the <a href="#param-maxY"><code>maxY</code></a> record component</dd>
+<dd><code>maxZ</code> - the value for the <a href="#param-maxZ"><code>maxZ</code></a> record component</dd>
+<dd><code>displayName</code> - the value for the <a href="#param-displayName"><code>displayName</code></a> record component</dd>
+<dd><code>living</code> - the value for the <a href="#param-living"><code>living</code></a> record component</dd>
+<dd><code>mainHand</code> - the value for the <a href="#param-mainHand"><code>mainHand</code></a> record component</dd>
+<dd><code>offHand</code> - the value for the <a href="#param-offHand"><code>offHand</code></a> record component</dd>
+<dd><code>helmet</code> - the value for the <a href="#param-helmet"><code>helmet</code></a> record component</dd>
+<dd><code>chestplate</code> - the value for the <a href="#param-chestplate"><code>chestplate</code></a> record component</dd>
+<dd><code>leggings</code> - the value for the <a href="#param-leggings"><code>leggings</code></a> record component</dd>
+<dd><code>boots</code> - the value for the <a href="#param-boots"><code>boots</code></a> record component</dd>
+<dd><code>baby</code> - the value for the <a href="#param-baby"><code>baby</code></a> record component</dd>
+<dd><code>variant</code> - the value for the <a href="#param-variant"><code>variant</code></a> record component</dd>
+<dd><code>cubeSize</code> - the value for the <a href="#param-cubeSize"><code>cubeSize</code></a> record component</dd>
+<dd><code>model</code> - the value for the <a href="#param-model"><code>model</code></a> record component</dd>
+<dd><code>skin</code> - the value for the <a href="#param-skin"><code>skin</code></a> record component</dd>
+<dd><code>material</code> - the value for the <a href="#param-material"><code>material</code></a> record component</dd>
+<dd><code>pose</code> - the value for the <a href="#param-pose"><code>pose</code></a> record component</dd>
+<dd><code>containedBlock</code> - the value for the <a href="#param-containedBlock"><code>containedBlock</code></a> record component</dd>
+<dd><code>objectId</code> - the value for the <a href="#param-objectId"><code>objectId</code></a> record component</dd>
+<dd><code>resolvedTargets</code> - the value for the <a href="#param-resolvedTargets"><code>resolvedTargets</code></a> record component</dd>
+<dd><code>resolvedLabel</code> - the value for the <a href="#param-resolvedLabel"><code>resolvedLabel</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -629,6 +667,7 @@ loadScripts(document, 'script');</script>
  boolean&nbsp;baby,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;variant,
  int&nbsp;cubeSize)</span></div>
+<div class="block">Legacy metadata-only convenience constructor; defaults model/material to the type and omits resolved visuals.</div>
 </section>
 </li>
 </ul>
@@ -701,10 +740,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="uuid()">
 <h3>uuid</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a></span>&nbsp;<span class="element-name">uuid</span>()</div>
-<div class="block">Returns the value of the <code>uuid</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-uuid"><code>uuid</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>uuid</code> record component</dd>
+<dd>the value of the <a href="#param-uuid"><code>uuid</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -712,10 +751,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="type()">
 <h3>type</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">type</span>()</div>
-<div class="block">Returns the value of the <code>type</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-type"><code>type</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>type</code> record component</dd>
+<dd>the value of the <a href="#param-type"><code>type</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -723,10 +762,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="x()">
 <h3>x</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">x</span>()</div>
-<div class="block">Returns the value of the <code>x</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-x"><code>x</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>x</code> record component</dd>
+<dd>the value of the <a href="#param-x"><code>x</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -734,10 +773,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="y()">
 <h3>y</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">y</span>()</div>
-<div class="block">Returns the value of the <code>y</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-y"><code>y</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>y</code> record component</dd>
+<dd>the value of the <a href="#param-y"><code>y</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -745,10 +784,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="z()">
 <h3>z</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">z</span>()</div>
-<div class="block">Returns the value of the <code>z</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-z"><code>z</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>z</code> record component</dd>
+<dd>the value of the <a href="#param-z"><code>z</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -756,10 +795,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="yaw()">
 <h3>yaw</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">yaw</span>()</div>
-<div class="block">Returns the value of the <code>yaw</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-yaw"><code>yaw</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>yaw</code> record component</dd>
+<dd>the value of the <a href="#param-yaw"><code>yaw</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -767,10 +806,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="minX()">
 <h3>minX</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">minX</span>()</div>
-<div class="block">Returns the value of the <code>minX</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-minX"><code>minX</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>minX</code> record component</dd>
+<dd>the value of the <a href="#param-minX"><code>minX</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -778,10 +817,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="minY()">
 <h3>minY</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">minY</span>()</div>
-<div class="block">Returns the value of the <code>minY</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-minY"><code>minY</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>minY</code> record component</dd>
+<dd>the value of the <a href="#param-minY"><code>minY</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -789,10 +828,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="minZ()">
 <h3>minZ</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">minZ</span>()</div>
-<div class="block">Returns the value of the <code>minZ</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-minZ"><code>minZ</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>minZ</code> record component</dd>
+<dd>the value of the <a href="#param-minZ"><code>minZ</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -800,10 +839,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="maxX()">
 <h3>maxX</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">maxX</span>()</div>
-<div class="block">Returns the value of the <code>maxX</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-maxX"><code>maxX</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>maxX</code> record component</dd>
+<dd>the value of the <a href="#param-maxX"><code>maxX</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -811,10 +850,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="maxY()">
 <h3>maxY</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">maxY</span>()</div>
-<div class="block">Returns the value of the <code>maxY</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-maxY"><code>maxY</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>maxY</code> record component</dd>
+<dd>the value of the <a href="#param-maxY"><code>maxY</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -822,10 +861,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="maxZ()">
 <h3>maxZ</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">maxZ</span>()</div>
-<div class="block">Returns the value of the <code>maxZ</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-maxZ"><code>maxZ</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>maxZ</code> record component</dd>
+<dd>the value of the <a href="#param-maxZ"><code>maxZ</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -833,10 +872,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="displayName()">
 <h3>displayName</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">displayName</span>()</div>
-<div class="block">Returns the value of the <code>displayName</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-displayName"><code>displayName</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>displayName</code> record component</dd>
+<dd>the value of the <a href="#param-displayName"><code>displayName</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -844,10 +883,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="living()">
 <h3>living</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">living</span>()</div>
-<div class="block">Returns the value of the <code>living</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-living"><code>living</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>living</code> record component</dd>
+<dd>the value of the <a href="#param-living"><code>living</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -855,10 +894,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="mainHand()">
 <h3>mainHand</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">mainHand</span>()</div>
-<div class="block">Returns the value of the <code>mainHand</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-mainHand"><code>mainHand</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>mainHand</code> record component</dd>
+<dd>the value of the <a href="#param-mainHand"><code>mainHand</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -866,10 +905,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="offHand()">
 <h3>offHand</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">offHand</span>()</div>
-<div class="block">Returns the value of the <code>offHand</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-offHand"><code>offHand</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>offHand</code> record component</dd>
+<dd>the value of the <a href="#param-offHand"><code>offHand</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -877,10 +916,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="helmet()">
 <h3>helmet</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">helmet</span>()</div>
-<div class="block">Returns the value of the <code>helmet</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-helmet"><code>helmet</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>helmet</code> record component</dd>
+<dd>the value of the <a href="#param-helmet"><code>helmet</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -888,10 +927,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="chestplate()">
 <h3>chestplate</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">chestplate</span>()</div>
-<div class="block">Returns the value of the <code>chestplate</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-chestplate"><code>chestplate</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>chestplate</code> record component</dd>
+<dd>the value of the <a href="#param-chestplate"><code>chestplate</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -899,10 +938,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="leggings()">
 <h3>leggings</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">leggings</span>()</div>
-<div class="block">Returns the value of the <code>leggings</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-leggings"><code>leggings</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>leggings</code> record component</dd>
+<dd>the value of the <a href="#param-leggings"><code>leggings</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -910,10 +949,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="boots()">
 <h3>boots</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">boots</span>()</div>
-<div class="block">Returns the value of the <code>boots</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-boots"><code>boots</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>boots</code> record component</dd>
+<dd>the value of the <a href="#param-boots"><code>boots</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -921,10 +960,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="baby()">
 <h3>baby</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">baby</span>()</div>
-<div class="block">Returns the value of the <code>baby</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-baby"><code>baby</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>baby</code> record component</dd>
+<dd>the value of the <a href="#param-baby"><code>baby</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -932,10 +971,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="variant()">
 <h3>variant</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">variant</span>()</div>
-<div class="block">Returns the value of the <code>variant</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-variant"><code>variant</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>variant</code> record component</dd>
+<dd>the value of the <a href="#param-variant"><code>variant</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -943,10 +982,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="cubeSize()">
 <h3>cubeSize</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">cubeSize</span>()</div>
-<div class="block">Returns the value of the <code>cubeSize</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-cubeSize"><code>cubeSize</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>cubeSize</code> record component</dd>
+<dd>the value of the <a href="#param-cubeSize"><code>cubeSize</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -954,10 +993,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="model()">
 <h3>model</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">model</span>()</div>
-<div class="block">Returns the value of the <code>model</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-model"><code>model</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>model</code> record component</dd>
+<dd>the value of the <a href="#param-model"><code>model</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -965,10 +1004,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="skin()">
 <h3>skin</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">skin</span>()</div>
-<div class="block">Returns the value of the <code>skin</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-skin"><code>skin</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>skin</code> record component</dd>
+<dd>the value of the <a href="#param-skin"><code>skin</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -976,10 +1015,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="material()">
 <h3>material</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">material</span>()</div>
-<div class="block">Returns the value of the <code>material</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-material"><code>material</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>material</code> record component</dd>
+<dd>the value of the <a href="#param-material"><code>material</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -987,10 +1026,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="pose()">
 <h3>pose</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">pose</span>()</div>
-<div class="block">Returns the value of the <code>pose</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-pose"><code>pose</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>pose</code> record component</dd>
+<dd>the value of the <a href="#param-pose"><code>pose</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -998,10 +1037,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="containedBlock()">
 <h3>containedBlock</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">containedBlock</span>()</div>
-<div class="block">Returns the value of the <code>containedBlock</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-containedBlock"><code>containedBlock</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>containedBlock</code> record component</dd>
+<dd>the value of the <a href="#param-containedBlock"><code>containedBlock</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -1009,10 +1048,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="objectId()">
 <h3>objectId</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">objectId</span>()</div>
-<div class="block">Returns the value of the <code>objectId</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-objectId"><code>objectId</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>objectId</code> record component</dd>
+<dd>the value of the <a href="#param-objectId"><code>objectId</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -1020,10 +1059,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="resolvedTargets()">
 <h3>resolvedTargets</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ResolvedRenderTarget.html" title="class in ke.ric.renderer.api">ResolvedRenderTarget</a>&gt;</span>&nbsp;<span class="element-name">resolvedTargets</span>()</div>
-<div class="block">Returns the value of the <code>resolvedTargets</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-resolvedTargets"><code>resolvedTargets</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>resolvedTargets</code> record component</dd>
+<dd>the value of the <a href="#param-resolvedTargets"><code>resolvedTargets</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -1031,10 +1070,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="resolvedLabel()">
 <h3>resolvedLabel</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ResolvedLabel.html" title="class in ke.ric.renderer.api">ResolvedLabel</a></span>&nbsp;<span class="element-name">resolvedLabel</span>()</div>
-<div class="block">Returns the value of the <code>resolvedLabel</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-resolvedLabel"><code>resolvedLabel</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>resolvedLabel</code> record component</dd>
+<dd>the value of the <a href="#param-resolvedLabel"><code>resolvedLabel</code></a> record component</dd>
 </dl>
 </section>
 </li>

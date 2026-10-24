@@ -90,10 +90,17 @@ loadScripts(document, 'script');</script>
 </div>
 </div>
 <section class="class-description" id="class-description">
+<dl class="notes">
+<dt>Record Components:</dt>
+<dd><code><span id="param-x">x</span></code> - world X position in blocks</dd>
+<dd><code><span id="param-y">y</span></code> - world Y position in blocks</dd>
+<dd><code><span id="param-z">z</span></code> - world Z position in blocks</dd>
+<dd><code><span id="param-yawDegrees">yawDegrees</span></code> - horizontal rotation in degrees, matching Bukkit orientation units</dd>
+</dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">ResolvedTransform</span>(double&nbsp;x, double&nbsp;y, double&nbsp;z, float&nbsp;yawDegrees)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a></span></div>
-<div class="block">Exact world transform applied to a resolved entity target.</div>
+<div class="block">Exact finite world transform applied to a resolved entity target; unlike SceneBuilder camera angles, yaw uses degrees.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -144,22 +151,22 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#x()" class="member-name-link">x</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>x</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-x"><code>x</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#y()" class="member-name-link">y</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>y</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-y"><code>y</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#yawDegrees()" class="member-name-link">yawDegrees</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>yawDegrees</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-yawDegrees"><code>yawDegrees</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#z()" class="member-name-link">z</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>z</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-z"><code>z</code></a> record component.</div>
 </div>
 </div>
 </div>
@@ -188,10 +195,10 @@ loadScripts(document, 'script');</script>
 <div class="block">Creates an instance of a <code>ResolvedTransform</code> record class.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>x</code> - the value for the <code>x</code> record component</dd>
-<dd><code>y</code> - the value for the <code>y</code> record component</dd>
-<dd><code>z</code> - the value for the <code>z</code> record component</dd>
-<dd><code>yawDegrees</code> - the value for the <code>yawDegrees</code> record component</dd>
+<dd><code>x</code> - the value for the <a href="#param-x"><code>x</code></a> record component</dd>
+<dd><code>y</code> - the value for the <a href="#param-y"><code>y</code></a> record component</dd>
+<dd><code>z</code> - the value for the <a href="#param-z"><code>z</code></a> record component</dd>
+<dd><code>yawDegrees</code> - the value for the <a href="#param-yawDegrees"><code>yawDegrees</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -248,10 +255,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="x()">
 <h3>x</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">x</span>()</div>
-<div class="block">Returns the value of the <code>x</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-x"><code>x</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>x</code> record component</dd>
+<dd>the value of the <a href="#param-x"><code>x</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -259,10 +266,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="y()">
 <h3>y</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">y</span>()</div>
-<div class="block">Returns the value of the <code>y</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-y"><code>y</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>y</code> record component</dd>
+<dd>the value of the <a href="#param-y"><code>y</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -270,10 +277,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="z()">
 <h3>z</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">z</span>()</div>
-<div class="block">Returns the value of the <code>z</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-z"><code>z</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>z</code> record component</dd>
+<dd>the value of the <a href="#param-z"><code>z</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -281,10 +288,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="yawDegrees()">
 <h3>yawDegrees</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">yawDegrees</span>()</div>
-<div class="block">Returns the value of the <code>yawDegrees</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-yawDegrees"><code>yawDegrees</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>yawDegrees</code> record component</dd>
+<dd>the value of the <a href="#param-yawDegrees"><code>yawDegrees</code></a> record component</dd>
 </dl>
 </section>
 </li>
