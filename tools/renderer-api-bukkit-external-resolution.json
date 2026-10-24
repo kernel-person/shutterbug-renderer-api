@@ -1,0 +1,85 @@
+{
+  "artifact": {
+    "artifactId": "spigot-api",
+    "groupId": "org.spigotmc",
+    "resolvedVersion": "1.21.10-R0.1-20251209.161938-19",
+    "sha256": "973502a0127dbf74d3d37609f959b76435a700ff6de2126cc37aa11ce583793c",
+    "version": "1.21.10-R0.1-SNAPSHOT"
+  },
+  "formatVersion": 1,
+  "sourceClassFileVersion": "61.0",
+  "types": [
+    {
+      "abstract": true,
+      "fields": [],
+      "final": false,
+      "interfaces": [],
+      "kind": "interface",
+      "methods": [],
+      "name": "org/bukkit/event/Listener",
+      "superclass": "java/lang/Object",
+      "visibility": "public"
+    },
+    {
+      "abstract": true,
+      "fields": [
+        {
+          "constantValue": null,
+          "descriptor": "Z",
+          "final": false,
+          "name": "contextual",
+          "static": false,
+          "visibility": "private"
+        }
+      ],
+      "final": false,
+      "interfaces": [],
+      "kind": "class",
+      "methods": [
+        {
+          "abstract": false,
+          "descriptor": "()V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Z)V",
+          "final": false,
+          "name": "<init>",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "(Lorg/bukkit/map/MapView;)V",
+          "final": false,
+          "name": "initialize",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "descriptor": "()Z",
+          "final": true,
+          "name": "isContextual",
+          "static": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": true,
+          "descriptor": "(Lorg/bukkit/map/MapView;Lorg/bukkit/map/MapCanvas;Lorg/bukkit/entity/Player;)V",
+          "final": false,
+          "name": "render",
+          "static": false,
+          "visibility": "public"
+        }
+      ],
+      "name": "org/bukkit/map/MapRenderer",
+      "superclass": "java/lang/Object",
+      "visibility": "public"
+    }
+  ]
+}

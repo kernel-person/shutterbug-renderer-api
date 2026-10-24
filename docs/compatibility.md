@@ -1,6 +1,14 @@
 # Compatibility and platform status
 
-The commercial product is ShutterBug Renderer 1.0.0. The free SDK distribution coordinate is `com.github.kernel-person:shutterbug-renderer-api:v1.0.1`; it preserves the v1 public Java API and binary baseline.
+## Fluent and creative-controls preview
+
+The current developer SDK is **`ke.ric:renderer-api:2.3.0-preview.3`**. It requires the **matching development provider** and native library containing the fluent API, persistent photos, reuse and creative controls. Development functionality and packaged ABI checks have been validated on macOS ARM64. These docs do not announce Linux or Windows acceptance for this new preview pair or replace a commercial provider download.
+
+The stable Maven SDK `2.2`, preview.1, preview.2 and historical JitPack SDK v1.0.2 remain immutable. Binary compatibility preserves existing consumers; it does not make a new method or native lighting contract available in an old provider. Unsupported controls fail explicitly. Compile on Java 21; run the pinned Paper adapter on Java 25.
+
+## Historical commercial release matrix
+
+The commercial product is ShutterBug Renderer 1.0.0. Its historical SDK distribution coordinate is `com.github.kernel-person:shutterbug-renderer-api:v1.0.2`; it preserves the v1 public Java API and binary baseline.
 
 | Platform key | Launch status | Runtime |
 | --- | --- | --- |

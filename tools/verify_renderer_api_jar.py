@@ -15,27 +15,37 @@ from renderer_api_classfile import (
 
 API_PREFIX = "ke/ric/renderer/api/"
 API_TYPES = frozenset({
+    "LightSpace", "Occlusion", "LightDirection", "VirtualLight", "PointLight", "SpotLight",
+    "RenderLighting", "LightingCapabilities", "LayerColor", "CapturedEntity", "CaptureProvenance", "FrameProgress",
+    "CompositionLease", "EntitySelector", "SceneContent", "RenderEnvironment", "Weather", "RenderAppearance", "SceneTransform", "RenderRecipe", "RenderLayer", "MapOutputOptions", "RenderPassResult", "MapSink", "MapFrame",
     "AssetHandle", "AssetPack", "Attachment", "CaptureRequest", "ChunkSectionState",
     "MapDither", "MinecraftMapConverter", "PngConverter", "RenderFailureCode",
-    "RenderJob", "RenderProgress", "RenderResult", "RenderSettings", "RenderStatus",
+    "RenderJob", "RenderProgress", "RenderResult", "RenderSettings", "RenderStatus", "RenderedMap",
     "RenderTask", "RenderTimings", "RendererCapabilities", "RendererClient",
-    "RendererException", "RendererService", "ResolvedLabel", "ResolvedMaterial",
+    "RendererException", "RendererService", "RendererSession", "ResolvedLabel", "ResolvedMaterial",
     "ResolvedMesh", "ResolvedRenderTarget", "ResolvedTexture", "ResolvedTransform",
-    "ResolvedTriangle", "Scene", "SceneBuilder", "SceneEntity", "SceneStructure",
+    "ResolvedTriangle", "Scene", "SceneBuilder", "SceneCamera", "SceneEntity", "SceneOperation", "SceneReusePolicy", "SceneSelection", "SceneStructure",
     "VisibilityStatistics",
+    "Renderer", "SnapshotBuilder", "RenderedFrame", "StreamBuilder", "RenderStream", "VisibleEntity",
 })
+INTERNAL_TYPES = frozenset({
+    "LightValidation", "FrameProgressReporter", "FrameOptions", "RecipePipeline",
+    "RendererImages", "StreamCaptureQueue", "StreamSource", "StreamCoordinator", "StreamOutput",
+    "StreamPlayerOutput", "StreamScreenOutput", "StreamOutputCleanup",
+})
+PACKAGED_TYPES = API_TYPES | INTERNAL_TYPES
 EXPOSED_NESTED_TYPES = frozenset({
-    "RenderProgress$Phase", "RenderSettings$Profile", "ResolvedMaterial$AlphaMode",
-    "ResolvedTriangle$Face", "SceneEntity$Builder",
+    "LayerColor$Mode", "FrameProgress$Stage", "RenderProgress$Phase", "RenderSettings$Profile", "RendererException$Detail", "ResolvedMaterial$AlphaMode",
+    "ResolvedTriangle$Face", "SceneEntity$Builder", "SceneSelection$EntityMode", "RenderStream$Status",
 })
 ALLOWED_RESOURCES = frozenset({
     "META-INF/MANIFEST.MF",
-    "META-INF/maven/com.github.kernel-person/shutterbug-renderer-api/pom.xml",
-    "META-INF/maven/com.github.kernel-person/shutterbug-renderer-api/pom.properties",
+    "META-INF/maven/ke.ric/renderer-api/pom.xml",
+    "META-INF/maven/ke.ric/renderer-api/pom.properties",
 })
 ALLOWED_DIRECTORIES = frozenset({
-    "META-INF/", "META-INF/maven/", "META-INF/maven/com.github.kernel-person/",
-    "META-INF/maven/com.github.kernel-person/shutterbug-renderer-api/", "ke/", "ke/ric/",
+    "META-INF/", "META-INF/maven/", "META-INF/maven/ke.ric/",
+    "META-INF/maven/ke.ric/renderer-api/", "ke/", "ke/ric/",
     "ke/ric/renderer/", "ke/ric/renderer/api/",
 })
 FORBIDDEN_LICENSING_TOKENS = (
@@ -111,7 +121,7 @@ def verify(jar: Path) -> int:
                 if not relative or "/" in relative:
                     return fail(f"renderer-api JAR contains class in a non-v1 API package: {name}")
                 outer = relative.split("$", 1)[0]
-                if outer not in API_TYPES:
+                if outer not in PACKAGED_TYPES:
                     return fail(f"renderer-api JAR contains unexpected API type: {name}")
                 if any(token in lowered_name for token in FORBIDDEN_CLASS_REFERENCES):
                     return fail(f"renderer-api JAR contains forbidden implementation class: {name}")
@@ -133,8 +143,10 @@ def verify(jar: Path) -> int:
                     if self_inner is not None or nest_host is not None:
                         return fail("renderer-api JAR top-level API type declares nested self "
                                     f"membership: {name}")
-                    if not class_access & 0x0001:
+                    if outer in API_TYPES and not class_access & 0x0001:
                         return fail(f"renderer-api JAR top-level API type is not public: {name}")
+                    if outer in INTERNAL_TYPES and class_access & 0x0007:
+                        return fail(f"renderer-api JAR internal helper is exposed: {name}")
                     top_level_types.add(outer)
                     continue
                 if self_inner is None:
@@ -176,8 +188,8 @@ def verify(jar: Path) -> int:
                 return fail(
                     f"renderer-api JAR contains invalid local nest relationships: {failure}"
                 )
-            missing = sorted(API_TYPES - top_level_types)
-            unexpected = sorted(top_level_types - API_TYPES)
+            missing = sorted(PACKAGED_TYPES - top_level_types)
+            unexpected = sorted(top_level_types - PACKAGED_TYPES)
             if missing or unexpected:
                 return fail("renderer-api JAR top-level API differs: "
                             f"missing={missing}, unexpected={unexpected}")

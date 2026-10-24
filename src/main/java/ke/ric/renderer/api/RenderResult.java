@@ -5,6 +5,8 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.Objects;
+import java.util.List;
+import java.util.HashSet;
 import java.util.function.BiFunction;
 import java.util.function.LongSupplier;
 
@@ -16,6 +18,20 @@ import java.util.function.LongSupplier;
 public final class RenderResult {
     private final int width,height; private final byte[] rgba; private final float[] depth,normals; private final int[] material,object;
     private final VisibilityStatistics visibility; private final RenderTimings timings;
+    private final List<VisibleEntity> visibleEntities;
+    private final long worldCapturedNanos;
+    /**
+     * Copies a positive-sized immutable frame; optional attachments may be null when unrequested.
+     * @param width positive pixel width
+     * @param height positive pixel height
+     * @param rgba exactly width*height*4 row-major RGBA8 bytes
+     * @param depth optional one-float-per-pixel depth array
+     * @param normals optional three-float-XYZ-per-pixel normal array
+     * @param material optional one-integer-per-pixel material ID array
+     * @param object optional one-integer-per-pixel stable object ID array
+     * @param visibility non-null immutable rendered visibility statistics
+     * @param timings non-null measured nanosecond timings; unavailable phases use UNAVAILABLE
+     */
     public RenderResult(int width,int height,byte[] rgba,float[] depth,float[] normals,int[] material,int[] object,VisibilityStatistics visibility,RenderTimings timings) {
         this(width,height,rgba,depth,normals,material,object,visibility,timings,()->{});
     }
@@ -33,7 +49,43 @@ public final class RenderResult {
     public static RenderResult measuredCopy(int width,int height,byte[] rgba,float[] depth,float[] normals,int[] material,int[] object,VisibilityStatistics visibility,Runnable checkpoint,long copyStartedNanos,LongSupplier nanoTime,BiFunction<Long,Long,RenderTimings> timingFinalizer) {
         Objects.requireNonNull(nanoTime,"nanoTime");Objects.requireNonNull(timingFinalizer,"timingFinalizer");Buffers buffers=copied(width,height,rgba,depth,normals,material,object,checkpoint);long completed=nanoTime.getAsLong();long copyNanos=completed-copyStartedNanos;if(copyNanos<0)throw new IllegalArgumentException("clock moved backwards");return new RenderResult(width,height,buffers,visibility,Objects.requireNonNull(timingFinalizer.apply(copyNanos,completed),"timings"));
     }
-    private RenderResult(int width,int height,Buffers buffers,VisibilityStatistics visibility,RenderTimings timings){this.width=width;this.height=height;this.rgba=buffers.rgba;this.depth=buffers.depth;this.normals=buffers.normals;this.material=buffers.material;this.object=buffers.object;this.visibility=Objects.requireNonNull(visibility);this.timings=Objects.requireNonNull(timings);}
+    private RenderResult(int width,int height,Buffers buffers,VisibilityStatistics visibility,RenderTimings timings){this(width,height,buffers,visibility,timings,null,0L);}
+    private RenderResult(int width,int height,Buffers buffers,VisibilityStatistics visibility,RenderTimings timings,List<VisibleEntity> visibleEntities,long worldCapturedNanos){this.width=width;this.height=height;this.rgba=buffers.rgba;this.depth=buffers.depth;this.normals=buffers.normals;this.material=buffers.material;this.object=buffers.object;this.visibility=Objects.requireNonNull(visibility);this.timings=Objects.requireNonNull(timings);this.visibleEntities=visibleEntities;this.worldCapturedNanos=worldCapturedNanos;}
+
+    /**
+     * Returns a result with copied entity identities, sharing only already-immutable image buffers.
+     * An empty list means complete diagnostics found no visible entities; older constructors leave
+     * identity diagnostics unavailable instead. Duplicate UUIDs/object IDs and impossible coverage
+     * are rejected.
+     */
+    public RenderResult withVisibleEntities(List<VisibleEntity> entities) {
+        List<VisibleEntity> copied = List.copyOf(entities);
+        var uuids = new HashSet<java.util.UUID>();
+        var ids = new HashSet<Integer>();
+        long count = 0;
+        for (VisibleEntity entity : copied) {
+            if (!uuids.add(entity.uuid()) || !ids.add(entity.objectId()))
+                throw new IllegalArgumentException("duplicate visible entity identity");
+            count += entity.visiblePixels();
+        }
+        if (count > (long) width * height) throw new IllegalArgumentException("entity pixels exceed image size");
+        return new RenderResult(width,height,new Buffers(rgba,depth,normals,material,object),visibility,timings,copied,worldCapturedNanos);
+    }
+
+    /** Monotonic timestamp of the scene's first world read, or zero when unavailable. */
+    public long worldCapturedNanos() { return worldCapturedNanos; }
+
+    /** Adds scene capture timing without recopying already-immutable image buffers. */
+    public RenderResult withWorldCapturedNanos(long capturedNanos) {
+        if (worldCapturedNanos == capturedNanos) return this;
+        return new RenderResult(width,height,new Buffers(rgba,depth,normals,material,object),visibility,timings,visibleEntities,capturedNanos);
+    }
+
+    /** Whether per-entity UUID diagnostics are available; false is not evidence of an empty frame. */
+    public boolean hasEntityIdentities() { return visibleEntities != null; }
+
+    /** Returns immutable captured identities; consult {@link #hasEntityIdentities()} for availability. */
+    public List<VisibleEntity> visibleEntities() { return visibleEntities == null ? List.of() : visibleEntities; }
     private static Buffers copied(int width,int height,byte[] rgba,float[] depth,float[] normals,int[] material,int[] object,Runnable checkpoint){int pixels=Math.multiplyExact(width,height);if(width<=0||height<=0||rgba==null||rgba.length!=Math.multiplyExact(pixels,4))throw new IllegalArgumentException("invalid RGBA8 frame");requireLength(depth,pixels,"depth");requireLength(normals,Math.multiplyExact(pixels,3),"normals");requireLength(material,pixels,"material");requireLength(object,pixels,"object");Objects.requireNonNull(checkpoint,"checkpoint");return new Buffers(copy(rgba,checkpoint),copy(depth,checkpoint),copy(normals,checkpoint),copy(material,checkpoint),copy(object,checkpoint));}
     private record Buffers(byte[] rgba,float[] depth,float[] normals,int[] material,int[] object){}
     private static void requireLength(float[] a,int n,String name){if(a!=null&&a.length!=n)throw new IllegalArgumentException("invalid "+name+" length");}
@@ -52,11 +104,11 @@ public final class RenderResult {
     public ByteBuffer rgbaBuffer(){return ByteBuffer.wrap(rgba.clone()).asReadOnlyBuffer();}
     /** Returns copied depth values, or null when not requested. */
     public float[] depth(){return copy(depth);}
-    /** Returns copied XYZ normal values, or null when not requested. */
+    /** Returns copied row-major XYZ normal triples, three floats per pixel, or null when not requested. */
     public float[] normals(){return copy(normals);}
     /** Returns copied material identifiers, or null when not requested. */
     public int[] materialIds(){return copy(material);}
-    /** Returns copied caller-visible object identifiers, or null when not requested. */
+    /** Returns copied row-major caller-visible object IDs, one integer per pixel, or null when not requested. */
     public int[] objectIds(){return copy(object);}
     /** Returns immutable visibility statistics for the frame. */
     public VisibilityStatistics visibility(){return visibility;}

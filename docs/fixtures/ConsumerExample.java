@@ -1,10 +1,17 @@
 package docs.examples;
 
-import ke.ric.renderer.api.RendererCapabilities;
+import ke.ric.renderer.api.Renderer;
+import ke.ric.renderer.api.RenderRecipe;
+import ke.ric.renderer.api.RenderLayer;
+import ke.ric.renderer.api.EntitySelector;
+import ke.ric.renderer.api.SnapshotBuilder;
+import org.bukkit.entity.Player;
 
-/** Small compile probe shared by the Maven and Gradle consumer builds. */
+/** Both dependency examples compile the fluent API, not just an older capability method. */
 public final class ConsumerExample {
-    public static boolean ready(RendererCapabilities capabilities) {
-        return capabilities.nativeAvailable() && capabilities.packagedForProduction();
+    public static SnapshotBuilder photo(Renderer renderer, Player player) {
+        return renderer.snapshot(player).fov(75).roll(5).visibleTo(player)
+                .recipe(RenderRecipe.layers(RenderLayer.scene(),
+                        RenderLayer.entities(EntitySelector.living())));
     }
 }

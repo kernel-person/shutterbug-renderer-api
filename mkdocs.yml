@@ -1,5 +1,5 @@
 site_name: ShutterBug Renderer API
-site_description: Java consumer documentation for ShutterBug Renderer API v1.
+site_description: Fluent snapshots, live feeds, scene composition and creative lighting for Java plugins.
 theme:
   name: material
   features:
@@ -34,4 +34,7 @@ nav:
       - Threading: threading.md
       - Public API reference: api-reference.md
       - Complete sample: sample-walkthrough.md
+      - X-ray camera: xray-camera.md
+      - Live feeds: live-feeds.md
+      - Creative controls: creative-controls.md
 site_dir: ../target/renderer-docs-site

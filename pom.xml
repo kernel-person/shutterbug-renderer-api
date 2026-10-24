@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.github.kernel-person</groupId>
-  <artifactId>shutterbug-renderer-api</artifactId>
-  <version>1.0.0</version>
+  <groupId>ke.ric</groupId>
+  <artifactId>renderer-api</artifactId>
+  <version>2.3.0-preview.3</version>
   <packaging>jar</packaging>
   <name>ShutterBug Renderer API</name>
   <description>Apache-2.0 compile-time API for ShutterBug Renderer consumers.</description>
@@ -15,17 +15,21 @@
     <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><version>${junit.version}</version><scope>test</scope></dependency>
   </dependencies>
   <build><pluginManagement><plugins>
-    <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.13.0</version><configuration><release>21</release></configuration></plugin>
+    <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.13.0</version><configuration><release>21</release><parameters>true</parameters></configuration></plugin>
     <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>3.5.2</version></plugin>
   </plugins></pluginManagement><plugins><plugin>
     <groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId><version>3.1.0</version>
-    <executions><execution><id>generate-public-javadocs</id><phase>prepare-package</phase><goals><goal>run</goal></goals><configuration><target>
+    <executions><execution><id>generate-public-javadocs</id><phase>prepare-package</phase><goals><goal>run</goal></goals><configuration><target xmlns:mvn="http://maven.apache.org/ANTRUN">
+      <jar destfile="${project.build.directory}/${project.build.finalName}-sources.jar"><fileset dir="${project.basedir}/src/main/java"><include name="ke/ric/renderer/api/*.java"/></fileset></jar>
       <mkdir dir="${project.build.directory}/apidocs"/>
       <javadoc destdir="${project.build.directory}/apidocs" source="21" encoding="UTF-8" docencoding="UTF-8" charset="UTF-8" failonerror="true">
-        <arg value="-notimestamp"/>
+        <arg value="-notimestamp"/><arg value="-Xdoclint:all,-missing"/>
         <classpath refid="maven.compile.classpath"/>
         <fileset dir="${project.basedir}/src/main/java"><include name="ke/ric/renderer/api/*.java"/></fileset>
       </javadoc>
+      <jar destfile="${project.build.directory}/${project.build.finalName}-javadoc.jar" basedir="${project.build.directory}/apidocs"/>
+      <mvn:attachartifact file="${project.build.directory}/${project.build.finalName}-sources.jar" classifier="sources" type="jar"/>
+      <mvn:attachartifact file="${project.build.directory}/${project.build.finalName}-javadoc.jar" classifier="javadoc" type="jar"/>
     </target></configuration></execution><execution><id>verify-public-api-boundary</id><phase>verify</phase><goals><goal>run</goal></goals><configuration><target>
       <exec executable="python3" failonerror="true"><arg value="${project.basedir}/tools/verify_renderer_api_jar.py"/><arg value="${project.build.directory}/${project.build.finalName}.jar"/></exec>
       <exec executable="python3" failonerror="true"><arg value="${project.basedir}/tools/verify_renderer_api_compatibility.py"/><arg value="--baseline-json"/><arg value="${project.basedir}/tools/renderer-api-v1-baseline.json"/><arg value="${project.build.directory}/${project.build.finalName}.jar"/></exec>

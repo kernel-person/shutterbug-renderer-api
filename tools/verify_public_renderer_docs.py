@@ -20,20 +20,24 @@ import tempfile
 PAGES = ("index.md", "operator-guide.md", "compatibility.md", "troubleshooting.md", "upgrading.md",
          "release-notes.md", "setup.md", "lifecycle.md", "capture.md", "manual-scenes.md", "assets.md",
          "jobs.md", "profiles.md", "attachments.md", "conversions.md", "failures.md", "threading.md",
-         "api-reference.md", "sample-walkthrough.md")
-FENCE = re.compile(r'```java\n--8<-- "fixtures/([A-Za-z][A-Za-z0-9]*\.java)"\n```')
+         "api-reference.md", "sample-walkthrough.md", "xray-camera.md", "live-feeds.md", "creative-controls.md")
+FENCE = re.compile(r'```java\n--8<-- "fixtures/([A-Za-z][A-Za-z0-9]*\.java)(?::([a-z][a-z0-9_-]*))?"\n```')
+REGION_MARKER = re.compile(r'[ \t]*// --8<-- \[(start|end):([a-z][a-z0-9_-]*)\][ \t]*\n?')
 BUILD_FENCE = re.compile(r'```(?:xml|groovy)\n--8<-- "(consumer/(?:maven/pom\.xml|gradle/build\.gradle))"\n```')
 FIXTURES = ("ConsumerExample.java", "LifecycleExample.java", "CaptureExample.java", "ManualSceneExample.java",
             "AssetExample.java", "ResultInspectionExample.java", "ConversionExample.java", "FailureExample.java",
-            "RecoveryExample.java", "OptionalProviderEntrypoint.java", "OptionalRendererRuntime.java")
+            "RecoveryExample.java", "OptionalProviderEntrypoint.java", "OptionalRendererRuntime.java",
+            "XrayPipelineExample.java", "FluentExample.java", "CreativeControlsExample.java")
 CONSUMER_FILES = ("consumer/maven/pom.xml", "consumer/gradle/build.gradle")
+EXAMPLE_FILES = ("examples/xray-camera/pom.xml", "examples/xray-camera/src/main/resources/plugin.yml",
+                 "examples/xray-camera/src/main/java/docs/examples/XrayCamera.java")
 # The exporter pins this script separately. The manifest excludes this script
 # so the independently reviewed digest has no self-referential hash cycle.
-PUBLICATION_MANIFEST_SHA256 = "2f221bcc446c2fc6b7c8e13c86cf7bfe2e16ada75d003a7b164dd6c9881f7d91"
+PUBLICATION_MANIFEST_SHA256 = "1c02462598e0dbc46be80158f5815a97af6149cd1fd8bf27dde90abd4e4f21c2"
 CONTENTS = frozenset({"README.md", "mkdocs.yml", "requirements-docs.txt", "documentation-contract.json",
                       *("docs/" + page for page in PAGES),
                       *("docs/fixtures/" + fixture for fixture in FIXTURES),
-                      *("docs/" + path for path in CONSUMER_FILES)})
+                      *("docs/" + path for path in CONSUMER_FILES), *EXAMPLE_FILES})
 JAVADOC_SITE_BASE = "https://kernel-person.github.io/shutterbug-renderer-api/"
 
 
@@ -90,10 +94,47 @@ class RenderedCodeHTML(HTMLParser):
             self.current.append(data)
 
 
+def fixture_code(source, region=None):
+    """Select compiled source lines using strict, unambiguous snippet markers."""
+    complete = []
+    regions = {}
+    active = None
+    for line in source.splitlines(keepends=True):
+        marker = REGION_MARKER.fullmatch(line)
+        if marker:
+            kind, name = marker.groups()
+            if kind == "start":
+                if active is not None or name in regions:
+                    raise ValueError("snippet region is nested or duplicated")
+                active = name
+                regions[name] = []
+            else:
+                if active != name:
+                    raise ValueError("snippet region boundaries do not match")
+                if not "".join(regions[name]).strip():
+                    raise ValueError("snippet region is empty")
+                active = None
+            continue
+        if re.search(r"-+8<-+", line):
+            raise ValueError("noncanonical snippet region marker or include")
+        complete.append(line)
+        if active is not None:
+            regions[active].append(line)
+    if active is not None:
+        raise ValueError("snippet region end is missing")
+    if region is not None:
+        if region not in regions:
+            raise ValueError("snippet region is missing from compiled fixture")
+        return "".join(regions[region])
+    return "".join(complete)
+
+
 def expected_rendered_code(fixtures, consumers):
     """Return the complete, page-owned rendered code inventory."""
+    live_feed = fixture_code(fixtures["FluentExample.java"], "live-feed")
+    fixtures = {name: fixture_code(source) for name, source in fixtures.items()}
     return {
-        "index.html": (),
+        "index.html": (live_feed, fixtures["FluentExample.java"]),
         "operator-guide/index.html": (),
         "compatibility/index.html": (),
         "troubleshooting/index.html": (),
@@ -116,6 +157,9 @@ def expected_rendered_code(fixtures, consumers):
         "threading/index.html": (),
         "api-reference/index.html": (),
         "sample-walkthrough/index.html": (),
+        "xray-camera/index.html": (fixtures["XrayPipelineExample.java"],),
+        "live-feeds/index.html": (),
+        "creative-controls/index.html": (fixtures["CreativeControlsExample.java"],),
     }
 
 
@@ -643,7 +687,7 @@ def build_documentation_site(site, generated, links, fixtures, consumers):
         os.close(approval[1])
 
 
-def java_fixtures(text):
+def java_fixtures(text, fixtures=None):
     """Own the one Java-display grammar used by both publication layouts."""
     canonical = FENCE.findall(text)
     remaining = BUILD_FENCE.sub("", FENCE.sub("", text))
@@ -658,9 +702,17 @@ def java_fixtures(text):
     # Some Python HTMLParser versions silently discard an unfinished tag.
     if "<" in html_source:
         html._reject()
-    return canonical
+    for name, region in canonical:
+        if fixtures is not None:
+            if name not in fixtures:
+                raise ValueError("snippet fixture source is missing")
+            fixture_code(fixtures[name], region or None)
+        elif region:
+            raise ValueError("snippet region requires compiled fixture source")
+    return list(dict.fromkeys(name for name, _ in canonical))
 
 def publication_path(name):
+    if name in EXAMPLE_FILES: return Path(name)
     if name in {"README.md", "mkdocs.yml", "requirements-docs.txt", "documentation-contract.json"}: return Path(name)
     if name.startswith("docs/"): return Path(name)
     raise ValueError("publication manifest has an unsupported source path")
@@ -697,7 +749,7 @@ def regular(path, parser):
         if directory is not None:
             os.close(directory)
 
-def docs_inventory(docs, parser):
+def docs_inventory(docs, parser, expected=None):
     files = {}
 
     def walk(directory, prefix):
@@ -724,7 +776,8 @@ def docs_inventory(docs, parser):
             os.close(root)
     except (OSError, ValueError):
         parser.error("public documentation inventory is unsafe")
-    expected={*PAGES,*("fixtures/" + fixture for fixture in FIXTURES),*CONSUMER_FILES}
+    if expected is None:
+        expected={*PAGES,*("fixtures/" + fixture for fixture in FIXTURES),*CONSUMER_FILES}
     if set(files) != expected: parser.error("public documentation inventory is invalid")
     return files
 def main():
@@ -740,18 +793,25 @@ def main():
     contents=manifest.get("contents") if isinstance(manifest,dict) and set(manifest)=={"format","contents"} and manifest.get("format")==1 else None
     if not isinstance(contents,dict) or set(contents)!=CONTENTS: p.error("publication manifest inventory is invalid")
     docs = docs_inventory(a.docs,p)
+    example_inputs = docs_inventory(Path("examples"), p,
+            {name.removeprefix("examples/") for name in EXAMPLE_FILES})
     for name,digest in contents.items():
         try: path=publication_path(name)
         except ValueError as error: p.error(str(error))
-        value = docs[name.removeprefix("docs/")] if name.startswith("docs/") else regular(path,p)
+        value = (docs[name.removeprefix("docs/")] if name.startswith("docs/") else
+                 example_inputs[name.removeprefix("examples/")] if name in EXAMPLE_FILES else regular(path,p))
         if not isinstance(digest,str) or hashlib.sha256(value).hexdigest()!=digest: p.error("publication manifest content hash mismatch")
     names=[]
+    try:
+        fixture_sources = {name: docs["fixtures/" + name].decode("utf-8") for name in FIXTURES}
+    except UnicodeDecodeError as error:
+        p.error(str(error))
     for page in PAGES:
         try:
-            names.extend(java_fixtures(docs[page].decode("utf-8")))
+            names.extend(java_fixtures(docs[page].decode("utf-8"), fixture_sources))
         except (UnicodeDecodeError, ValueError) as error:
             p.error(str(error))
-    if not names or len(names)!=len(set(names)): p.error("fixture inventory is missing or duplicated")
+    names=list(dict.fromkeys(names))
     if set(names) != set(FIXTURES): p.error("fixture include inventory is invalid")
     if not a.api_jar.is_file() or not a.bukkit_jar.is_file(): p.error("API or Bukkit input is missing")
     with tempfile.TemporaryDirectory() as out:
@@ -759,13 +819,17 @@ def main():
         files = [Path(out) / name for name in names]
         for name, path in zip(names, files):
             path.write_bytes(docs["fixtures/" + name])
+        # Compile the exact hash-verified standalone addon too, without copying build outputs.
+        example = Path(out) / "XrayCamera.java"
+        example.write_bytes(example_inputs[EXAMPLE_FILES[2].removeprefix("examples/")])
+        files.append(example)
         run=subprocess.run(["javac","--release","21","-cp",f"{a.api_jar}:{a.bukkit_jar}","-d",out,*map(str,files)],capture_output=True,text=True)
     if run.returncode: p.error("fixture compilation failed")
     try:
         build_documentation_site(
             a.site_dir, a.javadocs,
             javadoc_links(docs["api-reference.md"].decode("utf-8")),
-            {name: docs["fixtures/" + name].decode("utf-8") for name in FIXTURES},
+            fixture_sources,
             {name: docs[name].decode("utf-8") for name in CONSUMER_FILES},
         )
     except (OSError, UnicodeDecodeError, ValueError) as error:

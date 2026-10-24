@@ -24,6 +24,12 @@ from renderer_api_java21_provenance import (
     PINNED_JAVA_BASE_JMOD_SHA256,
     PINNED_JDK_PROVENANCE,
 )
+from generate_renderer_bukkit_external_resolution import (
+    PINNED_BUKKIT_ARTIFACT,
+    PINNED_BUKKIT_DECLARATIONS_SHA256,
+    PINNED_BUKKIT_TYPES,
+    declarations_digest,
+)
 
 
 FORMAT_VERSION = 4
@@ -46,6 +52,7 @@ METHOD_KEYS = frozenset({
 JAVA21_AUTHORITY_PATH = Path(__file__).with_name(
     "renderer-api-java21-external-resolution.json"
 )
+BUKKIT_AUTHORITY_PATH = Path(__file__).with_name("renderer-api-bukkit-external-resolution.json")
 EXTERNAL_AUTHORITY_DOCUMENTS: dict[str, dict[str, Any]] = {}
 EXTERNAL_AUTHORITY_CLASSES: dict[str, ParsedClass] = {}
 OBJECT_INSTANCE_METHODS: dict[tuple[str, str], ParsedMember] = {}
@@ -475,8 +482,9 @@ def _validate_baseline_resolution_graph(
 ) -> None:
     collisions = sorted(set(resolution_types) & set(EXTERNAL_AUTHORITY_DOCUMENTS))
     if collisions:
+        authority = "Bukkit" if collisions[0] in PINNED_BUKKIT_TYPES else "Java 21"
         raise BaselineError(
-            f"baseline local resolution type shadows Java 21 authority: {collisions[0]}"
+            f"baseline local resolution type shadows {authority} authority: {collisions[0]}"
         )
     reachable: set[str] = set()
     pending = list(contract_types)
@@ -722,6 +730,45 @@ def _read_java21_authority(
 EXTERNAL_AUTHORITY_DOCUMENTS, EXTERNAL_AUTHORITY_CLASSES = (
     _read_java21_authority(JAVA21_AUTHORITY_PATH)
 )
+JAVA21_AUTHORITY_NAMES = frozenset(EXTERNAL_AUTHORITY_DOCUMENTS)
+
+
+def _read_bukkit_authority(path: Path) -> tuple[dict[str, dict[str, Any]], dict[str, ParsedClass]]:
+    try:
+        document = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=_strict_json_object)
+    except (OSError, UnicodeError, json.JSONDecodeError) as failure:
+        raise BaselineError(f"Bukkit external resolution authority cannot be read: {path}: {failure}") from failure
+    document = _expect_object(document, "Bukkit authority")
+    _expect_exact_keys(document, frozenset({"formatVersion", "artifact", "sourceClassFileVersion", "types"}), "Bukkit authority")
+    if type(document["formatVersion"]) is not int or document["formatVersion"] != 1:
+        raise BaselineError("Bukkit authority formatVersion must be integer 1")
+    if document["artifact"] != PINNED_BUKKIT_ARTIFACT:
+        raise BaselineError("Bukkit authority artifact differs from the reviewed resolved snapshot/hash")
+    if document["sourceClassFileVersion"] != "61.0":
+        raise BaselineError("Bukkit authority source class-file version must be 61.0")
+    if not isinstance(document["types"], list):
+        raise BaselineError("Bukkit authority types must be an array")
+    documents: dict[str, dict[str, Any]] = {}
+    for index, raw in enumerate(document["types"]):
+        value = _validate_type_document(raw, f"Bukkit authority.types[{index}]", contract_only=False)
+        name = value["name"]
+        if name in documents:
+            raise BaselineError(f"duplicate Bukkit authority type: {name}")
+        documents[name] = value
+    if tuple(documents) != PINNED_BUKKIT_TYPES:
+        raise BaselineError("Bukkit authority must contain exactly the two reviewed declarations in sorted order")
+    for name, value in documents.items():
+        for reference in _document_resolution_references(value):
+            if reference not in documents and reference not in JAVA21_AUTHORITY_NAMES:
+                raise BaselineError(f"Bukkit authority type {name} lacks hierarchy entry {reference}")
+    if declarations_digest(list(documents.values())) != PINNED_BUKKIT_DECLARATIONS_SHA256:
+        raise BaselineError("Bukkit authority declarations differ from the reviewed pin")
+    return documents, {name: _parsed_class_from_document(value) for name, value in documents.items()}
+
+
+_bukkit_documents, _bukkit_classes = _read_bukkit_authority(BUKKIT_AUTHORITY_PATH)
+EXTERNAL_AUTHORITY_DOCUMENTS.update(_bukkit_documents)
+EXTERNAL_AUTHORITY_CLASSES.update(_bukkit_classes)
 _object_class = EXTERNAL_AUTHORITY_CLASSES["java/lang/Object"]
 OBJECT_INSTANCE_METHODS = {
     (member.name, member.descriptor): member
@@ -758,8 +805,9 @@ def _candidate_resolution_state(
 ) -> tuple[dict[str, ParsedClass], set[str]]:
     collisions = sorted(set(classes) & set(EXTERNAL_AUTHORITY_CLASSES))
     if collisions:
+        authority = "Bukkit" if collisions[0] in PINNED_BUKKIT_TYPES else "Java 21"
         raise ClassFileError(
-            f"candidate local type shadows Java 21 authority: {collisions[0]}"
+            f"candidate local type shadows {authority} authority: {collisions[0]}"
         )
     roots = [
         value.name

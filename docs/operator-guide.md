@@ -1,10 +1,12 @@
 # Operator installation and activation
 
+This page retains commercial installation guidance. The new fluent/creative API is a separate development preview requiring the matching provider/native build; the older commercial download does not gain those controls from SDK installation. See [compatibility](compatibility.md).
+
 ShutterBug Renderer 1.0.0 is a separately installed commercial provider by Kernel Person. Stop the server and copy only the personalized `ShutterBugRenderer.jar` from your MCModels download for the server platform into `plugins/`. The matching native `.so` or `.dylib` is embedded in that JAR, checksum-verified, and extracted automatically to the provider's managed cache. Do not install a separate native file. Start the server and read the provider startup result before enabling dependent plugins. The supported launch platforms are macOS ARM64 and Linux x86-64; Windows is coming soon, not included yet.
 
 ## Activate safely
 
-For a personalized MCModels download, leave `plugins/ShutterBugRenderer/config.yml`'s `license-key` field blank. The JAR carries the purchase information needed for automatic activation; no manual entry is normally required. Start Paper on Java 25 with Paper 26.2 / Minecraft 26.2 and wait for the provider startup result. A non-personalized or incomplete JAR cannot activate merely because it was copied into `plugins/`.
+Automatic activation is designed for a personalized MCModels download: when the Renderer-specific buyer flow is verified and enabled, leave `plugins/ShutterBugRenderer/config.yml`'s `license-key` field blank and the JAR's purchase information supplies activation. That production buyer flow is currently pending separate verification; do not treat SDK publication or a generic download as evidence that automatic issuance is enabled. Start Paper on Java 25 with Paper 26.2 / Minecraft 26.2 and wait for the provider startup result. A non-personalized or incomplete JAR cannot activate merely because it was copied into `plugins/`.
 
 If support supplies a separate manual activation value, start Paper once to generate `plugins/ShutterBugRenderer/config.yml`, stop the server, and set that value in `license-key`. An explicitly configured manual value takes precedence over the personalized-download information for fresh activation. Restrict the config and its backups so only the Paper server account can read them. Never print or copy activation values into logs, shell history, tickets, screenshots, startup arguments, or public issues. Restart after changing the value; do not hot-edit provider files while jobs are running.
 
@@ -21,3 +23,25 @@ Do not automate repeated activation attempts. Treat `not entitled`, `seat limit`
 ## Disable or remove
 
 Stop submissions, disable dependent plugins, and perform a clean server shutdown before removing the provider. Keep the release archive and its checksums for rollback. Removing the provider does not remove the free API from developer builds, but hard-dependent plugins will no longer start.
+
+## Saved photos in the development preview
+
+The matching preview provider saves photo palettes and stable identities in `plugins/ShutterBugRenderer/photos/`. A successful `captureMap()` finishes persistence before returning the item. Streams use temporary maps and never enter this store. Normal startup indexes records asynchronously, restores valid map bindings on the server thread and waits for worlds that load later. Startup status distinguishes indexed photos from maps actually restored.
+
+Administrators with `shutterbugrenderer.admin` can use:
+
+| Command | Purpose |
+| --- | --- |
+| `/renderer status` | Check render/photo readiness, indexed and restored totals, storage issues and unavailable worlds. |
+| `/renderer storage` | Inspect saved-map counts and actual disk usage grouped by creator plugin. |
+| `/renderer repair` | Repair the tagged renderer photo in your main hand, retaining photo identity and item metadata. |
+
+Storage notices default to 10,000 saved maps or 256 MiB. Configure `photos.warn-maps` and `photos.warn-bytes`; zero disables that notice. They report at startup when already exceeded and when crossing a threshold. Notices neither delete photos nor prevent saving. `photos.palette-cache-maps` bounds the palette cache, defaults to 64, and accepts 1–4096.
+
+Back up the **world save, vanilla map data and global map counter, inventories/item metadata, provider photo storage and consumer-owned data together**. A photo palette alone is not a matching vanilla map backup. Keep original records and backups while investigating corruption; one bad record does not discard the library.
+
+If saving fails, check the reported storage path, free space and filesystem permissions, correct the problem and retry the photograph. An unhealthy photo store does not imply raw rendering is unavailable. If the source world is unavailable, load that world before restoration/repair can complete.
+
+If map identity differs after restoring mismatched backups, the provider preserves the photo bytes and refuses to overwrite an unrelated map. Use a consistent backup, or hold a tagged photo and run `/renderer repair` to reuse a valid binding or allocate a safe replacement. Repair rechecks the held item before delivery. Missing or corrupt source records require recovery from backup.
+
+If allocation reports a rolled-back global map counter, restore matching vanilla map data/counter and restart. The provider does not rewrite world files automatically or overwrite occupied IDs. Repair cannot bypass an unsafe allocator.

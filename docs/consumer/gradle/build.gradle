@@ -3,12 +3,12 @@ plugins {
 }
 
 repositories {
-    maven { url = uri('https://jitpack.io') }
+    maven { url = uri('https://shutterbug-maven.pages.dev/') }
     maven { url = uri('https://hub.spigotmc.org/nexus/content/repositories/snapshots/') }
 }
 
 dependencies {
-    compileOnly 'com.github.kernel-person:shutterbug-renderer-api:v1.0.1'
+    compileOnly 'ke.ric:renderer-api:2.3.0-preview.3'
     compileOnly('org.spigotmc:spigot-api:1.21.10-R0.1-SNAPSHOT') {
         transitive = false
     }

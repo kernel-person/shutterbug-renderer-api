@@ -3,11 +3,24 @@ package ke.ric.renderer.api;
 import java.util.List;
 import java.util.Objects;
 
-/** One complete entity render target, including its independent world placement and visual evidence. */
+/**
+ * One immutable entity render target with independent world placement and complete visual evidence.
+ * @param transform finite world position in blocks and yaw in degrees
+ * @param minX minimum world X bound in blocks
+ * @param minY minimum world Y bound in blocks
+ * @param minZ minimum world Z bound in blocks
+ * @param maxX maximum world X bound in blocks
+ * @param maxY maximum world Y bound in blocks
+ * @param maxZ maximum world Z bound in blocks
+ * @param meshes defensively copied resolved mesh list
+ * @param fallbackArgb packed ARGB fallback color
+ * @param tintRgb packed 24-bit RGB tint; the high byte must be zero
+ * @param translucent whether this target is translucent
+ */
 public record ResolvedRenderTarget(ResolvedTransform transform,
                                    double minX,double minY,double minZ,double maxX,double maxY,double maxZ,
                                    List<ResolvedMesh> meshes,int fallbackArgb,int tintRgb,boolean translucent) {
-    /** Creates an unplaced target using inferred translucency and the standard fallback color. */
+    /** Creates an unplaced target with inferred BLEND translucency, magenta fallback ARGB and zero tint. */
     public ResolvedRenderTarget(List<ResolvedMesh> meshes){this(meshes,0xffff00ff,0,isTranslucent(meshes));}
     /** Creates an unplaced target; {@link SceneEntity} applies its world placement when selected. */
     public ResolvedRenderTarget(List<ResolvedMesh> meshes,int fallbackArgb,int tintRgb,boolean translucent){this(new ResolvedTransform(0,0,0,0),0,0,0,0,0,0,meshes,fallbackArgb,tintRgb,translucent);}

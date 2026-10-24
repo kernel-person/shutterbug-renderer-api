@@ -1,10 +1,10 @@
 {
   "format": 1,
   "productVersion": "1.0.0",
-  "sdkCoordinate": "com.github.kernel-person:shutterbug-renderer-api:v1.0.1",
+  "sdkCoordinate": "ke.ric:renderer-api:2.3.0-preview.3",
   "requirements": {
     "java": "21",
-    "minecraft": "1.21.10",
+    "minecraft": "26.2",
     "paper": "26.2"
   },
   "operator": {
@@ -16,9 +16,18 @@
     "shutdownDeactivatesRemoteSeat": false
   },
   "platforms": [
-    {"id": "macos-aarch64", "status": "supported"},
-    {"id": "linux-x86_64", "status": "supported"},
-    {"id": "windows-x86_64", "status": "pending-acceptance"}
+    {
+      "id": "macos-aarch64",
+      "status": "supported"
+    },
+    {
+      "id": "linux-x86_64",
+      "status": "supported"
+    },
+    {
+      "id": "windows-x86_64",
+      "status": "pending-acceptance"
+    }
   ],
   "topics": {
     "activation": "operator-guide.md",

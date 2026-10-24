@@ -1,0 +1,13 @@
+name: XrayCamera
+version: 1.0.0
+main: docs.examples.XrayCamera
+api-version: '1.21'
+depend: [ShutterBugRenderer]
+commands:
+  xrayphoto:
+    description: Capture a temporary X-ray photo
+    permission: xraycamera.use
+permissions:
+  xraycamera.use:
+    description: Allow two-pass X-ray photography (reveals living entities)
+    default: op

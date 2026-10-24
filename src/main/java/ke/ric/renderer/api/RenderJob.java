@@ -11,6 +11,7 @@ import java.util.List;import java.util.Objects;
  * @param assetHashes content hashes returned by active {@link AssetHandle} instances
  */
 public record RenderJob(int version,Scene scene,RenderSettings settings,List<String> assetHashes) {
+    /** Creates a submission with no additional registered asset packs; scene/settings dimensions must match. */
     public RenderJob(int version,Scene scene,RenderSettings settings){this(version,scene,settings,List.of());}
     public RenderJob {if(version!=1)throw new IllegalArgumentException("unsupported render job version");scene=Objects.requireNonNull(scene,"scene");settings=Objects.requireNonNull(settings,"settings");assetHashes=List.copyOf(assetHashes==null?List.of():assetHashes);}
 }
